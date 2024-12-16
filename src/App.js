@@ -1,10 +1,10 @@
 import './App.css';
-import ProductLists from './Components/ProductList/ProductLists';
+import Dashboard from './Components/Dashboard/Dashboard';
 
 function App() {
   return (
     <div>
-      <ProductLists />
+      <Dashboard/>
     </div>
   );
 }
