@@ -1,0 +1,360 @@
+{
+    "products": [
+      {
+        "name": "Wireless Mouse",
+        "sku": "WM-001",
+        "quantity": 120,
+        "price": 19.99,
+        "category": "Electronics"
+      },
+      {
+        "name": "Mechanical Keyboard",
+        "sku": "MK-002",
+        "quantity": 75,
+        "price": 99.99,
+        "category": "Electronics"
+      },
+      {
+        "name": "Gaming Laptop",
+        "sku": "GL-003",
+        "quantity": 45,
+        "price": 899.99,
+        "category": "Computers"
+      },
+      {
+        "name": "Office Chair",
+        "sku": "OC-004",
+        "quantity": 30,
+        "price": 149.99,
+        "category": "Furniture"
+      },
+      {
+        "name": "Bluetooth Headphones",
+        "sku": "BH-005",
+        "quantity": 200,
+        "price": 39.99,
+        "category": "Electronics"
+      },
+      {
+        "name": "LED Desk Lamp",
+        "sku": "LDL-006",
+        "quantity": 90,
+        "price": 29.99,
+        "category": "Furniture"
+      },
+      {
+        "name": "USB-C Charging Cable",
+        "sku": "USBC-007",
+        "quantity": 500,
+        "price": 9.99,
+        "category": "Electronics"
+      },
+      {
+        "name": "4K Monitor",
+        "sku": "4K-008",
+        "quantity": 25,
+        "price": 299.99,
+        "category": "Computers"
+      },
+      {
+        "name": "Wireless Router",
+        "sku": "WR-009",
+        "quantity": 60,
+        "price": 49.99,
+        "category": "Electronics"
+      },
+      {
+        "name": "Smartphone",
+        "sku": "SP-010",
+        "quantity": 150,
+        "price": 699.99,
+        "category": "Electronics"
+      },
+      {
+        "name": "Desk Organizer",
+        "sku": "DO-011",
+        "quantity": 85,
+        "price": 19.99,
+        "category": "Furniture"
+      },
+      {
+        "name": "Ergonomic Keyboard",
+        "sku": "EK-012",
+        "quantity": 55,
+        "price": 79.99,
+        "category": "Electronics"
+      },
+      {
+        "name": "Smartwatch",
+        "sku": "SW-013",
+        "quantity": 110,
+        "price": 199.99,
+        "category": "Electronics"
+      },
+      {
+        "name": "Desk Chair",
+        "sku": "DC-014",
+        "quantity": 50,
+        "price": 99.99,
+        "category": "Furniture"
+      },
+      {
+        "name": "Air Purifier",
+        "sku": "AP-015",
+        "quantity": 40,
+        "price": 159.99,
+        "category": "Home Appliances"
+      },
+      {
+        "name": "Coffee Maker",
+        "sku": "CM-016",
+        "quantity": 100,
+        "price": 89.99,
+        "category": "Home Appliances"
+      },
+      {
+        "name": "Smart Bulb",
+        "sku": "SB-017",
+        "quantity": 300,
+        "price": 12.99,
+        "category": "Home Appliances"
+      },
+      {
+        "name": "Vacuum Cleaner",
+        "sku": "VC-018",
+        "quantity": 70,
+        "price": 129.99,
+        "category": "Home Appliances"
+      },
+      {
+        "name": "Washing Machine",
+        "sku": "WM-019",
+        "quantity": 35,
+        "price": 499.99,
+        "category": "Home Appliances"
+      },
+      {
+        "name": "Blender",
+        "sku": "BL-020",
+        "quantity": 120,
+        "price": 49.99,
+        "category": "Home Appliances"
+      },
+      {
+        "name": "Refrigerator",
+        "sku": "RF-021",
+        "quantity": 20,
+        "price": 999.99,
+        "category": "Home Appliances"
+      },
+      {
+        "name": "Coffee Table",
+        "sku": "CT-022",
+        "quantity": 80,
+        "price": 119.99,
+        "category": "Furniture"
+      },
+      {
+        "name": "Sofa Set",
+        "sku": "SS-023",
+        "quantity": 15,
+        "price": 799.99,
+        "category": "Furniture"
+      },
+      {
+        "name": "Dining Table",
+        "sku": "DT-024",
+        "quantity": 25,
+        "price": 299.99,
+        "category": "Furniture"
+      },
+      {
+        "name": "Plastic Storage Bins",
+        "sku": "PSB-025",
+        "quantity": 350,
+        "price": 14.99,
+        "category": "Storage"
+      },
+      {
+        "name": "Clothes Hanger",
+        "sku": "CH-026",
+        "quantity": 500,
+        "price": 5.99,
+        "category": "Home Appliances"
+      },
+      {
+        "name": "Smart Thermostat",
+        "sku": "ST-027",
+        "quantity": 40,
+        "price": 149.99,
+        "category": "Home Appliances"
+      },
+      {
+        "name": "HDMI Cable",
+        "sku": "HDMI-028",
+        "quantity": 600,
+        "price": 7.99,
+        "category": "Electronics"
+      },
+      {
+        "name": "Wi-Fi Extender",
+        "sku": "WE-029",
+        "quantity": 120,
+        "price": 39.99,
+        "category": "Electronics"
+      },
+      {
+        "name": "Kitchen Knife Set",
+        "sku": "KNS-030",
+        "quantity": 50,
+        "price": 69.99,
+        "category": "Kitchen"
+      },
+      {
+        "name": "Nonstick Frying Pan",
+        "sku": "NSFP-031",
+        "quantity": 80,
+        "price": 34.99,
+        "category": "Kitchen"
+      },
+      {
+        "name": "Electric Grill",
+        "sku": "EG-032",
+        "quantity": 25,
+        "price": 199.99,
+        "category": "Kitchen"
+      },
+      {
+        "name": "Microwave Oven",
+        "sku": "MO-033",
+        "quantity": 60,
+        "price": 89.99,
+        "category": "Kitchen"
+      },
+      {
+        "name": "Toaster",
+        "sku": "T-034",
+        "quantity": 120,
+        "price": 29.99,
+        "category": "Kitchen"
+      },
+      {
+        "name": "Cooking Utensil Set",
+        "sku": "CUS-035",
+        "quantity": 150,
+        "price": 19.99,
+        "category": "Kitchen"
+      },
+      {
+        "name": "Thermal Coffee Carafe",
+        "sku": "TCC-036",
+        "quantity": 40,
+        "price": 39.99,
+        "category": "Kitchen"
+      },
+      {
+        "name": "Electric Kettle",
+        "sku": "EK-037",
+        "quantity": 90,
+        "price": 39.99,
+        "category": "Kitchen"
+      },
+      {
+        "name": "Wine Glass Set",
+        "sku": "WGS-038",
+        "quantity": 250,
+        "price": 15.99,
+        "category": "Kitchen"
+      },
+      {
+        "name": "Shoe Rack",
+        "sku": "SR-039",
+        "quantity": 60,
+        "price": 49.99,
+        "category": "Storage"
+      },
+      {
+        "name": "Wall Shelf",
+        "sku": "WS-040",
+        "quantity": 100,
+        "price": 29.99,
+        "category": "Furniture"
+      },
+      {
+        "name": "Plastic Storage Bins",
+        "sku": "PSB-041",
+        "quantity": 400,
+        "price": 19.99,
+        "category": "Storage"
+      },
+      {
+        "name": "Home Safe",
+        "sku": "HS-042",
+        "quantity": 45,
+        "price": 129.99,
+        "category": "Storage"
+      },
+      {
+        "name": "Shoe Storage Box",
+        "sku": "SSB-043",
+        "quantity": 200,
+        "price": 14.99,
+        "category": "Storage"
+      },
+      {
+        "name": "Double Bed",
+        "sku": "DB-044",
+        "quantity": 35,
+        "price": 499.99,
+        "category": "Furniture"
+      },
+      {
+        "name": "Mattress",
+        "sku": "M-045",
+        "quantity": 40,
+        "price": 399.99,
+        "category": "Furniture"
+      },
+      {
+        "name": "Pillows Set",
+        "sku": "PS-046",
+        "quantity": 150,
+        "price": 19.99,
+        "category": "Furniture"
+      },
+      {
+        "name": "Folding Table",
+        "sku": "FT-047",
+        "quantity": 60,
+        "price": 59.99,
+        "category": "Furniture"
+      },
+      {
+        "name": "Adjustable Standing Desk",
+        "sku": "ASD-048",
+        "quantity": 30,
+        "price": 349.99,
+        "category": "Furniture"
+      },
+      {
+        "name": "Underbed Storage Boxes",
+        "sku": "USB-049",
+        "quantity": 450,
+        "price": 12.99,
+        "category": "Storage"
+      },
+      {
+        "name": "Sofa Bed",
+        "sku": "SB-050",
+        "quantity": 25,
+        "price": 799.99,
+        "category": "Furniture"
+      }
+    ],
+    "pagination": {
+      "currentPage": 1,
+      "totalPages": 5,
+      "itemsPerPage": 10
+    }
+  }
+  
