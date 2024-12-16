@@ -1,10 +1,10 @@
-import logo from './logo.svg';
 import './App.css';
+import ProductLists from './Components/ProductList/ProductLists';
 
 function App() {
   return (
     <div>
-      
+      <ProductLists />
     </div>
   );
 }
