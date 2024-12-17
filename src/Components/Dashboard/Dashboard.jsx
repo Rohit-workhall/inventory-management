@@ -10,7 +10,7 @@ import Admin from '../../Admin/Admin';
 const Dashboard = () => {
   const [user, setUser] = useState('');
   const [currentPage, setCurrentPage] = useState('dashboard');
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false); // Track sidebar state
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false); 
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);

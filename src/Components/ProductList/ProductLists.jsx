@@ -10,29 +10,16 @@ import {
   setSearchText,
   applyFilters,
 } from "../../store/productsSlice";
-import {
-  Table,
-  Input,
-  Select,
-  Row,
-  Col,
-  Button,
-  Drawer,
-  Checkbox,
-  Slider,
-} from "antd";
-import "antd/dist/reset.css";
-import "./ProductLists.css";
+import { Input, Row, Col, Button } from "antd";
+import ProductTable from "./ProductTable";
+import FilterDrawer from "./FilterDrawer";
 
 const { Search } = Input;
-const { Option } = Select;
 
 const ProductLists = () => {
   const [isFilterDrawerVisible, setIsFilterDrawerVisible] = useState(false);
   const dispatch = useDispatch();
-  const { data, filteredData, loading, filters } = useSelector(
-    (state) => state.products
-  );
+  const { data, filteredData, loading, filters } = useSelector((state) => state.products);
 
   useEffect(() => {
     dispatch(fetchProducts());
@@ -43,6 +30,7 @@ const ProductLists = () => {
   }, [filters, data, dispatch]);
 
   const availabilityOptions = ["Out of Stock", "Limited Stock", "In Stock"];
+  const categories = [...new Set(data.map((item) => item.category))];
 
   const columns = [
     { title: "Id", dataIndex: "id", key: "id" },
@@ -86,70 +74,19 @@ const ProductLists = () => {
         </Col>
       </Row>
 
-      <Table
-        columns={columns}
-        dataSource={filteredData}
-        loading={loading}
-        rowKey="sku"
-        pagination={{ pageSize: 10 }}
-      />
+      <ProductTable columns={columns} data={filteredData} loading={loading} />
 
-      <Drawer
-        title="Filters"
-        placement="right"
+      <FilterDrawer
+        isVisible={isFilterDrawerVisible}
         onClose={() => setIsFilterDrawerVisible(false)}
-        open={isFilterDrawerVisible}
-        width={350}
-      >
-        <div>
-          <h3>Quantity</h3>
-          <Select
-            style={{ width: "100%", marginBottom: "10px" }}
-            onChange={(value) => dispatch(setQuantityFilterType(value))}
-            defaultValue="greater"
-          >
-            <Option value="greater">Greater than</Option>
-            <Option value="less">Less than</Option>
-          </Select>
-          <Input
-            type="number"
-            placeholder="Enter Quantity"
-            onChange={(e) =>
-              dispatch(setQuantityFilter(Number(e.target.value)))
-            }
-            style={{ width: "100%" }}
-          />
-
-          <h3>Availability</h3>
-          <Checkbox.Group
-            options={availabilityOptions}
-            onChange={(checkedValues) =>
-              dispatch(setAvailabilityFilter(checkedValues))
-            }
-            style={{ display: "block", marginBottom: "10px" }}
-          />
-
-          <h3>Price Range</h3>
-          <Slider
-            range
-            min={0}
-            max={1000}
-            defaultValue={[0, 1000]}
-            onChange={(value) => dispatch(setPriceRange(value))}
-            tooltip={{ formatter: (value) => `$${value}` }}
-            style={{ marginBottom: "10px" }}
-          />
-
-          <h3>Category</h3>
-          <Checkbox.Group
-            options={[...new Set(data.map((item) => item.category))]}
-            onChange={(checkedValues) =>
-              dispatch(setCategoryFilter(checkedValues))
-            }
-            style={{ display: "block" }}
-          />
-        </div>
-      </Drawer>
+        availabilityOptions={availabilityOptions}
+        categories={categories}
+        onQuantityTypeChange={(value) => dispatch(setQuantityFilterType(value))}
+        onQuantityChange={(value) => dispatch(setQuantityFilter(value))}
+        onAvailabilityChange={(checkedValues) => dispatch(setAvailabilityFilter(checkedValues))}
+        onPriceChange={(value) => dispatch(setPriceRange(value))}
+        onCategoryChange={(checkedValues) => dispatch(setCategoryFilter(checkedValues))}
+      />
     </div>
   );
 };
