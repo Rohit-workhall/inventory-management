@@ -11,10 +11,10 @@ const ProductLists = () => {
   const [filteredData, setFilteredData] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // Drawer visibility
+
   const [isFilterDrawerVisible, setIsFilterDrawerVisible] = useState(false);
 
-  // State for filters
+
   const [quantityFilter, setQuantityFilter] = useState(null);
   const [quantityFilterType, setQuantityFilterType] = useState("greater");
   const [availabilityFilter, setAvailabilityFilter] = useState([]);
@@ -22,7 +22,6 @@ const ProductLists = () => {
   const [categoryFilter, setCategoryFilter] = useState([]);
   const [searchText, setSearchText] = useState("");
 
-  // Fetch data from the API
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -40,11 +39,10 @@ const ProductLists = () => {
     fetchData();
   }, []);
 
-  // Filter and search handler
   useEffect(() => {
     let filtered = data;
 
-    // Apply Quantity filter
+ 
     if (quantityFilter !== null) {
       if (quantityFilterType === "greater") {
         filtered = filtered.filter((item) => item.quantity > quantityFilter);
@@ -53,7 +51,7 @@ const ProductLists = () => {
       }
     }
 
-    // Apply Availability filter
+
     if (availabilityFilter.length > 0) {
       filtered = filtered.filter((item) => {
         if (item.quantity === 0 && availabilityFilter.includes("Out of Stock")) return true;
@@ -63,15 +61,14 @@ const ProductLists = () => {
       });
     }
 
-    // Apply Price Range filter
     filtered = filtered.filter((item) => item.price >= priceRange[0] && item.price <= priceRange[1]);
 
-    // Apply Category filter
+
     if (categoryFilter.length > 0) {
       filtered = filtered.filter((item) => categoryFilter.includes(item.category));
     }
 
-    // Apply Search filter
+
     if (searchText) {
       filtered = filtered.filter(
         (item) =>
@@ -84,7 +81,6 @@ const ProductLists = () => {
     setFilteredData(filtered);
   }, [quantityFilter, quantityFilterType, availabilityFilter, priceRange, categoryFilter, searchText, data]);
 
-  // Define columns for the Ant Design Table
   const columns = [
     {
       title: "Id",
