@@ -46,3 +46,11 @@
     color: white;
   }
   
+  .ant-drawer-body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .filter {
+    margin-left: 380%;
+  }
