@@ -18,7 +18,7 @@ const Navbar = ({ user, onNavClick, isOpen, toggleSidebar }) => {
         )}
       </div>
 
-      {/* Sidebar */}
+      
       {isOpen && (
         <div className="sidebar">
           <ul>

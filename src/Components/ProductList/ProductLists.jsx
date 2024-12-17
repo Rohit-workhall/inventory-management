@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Table, Input, Select, Row, Col, Button, Drawer, Checkbox, Slider } from "antd";
+import { Table, Input, Select, Row, Col, Button, Drawer, Checkbox, Slider, Modal } from "antd";
 import "antd/dist/reset.css"; // Import Ant Design CSS
 import "./ProductLists.css";
 
@@ -21,6 +21,10 @@ const ProductLists = () => {
   const [priceRange, setPriceRange] = useState([0, 1000]);
   const [categoryFilter, setCategoryFilter] = useState([]);
   const [searchText, setSearchText] = useState("");
+
+  // State for the selected product (for modal)
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
   // Fetch data from the API
   useEffect(() => {
@@ -95,6 +99,9 @@ const ProductLists = () => {
       title: "Name",
       dataIndex: "name",
       key: "name",
+      render: (text, record) => (
+        <a onClick={() => handleProductClick(record)}>{text}</a>
+      ),
     },
     {
       title: "SKU",
@@ -130,6 +137,17 @@ const ProductLists = () => {
 
   const availabilityOptions = ["Out of Stock", "Limited Stock", "In Stock"];
 
+  // Handle Product Click for detailed modal
+  const handleProductClick = (product) => {
+    setSelectedProduct(product);
+    setIsModalVisible(true);
+  };
+
+  // Close the modal
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
+
   return (
     <div style={{ padding: "20px" }}>
       <h1>Product List</h1>
@@ -163,55 +181,78 @@ const ProductLists = () => {
 
       {/* Filter Drawer */}
       <Drawer
-  title="Filters"
-  placement="right"
-  onClose={() => setIsFilterDrawerVisible(false)}
-  open={isFilterDrawerVisible} // Change 'visible' to 'open'
-  width={350}
->
-  <div>
-    <h3>Quantity</h3>
-    <Select
-      style={{ width: "100%", marginBottom: "10px" }}
-      onChange={(value) => setQuantityFilterType(value)}
-      defaultValue="greater"
-    >
-      <Option value="greater">Greater than</Option>
-      <Option value="less">Less than</Option>
-    </Select>
-    <Input
-      type="number"
-      placeholder="Enter Quantity"
-      onChange={(e) => setQuantityFilter(Number(e.target.value))}
-      style={{ width: "100%" }}
-    />
+        title="Filters"
+        placement="right"
+        onClose={() => setIsFilterDrawerVisible(false)}
+        open={isFilterDrawerVisible} // Change 'visible' to 'open'
+        width={350}
+      >
+        <div>
+          <h3>Quantity</h3>
+          <Select
+            style={{ width: "100%", marginBottom: "10px" }}
+            onChange={(value) => setQuantityFilterType(value)}
+            defaultValue="greater"
+          >
+            <Option value="greater">Greater than</Option>
+            <Option value="less">Less than</Option>
+          </Select>
+          <Input
+            type="number"
+            placeholder="Enter Quantity"
+            onChange={(e) => setQuantityFilter(Number(e.target.value))}
+            style={{ width: "100%" }}
+          />
 
-    <h3>Availability</h3>
-    <Checkbox.Group
-      options={availabilityOptions}
-      onChange={(checkedValues) => setAvailabilityFilter(checkedValues)}
-      style={{ display: "block", marginBottom: "10px" }}
-    />
+          <h3>Availability</h3>
+          <Checkbox.Group
+            options={availabilityOptions}
+            onChange={(checkedValues) => setAvailabilityFilter(checkedValues)}
+            style={{ display: "block", marginBottom: "10px" }}
+          />
 
-    <h3>Price Range</h3>
-    <Slider
-      range
-      min={0}
-      max={1000}
-      defaultValue={[0, 1000]}
-      onChange={(value) => setPriceRange(value)}
-      tooltip={{ formatter: (value) => `$${value}` }}
-      style={{ marginBottom: "10px" }}
-    />
+          <h3>Price Range</h3>
+          <Slider
+            range
+            min={0}
+            max={1000}
+            defaultValue={[0, 1000]}
+            onChange={(value) => setPriceRange(value)}
+            tooltip={{ formatter: (value) => `$${value}` }}
+            style={{ marginBottom: "10px" }}
+          />
 
-    <h3>Category</h3>
-    <Checkbox.Group
-      options={[...new Set(data.map((item) => item.category))]}
-      onChange={(checkedValues) => setCategoryFilter(checkedValues)}
-      style={{ display: "block" }}
-    />
-  </div>
-</Drawer>
+          <h3>Category</h3>
+          <Checkbox.Group
+            options={[...new Set(data.map((item) => item.category))]}
+            onChange={(checkedValues) => setCategoryFilter(checkedValues)}
+            style={{ display: "block" }}
+          />
+        </div>
+      </Drawer>
+
+      {/* Product Detail Modal */}
+      <Modal
+        title={selectedProduct?.name}
+        visible={isModalVisible}
+        onCancel={handleCancel}
+        footer={null}
+        width={600}
+      >
+        {selectedProduct && (
+          <div>
+            <img
+              src={selectedProduct.image}
+              alt={selectedProduct.name}
+              style={{ width: "100%", height: "auto", marginBottom: "20px" }}
+            />
+            <p><strong>Description:</strong> {selectedProduct.description}</p>
+            <p><strong>Price:</strong> ${selectedProduct.price.toFixed(2)}</p>
+            <p><strong>Availability:</strong> {selectedProduct.quantity === 0 ? "Out of Stock" : selectedProduct.quantity <= 10 ? "Limited Stock" : "In Stock"}</p>
+            <p><strong>Category:</strong> {selectedProduct.category}</p>
+          </div>
+        )}
+      </Modal>
     </div>
   );
 };
