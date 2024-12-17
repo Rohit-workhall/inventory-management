@@ -1,0 +1,56 @@
+/* ProductLists.css */
+.product-list-container {
+    background-color: #f9f9f9; /* Light grey background for the container */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    margin: 20px auto;
+  }
+  
+  .product-list-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333; /* Dark grey */
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .product-table .ant-table-thead > tr > th {
+    background-color: #333; /* Dark grey header */
+    color: white;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .product-table .ant-table-tbody > tr > td {
+    text-align: center;
+    color: #555; /* Medium grey text */
+  }
+  
+  .product-table .ant-table-row:nth-child(odd) {
+    background-color: #f7f7f7; /* Alternating light grey rows */
+  }
+  
+  .product-table .ant-table-row:nth-child(even) {
+    background-color: #fff; /* White rows */
+  }
+  
+  .product-table .ant-pagination-item {
+    border-color: #333; /* Pagination border color */
+  }
+  
+  .product-table .ant-pagination-item-active {
+    background-color: #333; /* Active pagination background */
+    border-color: #333;
+    color: white;
+  }
+  
+  .ant-drawer-body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .filter {
+    margin-left: 380%;
+  }

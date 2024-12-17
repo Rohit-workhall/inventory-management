@@ -399,6 +399,14 @@
       "quantity": 400,
       "price": 12.99,
       "category": "Travel"
+    },
+    {
+      "name": "dwljbc",
+      "sku": "wch",
+      "quantity": 0,
+      "price": 0,
+      "category": "Kitchen",
+      "id": "1e9e"
     }
   ],
   "categories": [
