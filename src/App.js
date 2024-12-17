@@ -1,11 +1,16 @@
-import logo from './logo.svg';
+import ProductForm from "../src/Admin/ProductForm";
+import Admin from "../src/Admin/Admin"
+import ProductList from "./Admin/ProductList";
 import './App.css';
 
 function App() {
   return (
-    <div>
-      
-    </div>
+    <>
+   
+   <br/>
+   <Admin/>
+    </>
+    
   );
 }
 
