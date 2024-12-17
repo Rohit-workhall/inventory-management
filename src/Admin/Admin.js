@@ -13,6 +13,7 @@ const Admin = () => {
   };
 
   return (
+    <div>
     <div className="admin-container">
       <h1 className="admin-header">Admin Dashboard</h1>
     
@@ -44,6 +45,7 @@ const Admin = () => {
           </div>
         </div>
       )}
+    </div>
     </div>
   );
 };

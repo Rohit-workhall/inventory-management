@@ -7,7 +7,7 @@ const ProductList = ({ onEdit }) => {
   const [showModal, setShowModal] = useState(false);
   const [selectedProductId, setSelectedProductId] = useState(null);
 
-  useEffect(() => {
+  useEffect(() => { 
     fetchProducts();
   }, []);
 
