@@ -31,12 +31,12 @@ const Admin = () => {
         }}
       />
 
-      {/* Product Form (Modal) */}
+    
       {showForm && (
         <div className="modal-overlay">
           <div className="modal-content">
             <ProductForm
-              mode={editingProduct ? "edit" : "add"} // Pass mode: "add" or "edit"
+              mode={editingProduct ? "edit" : "add"} 
               product={editingProduct}
               onClose={() => setShowForm(false)}
               refreshList={refreshList}

@@ -1,30 +1,29 @@
-import { useState, useEffect } from 'react';
-import { addProduct, editProduct, getCategories } from './Api';
+import { useState, useEffect } from "react";
+import { addProduct, editProduct, getCategories } from "./Api";
 
 const ProductForm = ({ mode, product, onClose, refreshList }) => {
   const [formData, setFormData] = useState({
-    name: '',
-    sku: '',
+    name: "",
+    sku: "",
     quantity: 0,
     price: 0,
-    category: '',
+    category: "",
   });
-  const [categories, setCategories] = useState([]); 
-  useEffect(() => {
+  const [categories, setCategories] = useState([]);
 
+  useEffect(() => {
     const fetchCategories = async () => {
       try {
         const data = await getCategories();
-        setCategories(data); 
+        setCategories(data);
       } catch (error) {
-        console.log('Failed to fetch categories:', error);
+        console.log("Failed to fetch categories:", error);
       }
     };
 
     fetchCategories();
 
     if (mode === "edit" && product) {
-    
       setFormData({
         name: product.name,
         sku: product.sku,
@@ -33,13 +32,12 @@ const ProductForm = ({ mode, product, onClose, refreshList }) => {
         category: product.category,
       });
     } else if (mode === "add") {
-    
       setFormData({
-        name: '',
-        sku: '',
+        name: "",
+        sku: "",
         quantity: 0,
         price: 0,
-        category: '',
+        category: "",
       });
     }
   }, [mode, product]);
@@ -48,21 +46,22 @@ const ProductForm = ({ mode, product, onClose, refreshList }) => {
     e.preventDefault();
     try {
       if (mode === "edit" && product) {
-        await editProduct(product.id, formData); 
-        console.log('Product updated successfully.');
+        await editProduct(product.id, formData);
+        console.log("Product updated successfully.");
       } else if (mode === "add") {
         await addProduct(formData);
-        console.log('Product added successfully.');
+        console.log("Product added successfully.");
       }
-      refreshList(); 
-      onClose(); 
+      refreshList();
+      onClose();
     } catch (error) {
-      console.log('Failed to save product:', error);
+      console.log("Failed to save product:", error);
     }
   };
 
   return (
     <form className="product-form" onSubmit={handleSubmit}>
+      <label className="input-label">Name</label>
       <input
         className="input-field"
         type="text"
@@ -71,6 +70,8 @@ const ProductForm = ({ mode, product, onClose, refreshList }) => {
         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
         required
       />
+
+      <label className="input-label">SKU</label>
       <input
         className="input-field"
         type="text"
@@ -79,22 +80,33 @@ const ProductForm = ({ mode, product, onClose, refreshList }) => {
         onChange={(e) => setFormData({ ...formData, sku: e.target.value })}
         required
       />
+
+      <label className="input-label">Quantity</label>
       <input
         className="input-field"
         type="number"
         placeholder="Quantity"
         value={formData.quantity}
-        onChange={(e) => setFormData({ ...formData, quantity: parseInt(e.target.value) || 0 })}
+        onChange={(e) =>
+          setFormData({ ...formData, quantity: parseInt(e.target.value) })
+        }
         required
       />
+
+      <label className="input-label">Price</label>
       <input
         className="input-field"
         type="number"
         placeholder="Price"
+        step="0.01"
         value={formData.price}
-        onChange={(e) => setFormData({ ...formData, price: parseFloat(e.target.value) || 0 })}
+        onChange={(e) =>
+          setFormData({ ...formData, price: parseFloat(e.target.value) })
+        }
         required
       />
+
+      <label className="input-label">Category</label>
       <select
         className="input-field"
         value={formData.category}
@@ -110,12 +122,16 @@ const ProductForm = ({ mode, product, onClose, refreshList }) => {
           </option>
         ))}
       </select>
-      <button className="button" type="submit">
-        {mode === "edit" ? "Update Product" : "Add Product"}
-      </button>
-      <button className="button cancel-btn" type="button" onClick={onClose}>
-        Cancel
-      </button>
+
+      <div className="form-buttons">
+  <button className="button" type="submit">
+    {mode === "edit" ? "Update Product" : "Add Product"}
+  </button>
+  <button className="button cancel-btn" type="button" onClick={onClose}>
+    Cancel
+  </button>
+</div>
+
     </form>
   );
 };

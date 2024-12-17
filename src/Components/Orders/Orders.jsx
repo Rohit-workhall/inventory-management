@@ -4,7 +4,7 @@ const Orders = () => {
   return (
     <div className="orders">
       <h3>Orders</h3>
-      <p>Customer orders.</p>
+      <p>Here </p>
     </div>
   );
 };
