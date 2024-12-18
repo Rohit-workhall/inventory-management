@@ -1,35 +1,37 @@
 import React, { useState } from 'react';
 import './navbar.css';
 
-const Navbar = ({ user, onNavClick, isOpen, toggleSidebar }) => {
-  return (
-    <div className="navbar">
-      <div className="navbar-left">
-        <button className="hamburger" onClick={toggleSidebar}>
-          &#9776;
-        </button>
-        <h2>Inventory Management</h2>
-      </div>
-      <div className="navbar-right">
-        {user ? (
-          <span className="user">Hello, {user}</span>
-        ) : (
-          <span className="user">Profile</span>
-        )}
-      </div>
+const Navbar = ({ onNavClick }) => {
+  const [isNavOpen, setIsNavOpen] = useState(false);
 
-      {/* Sidebar */}
-      {isOpen && (
-        <div className="sidebar">
-          <ul>
-            <li onClick={() => onNavClick('dashboard')}>Dashboard</li>
-            <li onClick={() => onNavClick('product-list')}>Product List</li>
-            <li onClick={() => onNavClick('orders')}>Orders</li>
-            <li onClick={() => onNavClick('admin')}>Admin</li>
-            
-          </ul>
+  const toggleNav = () => {
+    setIsNavOpen(!isNavOpen);
+  };
+
+  return (
+    <div className="navbar-container">
+      <div className="navbar">
+        <div className="navbar-left">
+          <button className="hamburger" onClick={toggleNav}>
+            <span className="hamburger-line"></span>
+            <span className="hamburger-line"></span>
+            <span className="hamburger-line"></span>
+          </button>
+          <h2 className="brand">Stock<span className="highlight">Wise</span></h2>
+          <div className={`navbar-links ${isNavOpen ? 'open' : ''}`}>
+            <ul>
+              <li >DashBoard</li>
+              <li onClick={() => onNavClick('product-list')}>Product List</li>
+              <li onClick={() => onNavClick('orders')}>Orders</li>
+              <li onClick={() => onNavClick('admin')}>Admin</li>
+            </ul>
+          </div>
         </div>
-      )}
+        <div className="navbar-right">
+          <span className="user">Hello, <strong>User</strong></span>
+        </div>
+      </div>
+      {isNavOpen && <div className="overlay" onClick={toggleNav}></div>}
     </div>
   );
 };

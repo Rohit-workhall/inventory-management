@@ -1,27 +1,44 @@
+// src\store\productsSlice.js
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-
-// Async action to fetch products from the API
-export const fetchProducts = createAsyncThunk("products/fetchProducts", async () => {
-  const response = await fetch("http://localhost:3001/products"); // Replace with your API endpoint
-  return response.json();
+import { addProduct as addProductAPI } from "../Admin/Api"; // Import API functions
+  
+// Async actions for add, edit, delete
+export const addProduct = createAsyncThunk("products/addProduct", async (productData) => {
+  const response = await addProductAPI(productData);
+  return response;
 });
 
+export const fetchProducts = createAsyncThunk("products/fetchProducts", async () => {
+    try {
+      const response = await fetch("http://localhost:3001/products"); // Update this URL if needed
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      const data = await response.json();
+      return data; // Return data to update the Redux state
+    } catch (error) {
+      console.error("Error fetching products:", error);
+      throw error; // Ensure the error is caught
+    }
+  });
+
+// Define the productsSlice with the additional actions for add, edit, and delete
 const productsSlice = createSlice({
-  name: "products",
-  initialState: {
-    data: [],
-    filteredData: [],
-    loading: true,
-    filters: {
-      quantity: null,
-      quantityType: "greater",
-      availability: [],
-      priceRange: [0, 1000],
-      category: [],
-      searchText: "",
+    name: "products",
+    initialState: {
+      data: [], // Ensure data is an array
+      filteredData: [],
+      loading: true,
+      filters: {
+        quantity: null,
+        quantityType: "greater",
+        availability: [],
+        priceRange: [0, 1000],
+        category: [],
+        searchText: "",
+      },
     },
-  },
-  reducers: {
+    reducers: {
     setQuantityFilter(state, action) {
       state.filters.quantity = action.payload;
     },
@@ -65,7 +82,7 @@ const productsSlice = createSlice({
 
       // Apply Price Range filter
       filtered = filtered.filter((item) => item.price >= priceRange[0] && item.price <= priceRange[1]);
-
+    
       // Apply Category filter
       if (category.length > 0) {
         filtered = filtered.filter((item) => category.includes(item.category));
@@ -85,17 +102,19 @@ const productsSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(fetchProducts.pending, (state) => {
-      state.loading = true;
-    });
-    builder.addCase(fetchProducts.fulfilled, (state, action) => {
-      state.data = action.payload;
-      state.filteredData = action.payload;
-      state.loading = false;
-    });
-    builder.addCase(fetchProducts.rejected, (state) => {
-      state.loading = false;
-    });
+    builder
+      .addCase(fetchProducts.pending, (state) => {
+        state.loading = true; // Set loading to true while fetching
+      })
+      .addCase(fetchProducts.fulfilled, (state, action) => {
+        state.loading = false; // Set loading to false once data is fetched
+        state.data = action.payload; // Update data with fetched products
+        state.filteredData = action.payload; // Initially, set filteredData to all products
+      })
+      .addCase(fetchProducts.rejected, (state, action) => {
+        state.loading = false; // Stop loading if there was an error
+        console.error("Failed to fetch products:", action.error.message);
+      });
   },
 });
 

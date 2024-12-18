@@ -1,20 +1,12 @@
 {
   "products": [
     {
-      "name": "Wireless Mouse",
-      "sku": "WM-001",
-      "quantity": 121,
-      "price": 19.99,
-      "category": "Electronics",
-      "id": "1"
-    },
-    {
-      "id": "2",
       "name": "Mechanical Keyboard",
       "sku": "MK-002",
-      "quantity": 75,
+      "quantity": 76,
       "price": 99.99,
-      "category": "Electronics"
+      "category": "Electronics",
+      "id": "2"
     },
     {
       "id": "3",

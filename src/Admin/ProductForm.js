@@ -1,7 +1,11 @@
 import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { addProduct, editProduct, getCategories } from "./Api";
+import { fetchProducts } from "../store/productsSlice"; // Import fetchProducts action
+import { notification } from "antd";
 
 const ProductForm = ({ mode, product, onClose, refreshList }) => {
+  const dispatch = useDispatch();
   const [formData, setFormData] = useState({
     name: "",
     sku: "",
@@ -31,36 +35,32 @@ const ProductForm = ({ mode, product, onClose, refreshList }) => {
         price: product.price,
         category: product.category,
       });
-    } else if (mode === "add") {
-      setFormData({
-        name: "",
-        sku: "",
-        quantity: 0,
-        price: 0,
-        category: "",
-      });
     }
   }, [mode, product]);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      if (mode === "edit" && product) {
-        await editProduct(product.id, formData);
-        console.log("Product updated successfully.");
-      } else if (mode === "add") {
-        await addProduct(formData);
-        console.log("Product added successfully.");
-      }
-      refreshList();
-      onClose();
-    } catch (error) {
-      console.log("Failed to save product:", error);
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  try {
+    if (mode === "edit" && product) {
+      console.log("Editing product with ID:", product.id); // Debugging
+      await editProduct(formData, product.id); // Fixed parameter order
+      console.log("Product updated successfully.");
+      notification.open({message:'Product updated successfully.'});
+    } else if (mode === "add") {
+      await addProduct(formData);
+      console.log("Product added successfully.");
+      notification.open({message:'Product added successfully.'});
     }
-  };
+    refreshList();
+    dispatch(fetchProducts()); // Trigger product list refresh
+    onClose();
+  } catch (error) {
+    console.log("Failed to save product:", error);
+  }
+};
 
   return (
-    <form className="product-form" onSubmit={handleSubmit}>
+    <form className="product-form" onSubmit={handleSubmit} >
       <label className="input-label">Name</label>
       <input
         className="input-field"
@@ -110,7 +110,9 @@ const ProductForm = ({ mode, product, onClose, refreshList }) => {
       <select
         className="input-field"
         value={formData.category}
-        onChange={(e) => setFormData({ ...formData, category: e.target.value })}
+        onChange={(e) =>
+          setFormData({ ...formData, category: e.target.value })
+        }
         required
       >
         <option value="" disabled>
@@ -124,14 +126,13 @@ const ProductForm = ({ mode, product, onClose, refreshList }) => {
       </select>
 
       <div className="form-buttons">
-  <button className="button" type="submit">
-    {mode === "edit" ? "Update Product" : "Add Product"}
-  </button>
-  <button className="button cancel-btn" type="button" onClick={onClose}>
-    Cancel
-  </button>
-</div>
-
+        <button className="button" type="submit">
+          {mode === "edit" ? "Update Product" : "Add Product"}
+        </button>
+        <button className="button cancel-btn" type="button" onClick={onClose}>
+          Cancel
+        </button>
+      </div>
     </form>
   );
 };
