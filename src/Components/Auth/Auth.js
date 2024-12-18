@@ -28,19 +28,19 @@ function Auth() {
       let isValid = true;
       const newErrors = {};
   
-      // Email Validation
+    
       if (!formData.email || !/\S+@\S+\.\S+/.test(formData.email)) {
         newErrors.email = 'Please enter a valid email.';
         isValid = false;
       }
   
-      // Password Validation
+      
       if (!formData.password || formData.password.length < 6) {
         newErrors.password = 'Password must be at least 6 characters.';
         isValid = false;
       }
   
-      // Confirm Password Validation (Only for Sign Up)
+     
       if (isSignUp && formData.password !== formData.confirmPassword) {
         newErrors.confirmPassword = 'Passwords do not match.';
         isValid = false;
@@ -54,7 +54,7 @@ function Auth() {
       e.preventDefault();
   
       if (validateForm()) {
-        // Handle successful form submission (can be replaced with API call)
+      
         alert(`${isSignUp ? 'Sign Up' : 'Sign In'} successful!`);
       }
     };

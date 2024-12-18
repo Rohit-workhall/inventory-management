@@ -2,23 +2,20 @@ import React, { useState } from 'react';
 import Navbar from '../Navbar/Navbar';
 import Orders from '../Orders/Orders';
 import './dashboard.css';
-import '../../Components/Navbar/navbar.css';
 import productData from '../../Products/Products.json';
 import ProductLists from '../ProductList/ProductLists';
 import Admin from '../../Admin/Admin';
 
 const Dashboard = () => {
-  const [user, setUser] = useState('');
   const [currentPage, setCurrentPage] = useState('dashboard');
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false); 
-
-  const toggleSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen);
-  };
 
   const totalProducts = productData.products.length;
-  const lowStockItems = productData.products.filter(item => item.quantity <= 10 && item.quantity >0).length;
-  const outOfStockItems = productData.products.filter(item => item.quantity === 0).length;
+  const lowStockItems = productData.products.filter(
+    (item) => item.quantity <= 10 && item.quantity > 0
+  ).length;
+  const outOfStockItems = productData.products.filter(
+    (item) => item.quantity === 0
+  ).length;
 
   const renderPage = () => {
     switch (currentPage) {
@@ -44,16 +41,15 @@ const Dashboard = () => {
       case 'orders':
         return <Orders />;
       case 'admin':
-        return <Admin/>
+        return <Admin />;
       default:
         return <div>Select a page from the menu</div>;
     }
   };
 
   return (
-    <div className={`dashboard ${isSidebarOpen ? 'sidebar-open' : ''}`}>
-      <Navbar user={user} onNavClick={setCurrentPage} isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
-      {renderPage()}
+    <div className="dashboard">
+      <div className="content-area">{renderPage()}</div>
     </div>
   );
 };

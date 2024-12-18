@@ -1,13 +1,22 @@
-/* dashboard.css */
 .dashboard {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-  padding: 20px;
-  transition: margin-left 0.3s ease-in-out;
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
 }
 
-.dashboard.sidebar-open {
-  margin-left: 250px; /* Offset for sidebar when open */
+.content-area {
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto;
+  background-color: #f4f4f4;
+  margin-top: 60px; /* Adjust for the navbar height */
+}
+
+.page-content {
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto;
+  background-color: #f4f4f4;
 }
 
 .metrics {
@@ -35,10 +44,3 @@
   color: #2c3e50;
   font-weight: bold;
 }
-
-.product-list,
-.orders {
-  margin-top: 20px;
-}
-
-/* You can adjust these styles if necessary */
