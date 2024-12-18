@@ -13,6 +13,7 @@ import {
 import { Input, Row, Col, Button } from "antd";
 import ProductTable from "./ProductTable";
 import FilterDrawer from "./FilterDrawer";
+import { Link } from "react-router-dom";  // Import Link from react-router-dom
 
 const { Search } = Input;
 
@@ -34,7 +35,14 @@ const ProductLists = () => {
 
   const columns = [
     { title: "Id", dataIndex: "id", key: "id" },
-    { title: "Name", dataIndex: "name", key: "name" },
+    {
+      title: "Name",
+      dataIndex: "name",
+      key: "name",
+      render: (name, record) => (
+        <Link to={`/product/${record.id}`}>{name}</Link>  // Wrap name with Link
+      ),
+    },
     { title: "SKU", dataIndex: "sku", key: "sku" },
     { title: "Quantity", dataIndex: "quantity", key: "quantity" },
     {

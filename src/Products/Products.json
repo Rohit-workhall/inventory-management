@@ -7,7 +7,8 @@
       "price": 19.99,
       "category": "Electronics",
       "id": "1",
-      "image": "data:image/jpeg;base64,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"
+      "image": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQHd2lbPWq7jhENeZtTw8A-D5N4G6vcwJ1cBKVMNMgOB82X9qNIN1AHlSDFCN45sM4k9rdCPRjJdTcuP4VA04qZNBb6h_mfBzM5cyIDrQL_nxe7kBzkx9fS",
+      "description": "A wireless mouse with ergonomic design, ideal for everyday use."
     },
     {
       "id": "2",
@@ -16,7 +17,8 @@
       "quantity": 75,
       "price": 99.99,
       "category": "Electronics",
-      "image": "https://m.media-amazon.com/images/I/71w8BcErW2L.jpg"
+      "image": "https://m.media-amazon.com/images/I/71w8BcErW2L.jpg",
+      "description": "A high-performance mechanical keyboard with RGB lighting and responsive keys."
     },
     {
       "id": "3",
@@ -25,7 +27,8 @@
       "quantity": 45,
       "price": 899.99,
       "category": "Computers",
-      "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSvZFcKPW8BJOj96uIbd50Eq0EGnr9T9CwfxGCwPuBHl0ZNTwAWw15J7IvrXpI5_y4ZxENUGH-tVdj9FqKA7fqG8S7eqWWa-Ct4G4b3DEc6-S6Ol9yF-3bthw"
+      "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSvZFcKPW8BJOj96uIbd50Eq0EGnr9T9CwfxGCwPuBHl0ZNTwAWw15J7IvrXpI5_y4ZxENUGH-tVdj9FqKA7fqG8S7eqWWa-Ct4G4b3DEc6-S6Ol9yF-3bthw",
+      "description": "A powerful gaming laptop with high-resolution display and fast processing speeds."
     },
     {
       "id": "4",
@@ -34,7 +37,8 @@
       "quantity": 30,
       "price": 149.99,
       "category": "Furniture",
-      "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcS7ZfsBitDpPFbeYcPK0REZOnmMRHa04Zi8h3Qk3Xyn7SiD2enwmuzzOxufkqQsEn4HLFE83a8N7ucpnKKfJoX7SsDBdSDYi9p9j28i5K6h"
+      "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcS7ZfsBitDpPFbeYcPK0REZOnmMRHa04Zi8h3Qk3Xyn7SiD2enwmuzzOxufkqQsEn4HLFE83a8N7ucpnKKfJoX7SsDBdSDYi9p9j28i5K6h",
+      "description": "An ergonomic office chair with adjustable height and lumbar support."
     },
     {
       "id": "5",
@@ -43,7 +47,8 @@
       "quantity": 200,
       "price": 39.99,
       "category": "Electronics",
-      "image": "https://m.media-amazon.com/images/I/61zumJIxYrL.jpg"
+      "image": "https://m.media-amazon.com/images/I/61zumJIxYrL.jpg",
+      "description": "Wireless Bluetooth headphones with noise cancellation and high-quality sound."
     },
     {
       "id": "6",
@@ -52,7 +57,8 @@
       "quantity": 90,
       "price": 29.99,
       "category": "Furniture",
-      "image": "https://example.com/images/led-desk-lamp.jpg"
+      "image": "https://example.com/images/led-desk-lamp.jpg",
+      "description": "An energy-efficient LED desk lamp with adjustable brightness."
     },
     {
       "id": "7",
@@ -61,7 +67,8 @@
       "quantity": 500,
       "price": 9.99,
       "category": "Electronics",
-      "image": "https://example.com/images/usb-c-charging-cable.jpg"
+      "image": "https://example.com/images/usb-c-charging-cable.jpg",
+      "description": "A durable USB-C charging cable for fast and reliable device charging."
     },
     {
       "id": "8",
@@ -70,7 +77,8 @@
       "quantity": 25,
       "price": 299.99,
       "category": "Computers",
-      "image": "https://example.com/images/4k-monitor.jpg"
+      "image": "https://example.com/images/4k-monitor.jpg",
+      "description": "A high-definition 4K monitor with vivid colors and excellent resolution."
     },
     {
       "id": "9",
@@ -79,7 +87,8 @@
       "quantity": 60,
       "price": 49.99,
       "category": "Electronics",
-      "image": "https://example.com/images/wireless-router.jpg"
+      "image": "https://example.com/images/wireless-router.jpg",
+      "description": "A fast wireless router for reliable internet connection throughout your home."
     },
     {
       "id": "10",
@@ -88,7 +97,8 @@
       "quantity": 150,
       "price": 699.99,
       "category": "Electronics",
-      "image": "https://example.com/images/smartphone.jpg"
+      "image": "https://example.com/images/smartphone.jpg",
+      "description": "A high-performance smartphone with a sleek design and advanced camera features."
     },
     {
       "id": "11",
@@ -97,7 +107,8 @@
       "quantity": 85,
       "price": 19.99,
       "category": "Furniture",
-      "image": "https://example.com/images/desk-organizer.jpg"
+      "image": "https://example.com/images/desk-organizer.jpg",
+      "description": "A compact desk organizer to keep your office supplies neatly arranged."
     },
     {
       "id": "12",
@@ -106,7 +117,8 @@
       "quantity": 55,
       "price": 79.99,
       "category": "Electronics",
-      "image": "https://example.com/images/ergonomic-keyboard.jpg"
+      "image": "https://example.com/images/ergonomic-keyboard.jpg",
+      "description": "An ergonomic keyboard designed for comfort and extended use."
     },
     {
       "id": "13",
@@ -115,7 +127,8 @@
       "quantity": 84,
       "price": 199.99,
       "category": "Electronics",
-      "image": "https://example.com/images/smartwatch.jpg"
+      "image": "https://example.com/images/smartwatch.jpg",
+      "description": "A smartwatch with fitness tracking, notifications, and heart rate monitoring."
     },
     {
       "id": "14",
@@ -124,7 +137,8 @@
       "quantity": 50,
       "price": 99.99,
       "category": "Furniture",
-      "image": "https://example.com/images/desk-chair.jpg"
+      "image": "https://example.com/images/desk-chair.jpg",
+      "description": "A comfortable desk chair with adjustable settings for personalized comfort."
     },
     {
       "id": "15",
@@ -133,7 +147,8 @@
       "quantity": 40,
       "price": 159.99,
       "category": "Home Appliances",
-      "image": "https://example.com/images/air-purifier.jpg"
+      "image": "https://example.com/images/air-purifier.jpg",
+      "description": "An air purifier that removes pollutants and allergens from the air."
     },
     {
       "id": "16",
@@ -142,7 +157,8 @@
       "quantity": 100,
       "price": 89.99,
       "category": "Home Appliances",
-      "image": "https://example.com/images/coffee-maker.jpg"
+      "image": "https://example.com/images/coffee-maker.jpg",
+      "description": "A coffee maker with a programmable timer and multiple brew settings."
     },
     {
       "id": "17",
@@ -151,7 +167,8 @@
       "quantity": 300,
       "price": 12.99,
       "category": "Home Appliances",
-      "image": "https://example.com/images/smart-bulb.jpg"
+      "image": "https://example.com/images/smart-bulb.jpg",
+      "description": "A smart bulb that can be controlled remotely and offers adjustable brightness."
     },
     {
       "id": "18",
@@ -160,7 +177,8 @@
       "quantity": 70,
       "price": 129.99,
       "category": "Home Appliances",
-      "image": "https://example.com/images/vacuum-cleaner.jpg"
+      "image": "https://example.com/images/vacuum-cleaner.jpg",
+      "description": "A powerful vacuum cleaner designed for efficient home cleaning."
     },
     {
       "id": "19",
@@ -169,7 +187,8 @@
       "quantity": 35,
       "price": 499.99,
       "category": "Home Appliances",
-      "image": "https://example.com/images/washing-machine.jpg"
+      "image": "https://example.com/images/washing-machine.jpg",
+      "description": "A washing machine with multiple wash settings and high energy efficiency."
     },
     {
       "id": "20",
@@ -178,7 +197,8 @@
       "quantity": 120,
       "price": 49.99,
       "category": "Home Appliances",
-      "image": "https://example.com/images/blender.jpg"
+      "image": "https://example.com/images/blender.jpg",
+      "description": "A blender with powerful motor and multiple speed settings for smoothies and shakes."
     },
     {
       "id": "21",
@@ -187,7 +207,8 @@
       "quantity": 20,
       "price": 999.99,
       "category": "Home Appliances",
-      "image": "https://example.com/images/refrigerator.jpg"
+      "image": "https://example.com/images/refrigerator.jpg",
+      "description": "A high-capacity refrigerator with energy-efficient features."
     },
     {
       "id": "22",
@@ -196,7 +217,8 @@
       "quantity": 80,
       "price": 119.99,
       "category": "Furniture",
-      "image": "https://example.com/images/coffee-table.jpg"
+      "image": "https://example.com/images/coffee-table.jpg",
+      "description": "A stylish coffee table with a modern design for your living room."
     },
     {
       "id": "23",
@@ -205,7 +227,8 @@
       "quantity": 15,
       "price": 799.99,
       "category": "Furniture",
-      "image": "https://example.com/images/sofa-set.jpg"
+      "image": "https://example.com/images/sofa-set.jpg",
+      "description": "A comfortable and elegant sofa set for your home or office."
     },
     {
       "id": "24",
@@ -214,7 +237,8 @@
       "quantity": 25,
       "price": 299.99,
       "category": "Furniture",
-      "image": "https://example.com/images/dining-table.jpg"
+      "image": "https://example.com/images/dining-table.jpg",
+      "description": "A spacious dining table perfect for family meals and gatherings."
     },
     {
       "id": "25",
@@ -223,7 +247,8 @@
       "quantity": 350,
       "price": 14.99,
       "category": "Storage",
-      "image": "https://example.com/images/plastic-storage-bins.jpg"
+      "image": "https://example.com/images/plastic-storage-bins.jpg",
+      "description": "Durable plastic storage bins for organizing various items."
     },
     {
       "id": "26",
@@ -232,7 +257,8 @@
       "quantity": 500,
       "price": 5.99,
       "category": "Home Appliances",
-      "image": "https://example.com/images/clothes-hanger.jpg"
+      "image": "https://example.com/images/clothes-hanger.jpg",
+      "description": "Sturdy clothes hangers for easy wardrobe organization."
     },
     {
       "id": "27",
@@ -241,7 +267,8 @@
       "quantity": 40,
       "price": 149.99,
       "category": "Home Appliances",
-      "image": "https://example.com/images/smart-thermostat.jpg"
+      "image": "https://example.com/images/smart-thermostat.jpg",
+      "description": "A smart thermostat for efficient temperature control in your home."
     },
     {
       "id": "28",
@@ -250,7 +277,8 @@
       "quantity": 600,
       "price": 7.99,
       "category": "Electronics",
-      "image": "https://example.com/images/hdmi-cable.jpg"
+      "image": "https://example.com/images/hdmi-cable.jpg",
+      "description": "A high-quality HDMI cable for clear video and audio transmission."
     },
     {
       "id": "29",
@@ -259,7 +287,8 @@
       "quantity": 120,
       "price": 39.99,
       "category": "Electronics",
-      "image": "https://example.com/images/wi-fi-extender.jpg"
+      "image": "https://example.com/images/wi-fi-extender.jpg",
+      "description": "A Wi-Fi extender to enhance your home network coverage."
     },
     {
       "id": "30",
@@ -268,7 +297,8 @@
       "quantity": 50,
       "price": 69.99,
       "category": "Kitchen",
-      "image": "https://example.com/images/kitchen-knife-set.jpg"
+      "image": "https://example.com/images/kitchen-knife-set.jpg",
+      "description": "A complete kitchen knife set for all your cooking needs."
     },
     {
       "id": "31",
@@ -277,7 +307,8 @@
       "quantity": 80,
       "price": 34.99,
       "category": "Kitchen",
-      "image": "https://example.com/images/nonstick-frying-pan.jpg"
+      "image": "https://example.com/images/nonstick-frying-pan.jpg",
+      "description": "A nonstick frying pan for easy cooking and cleaning."
     },
     {
       "id": "32",
@@ -286,7 +317,8 @@
       "quantity": 25,
       "price": 199.99,
       "category": "Kitchen",
-      "image": "https://example.com/images/electric-grill.jpg"
+      "image": "https://example.com/images/electric-grill.jpg",
+      "description": "An electric grill perfect for indoor grilling without the mess."
     },
     {
       "id": "33",
@@ -295,7 +327,8 @@
       "quantity": 60,
       "price": 89.99,
       "category": "Kitchen",
-      "image": "https://example.com/images/microwave-oven.jpg"
+      "image": "https://example.com/images/microwave-oven.jpg",
+      "description": "A microwave oven for quick and easy meal preparation."
     },
     {
       "id": "34",
@@ -304,7 +337,8 @@
       "quantity": 120,
       "price": 29.99,
       "category": "Kitchen",
-      "image": "https://example.com/images/toaster.jpg"
+      "image": "https://example.com/images/toaster.jpg",
+      "description": "A toaster for perfectly toasted bread, bagels, and more."
     },
     {
       "id": "35",
@@ -313,7 +347,8 @@
       "quantity": 150,
       "price": 19.99,
       "category": "Kitchen",
-      "image": "https://example.com/images/cooking-utensil-set.jpg"
+      "image": "https://example.com/images/cooking-utensil-set.jpg",
+      "description": "A set of essential cooking utensils for preparing meals."
     },
     {
       "id": "36",
@@ -322,7 +357,8 @@
       "quantity": 40,
       "price": 39.99,
       "category": "Kitchen",
-      "image": "https://example.com/images/thermal-coffee-carafe.jpg"
+      "image": "https://example.com/images/thermal-coffee-carafe.jpg",
+      "description": "A thermal coffee carafe to keep your coffee hot for hours."
     },
     {
       "id": "37",
@@ -331,7 +367,8 @@
       "quantity": 90,
       "price": 39.99,
       "category": "Kitchen",
-      "image": "https://example.com/images/electric-kettle.jpg"
+      "image": "https://example.com/images/electric-kettle.jpg",
+      "description": "An electric kettle for quickly boiling water for tea, coffee, and more."
     },
     {
       "id": "38",
@@ -340,7 +377,8 @@
       "quantity": 250,
       "price": 15.99,
       "category": "Kitchen",
-      "image": "https://example.com/images/wine-glass-set.jpg"
+      "image": "https://example.com/images/wine-glass-set.jpg",
+      "description": "A set of elegant wine glasses for enjoying your favorite wines."
     },
     {
       "id": "39",
@@ -349,7 +387,8 @@
       "quantity": 60,
       "price": 19.99,
       "category": "Furniture",
-      "image": "https://example.com/images/shoe-rack.jpg"
+      "image": "https://example.com/images/shoe-rack.jpg",
+      "description": "A simple and sturdy shoe rack to organize your footwear."
     },
     {
       "id": "40",
@@ -358,13 +397,23 @@
       "quantity": 150,
       "price": 59.99,
       "category": "Furniture",
-      "image": "https://example.com/images/storage-shelf.jpg"
+      "image": "https://example.com/images/storage-shelf.jpg",
+      "description": "A versatile storage shelf perfect for organizing books, decor, and more."
     },
     {
       "id": "05b6",
       "name": "Mobile",
       "sku": "MO-001",
       "quantity": 20,
+      "price": 10000,
+      "category": "Electronics",
+      "description": "A high-end mobile phone with advanced features and a sleek design."
+    },
+    {
+      "id": "a886",
+      "name": "Mobile",
+      "sku": "MO-01",
+      "quantity": 10,
       "price": 10000,
       "category": "Electronics"
     }

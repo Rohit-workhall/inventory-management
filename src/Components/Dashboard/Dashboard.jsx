@@ -115,25 +115,18 @@ const Dashboard = () => {
             </div>
           </div>
         );
-      case "product-list":
-        return <ProductLists />;
-      case "orders":
-        return <Orders />;
-      case "admin":
-        return <Admin />;
-      default:
-        return <div>Select a page from the menu</div>;
+      
     }
   };
 
   return (
     <div className={`dashboard ${isSidebarOpen ? "sidebar-open" : ""}`}>
-      <Navbar
+      {/* <Navbar
         user={user}
         onNavClick={setCurrentPage}
         isOpen={isSidebarOpen}
         toggleSidebar={toggleSidebar}
-      />
+      /> */}
       {renderPage()}
     </div>
   );

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"; // Use useParams to get the product ID from the URL
+import "./productDetail.css"; // Import the CSS file for styling
 
 const ProductDetail = () => {
   const { productId } = useParams(); // Extract productId from URL
@@ -9,7 +10,7 @@ const ProductDetail = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await fetch(`http://localhost:3001/products/${productId}`); // Replace with your API endpoint
+        const response = await fetch(`http://localhost:3001/products/${productId}`); // Use backticks for template literals
         const productData = await response.json();
         setProduct(productData);
       } catch (error) {
@@ -25,16 +26,23 @@ const ProductDetail = () => {
   }
 
   return (
-    <div style={{ padding: "20px" }}>
-      <h1>{product.name}</h1>
+    <div className="product-detail">
+      <h1 className="product-title">{product.name}</h1>
       <img
         src={product.image}
         alt={product.name}
-        style={{ width: "100%", height: "auto", marginBottom: "20px" }}
+        className="product-image"
       />
       <p><strong>Description:</strong> {product.description}</p>
       <p><strong>Price:</strong> ${product.price.toFixed(2)}</p>
-      <p><strong>Availability:</strong> {product.quantity === 0 ? "Out of Stock" : product.quantity <= 10 ? "Limited Stock" : "In Stock"}</p>
+      <p>
+        <strong>Availability:</strong>{" "}
+        {product.quantity === 0
+          ? "Out of Stock"
+          : product.quantity <= 10
+          ? "Limited Stock"
+          : "In Stock"}
+      </p>
       <p><strong>Category:</strong> {product.category}</p>
     </div>
   );
