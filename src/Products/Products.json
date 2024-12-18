@@ -1,24 +1,12 @@
 {
   "products": [
     {
-      "name": "Wireless Mouse",
-      "sku": "WM-001",
-      "quantity": 121,
-      "price": 19.99,
-      "category": "Electronics",
-      "id": "1",
-      "image": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQHd2lbPWq7jhENeZtTw8A-D5N4G6vcwJ1cBKVMNMgOB82X9qNIN1AHlSDFCN45sM4k9rdCPRjJdTcuP4VA04qZNBb6h_mfBzM5cyIDrQL_nxe7kBzkx9fS",
-      "description": "A wireless mouse with ergonomic design, ideal for everyday use."
-    },
-    {
-      "id": "2",
       "name": "Mechanical Keyboard",
       "sku": "MK-002",
-      "quantity": 75,
+      "quantity": 76,
       "price": 99.99,
       "category": "Electronics",
-      "image": "https://m.media-amazon.com/images/I/71w8BcErW2L.jpg",
-      "description": "A high-performance mechanical keyboard with RGB lighting and responsive keys."
+      "id": "2"
     },
     {
       "id": "3",

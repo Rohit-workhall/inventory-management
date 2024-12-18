@@ -82,3 +82,20 @@
 .search-bar .ant-btn:hover {
   background-color: #f39c12;
 }
+
+/* Ensure parent row and columns align content properly */
+.ant-row {
+  display: flex;
+  align-items: center; /* Align items vertically */
+}
+
+/* Search bar and button spacing adjustment */
+.ant-input-search {
+  margin-right: 10px; /* Optional: Add spacing if needed */
+}
+
+/* Button height adjustment to match the search bar */
+.ant-btn {
+  height: 40px; /* Match the height of the search bar */
+  line-height: 40px; /* Vertically center the text inside the button */
+}

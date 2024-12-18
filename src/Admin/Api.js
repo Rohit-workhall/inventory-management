@@ -1,27 +1,38 @@
-import axios from 'axios';
-
-const API_BASE_URL = 'http://localhost:3001';
-
-export const getProducts = async () => {
-  const response = await axios.get(`${API_BASE_URL}/products`);
-  return response.data;
-};
-
-export const addProduct = async (product) => {
-  const response = await axios.post(`${API_BASE_URL}/products`, product);
-  return response.data;
-};
-
-export const editProduct = async (id, product) => {
-  const response = await axios.put(`${API_BASE_URL}/products/${id}`, product);
-  return response.data;
-};
-
-export const deleteProduct = async (id) => {
-  await axios.delete(`${API_BASE_URL}/products/${id}`);
+// src\Admin\api.js
+export const addProduct = async (productData) => {
+  const response = await fetch("http://localhost:3001/products", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(productData),
+  });
+  const result = await response.json();
+  return result;
 };
 
 export const getCategories = async () => {
-    const response = await axios.get(`${API_BASE_URL}/categories`);
-    return response.data;
-  };
+  const response = await fetch("http://localhost:3001/categories");
+  const categories = await response.json();
+  return categories;
+};
+
+export const editProduct = async (productData, productId) => {
+  const response = await fetch(`http://localhost:3001/products/${productId}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(productData),
+  });
+  const result = await response.json();
+  return result;
+};
+
+export const deleteProduct = async (productId) => {
+  const response = await fetch(`http://localhost:3001/products/${productId}`, {
+    method: "DELETE",
+  });
+  const result = await response.json();
+  return result;
+};

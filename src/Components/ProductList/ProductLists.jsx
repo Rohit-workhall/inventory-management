@@ -66,7 +66,7 @@ const ProductLists = () => {
   return (
     <div style={{ padding: "20px" }}>
       <h1>Product List</h1>
-      <Row gutter={[16, 16]} style={{ marginBottom: "20px" }}>
+      <Row gutter={[16, 16]} align="middle" style={{ marginBottom: "20px" }}>
         <Col span={8}>
           <Search
             placeholder="Search by Id, Name, or SKU"
@@ -75,7 +75,7 @@ const ProductLists = () => {
             allowClear
           />
         </Col>
-        <Col span={4}>
+        <Col span={4} >
           <Button type="primary" onClick={() => setIsFilterDrawerVisible(true)}>
             Filter
           </Button>
