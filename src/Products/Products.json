@@ -14,7 +14,9 @@
       "sku": "GL-003",
       "quantity": 45,
       "price": 899.99,
-      "category": "Computers"
+      "category": "Computers",
+      "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSvZFcKPW8BJOj96uIbd50Eq0EGnr9T9CwfxGCwPuBHl0ZNTwAWw15J7IvrXpI5_y4ZxENUGH-tVdj9FqKA7fqG8S7eqWWa-Ct4G4b3DEc6-S6Ol9yF-3bthw",
+      "description": "A powerful gaming laptop with high-resolution display and fast processing speeds."
     },
     {
       "id": "4",
@@ -22,7 +24,9 @@
       "sku": "OC-004",
       "quantity": 30,
       "price": 149.99,
-      "category": "Furniture"
+      "category": "Furniture",
+      "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcS7ZfsBitDpPFbeYcPK0REZOnmMRHa04Zi8h3Qk3Xyn7SiD2enwmuzzOxufkqQsEn4HLFE83a8N7ucpnKKfJoX7SsDBdSDYi9p9j28i5K6h",
+      "description": "An ergonomic office chair with adjustable height and lumbar support."
     },
     {
       "id": "5",
@@ -30,7 +34,9 @@
       "sku": "BH-005",
       "quantity": 200,
       "price": 39.99,
-      "category": "Electronics"
+      "category": "Electronics",
+      "image": "https://m.media-amazon.com/images/I/61zumJIxYrL.jpg",
+      "description": "Wireless Bluetooth headphones with noise cancellation and high-quality sound."
     },
     {
       "id": "6",
@@ -38,7 +44,9 @@
       "sku": "LDL-006",
       "quantity": 90,
       "price": 29.99,
-      "category": "Furniture"
+      "category": "Furniture",
+      "image": "https://example.com/images/led-desk-lamp.jpg",
+      "description": "An energy-efficient LED desk lamp with adjustable brightness."
     },
     {
       "id": "7",
@@ -46,7 +54,9 @@
       "sku": "USBC-007",
       "quantity": 500,
       "price": 9.99,
-      "category": "Electronics"
+      "category": "Electronics",
+      "image": "https://example.com/images/usb-c-charging-cable.jpg",
+      "description": "A durable USB-C charging cable for fast and reliable device charging."
     },
     {
       "id": "8",
@@ -54,7 +64,9 @@
       "sku": "4K-008",
       "quantity": 25,
       "price": 299.99,
-      "category": "Computers"
+      "category": "Computers",
+      "image": "https://example.com/images/4k-monitor.jpg",
+      "description": "A high-definition 4K monitor with vivid colors and excellent resolution."
     },
     {
       "id": "9",
@@ -62,7 +74,9 @@
       "sku": "WR-009",
       "quantity": 60,
       "price": 49.99,
-      "category": "Electronics"
+      "category": "Electronics",
+      "image": "https://example.com/images/wireless-router.jpg",
+      "description": "A fast wireless router for reliable internet connection throughout your home."
     },
     {
       "id": "10",
@@ -70,7 +84,9 @@
       "sku": "SP-010",
       "quantity": 150,
       "price": 699.99,
-      "category": "Electronics"
+      "category": "Electronics",
+      "image": "https://example.com/images/smartphone.jpg",
+      "description": "A high-performance smartphone with a sleek design and advanced camera features."
     },
     {
       "id": "11",
@@ -78,7 +94,9 @@
       "sku": "DO-011",
       "quantity": 85,
       "price": 19.99,
-      "category": "Furniture"
+      "category": "Furniture",
+      "image": "https://example.com/images/desk-organizer.jpg",
+      "description": "A compact desk organizer to keep your office supplies neatly arranged."
     },
     {
       "id": "12",
@@ -86,15 +104,19 @@
       "sku": "EK-012",
       "quantity": 55,
       "price": 79.99,
-      "category": "Electronics"
+      "category": "Electronics",
+      "image": "https://example.com/images/ergonomic-keyboard.jpg",
+      "description": "An ergonomic keyboard designed for comfort and extended use."
     },
     {
+      "id": "13",
       "name": "Smartwatch",
       "sku": "SW-013",
       "quantity": 84,
       "price": 199.99,
       "category": "Electronics",
-      "id": "13"
+      "image": "https://example.com/images/smartwatch.jpg",
+      "description": "A smartwatch with fitness tracking, notifications, and heart rate monitoring."
     },
     {
       "id": "14",
@@ -102,7 +124,9 @@
       "sku": "DC-014",
       "quantity": 50,
       "price": 99.99,
-      "category": "Furniture"
+      "category": "Furniture",
+      "image": "https://example.com/images/desk-chair.jpg",
+      "description": "A comfortable desk chair with adjustable settings for personalized comfort."
     },
     {
       "id": "15",
@@ -110,7 +134,9 @@
       "sku": "AP-015",
       "quantity": 40,
       "price": 159.99,
-      "category": "Home Appliances"
+      "category": "Home Appliances",
+      "image": "https://example.com/images/air-purifier.jpg",
+      "description": "An air purifier that removes pollutants and allergens from the air."
     },
     {
       "id": "16",
@@ -118,7 +144,9 @@
       "sku": "CM-016",
       "quantity": 100,
       "price": 89.99,
-      "category": "Home Appliances"
+      "category": "Home Appliances",
+      "image": "https://example.com/images/coffee-maker.jpg",
+      "description": "A coffee maker with a programmable timer and multiple brew settings."
     },
     {
       "id": "17",
@@ -126,7 +154,9 @@
       "sku": "SB-017",
       "quantity": 300,
       "price": 12.99,
-      "category": "Home Appliances"
+      "category": "Home Appliances",
+      "image": "https://example.com/images/smart-bulb.jpg",
+      "description": "A smart bulb that can be controlled remotely and offers adjustable brightness."
     },
     {
       "id": "18",
@@ -134,7 +164,9 @@
       "sku": "VC-018",
       "quantity": 70,
       "price": 129.99,
-      "category": "Home Appliances"
+      "category": "Home Appliances",
+      "image": "https://example.com/images/vacuum-cleaner.jpg",
+      "description": "A powerful vacuum cleaner designed for efficient home cleaning."
     },
     {
       "id": "19",
@@ -142,7 +174,9 @@
       "sku": "WM-019",
       "quantity": 35,
       "price": 499.99,
-      "category": "Home Appliances"
+      "category": "Home Appliances",
+      "image": "https://example.com/images/washing-machine.jpg",
+      "description": "A washing machine with multiple wash settings and high energy efficiency."
     },
     {
       "id": "20",
@@ -150,7 +184,9 @@
       "sku": "BL-020",
       "quantity": 120,
       "price": 49.99,
-      "category": "Home Appliances"
+      "category": "Home Appliances",
+      "image": "https://example.com/images/blender.jpg",
+      "description": "A blender with powerful motor and multiple speed settings for smoothies and shakes."
     },
     {
       "id": "21",
@@ -158,7 +194,9 @@
       "sku": "RF-021",
       "quantity": 20,
       "price": 999.99,
-      "category": "Home Appliances"
+      "category": "Home Appliances",
+      "image": "https://example.com/images/refrigerator.jpg",
+      "description": "A high-capacity refrigerator with energy-efficient features."
     },
     {
       "id": "22",
@@ -166,7 +204,9 @@
       "sku": "CT-022",
       "quantity": 80,
       "price": 119.99,
-      "category": "Furniture"
+      "category": "Furniture",
+      "image": "https://example.com/images/coffee-table.jpg",
+      "description": "A stylish coffee table with a modern design for your living room."
     },
     {
       "id": "23",
@@ -174,7 +214,9 @@
       "sku": "SS-023",
       "quantity": 15,
       "price": 799.99,
-      "category": "Furniture"
+      "category": "Furniture",
+      "image": "https://example.com/images/sofa-set.jpg",
+      "description": "A comfortable and elegant sofa set for your home or office."
     },
     {
       "id": "24",
@@ -182,7 +224,9 @@
       "sku": "DT-024",
       "quantity": 25,
       "price": 299.99,
-      "category": "Furniture"
+      "category": "Furniture",
+      "image": "https://example.com/images/dining-table.jpg",
+      "description": "A spacious dining table perfect for family meals and gatherings."
     },
     {
       "id": "25",
@@ -190,7 +234,9 @@
       "sku": "PSB-025",
       "quantity": 350,
       "price": 14.99,
-      "category": "Storage"
+      "category": "Storage",
+      "image": "https://example.com/images/plastic-storage-bins.jpg",
+      "description": "Durable plastic storage bins for organizing various items."
     },
     {
       "id": "26",
@@ -198,7 +244,9 @@
       "sku": "CH-026",
       "quantity": 500,
       "price": 5.99,
-      "category": "Home Appliances"
+      "category": "Home Appliances",
+      "image": "https://example.com/images/clothes-hanger.jpg",
+      "description": "Sturdy clothes hangers for easy wardrobe organization."
     },
     {
       "id": "27",
@@ -206,7 +254,9 @@
       "sku": "ST-027",
       "quantity": 40,
       "price": 149.99,
-      "category": "Home Appliances"
+      "category": "Home Appliances",
+      "image": "https://example.com/images/smart-thermostat.jpg",
+      "description": "A smart thermostat for efficient temperature control in your home."
     },
     {
       "id": "28",
@@ -214,7 +264,9 @@
       "sku": "HDMI-028",
       "quantity": 600,
       "price": 7.99,
-      "category": "Electronics"
+      "category": "Electronics",
+      "image": "https://example.com/images/hdmi-cable.jpg",
+      "description": "A high-quality HDMI cable for clear video and audio transmission."
     },
     {
       "id": "29",
@@ -222,7 +274,9 @@
       "sku": "WE-029",
       "quantity": 120,
       "price": 39.99,
-      "category": "Electronics"
+      "category": "Electronics",
+      "image": "https://example.com/images/wi-fi-extender.jpg",
+      "description": "A Wi-Fi extender to enhance your home network coverage."
     },
     {
       "id": "30",
@@ -230,7 +284,9 @@
       "sku": "KNS-030",
       "quantity": 50,
       "price": 69.99,
-      "category": "Kitchen"
+      "category": "Kitchen",
+      "image": "https://example.com/images/kitchen-knife-set.jpg",
+      "description": "A complete kitchen knife set for all your cooking needs."
     },
     {
       "id": "31",
@@ -238,7 +294,9 @@
       "sku": "NSFP-031",
       "quantity": 80,
       "price": 34.99,
-      "category": "Kitchen"
+      "category": "Kitchen",
+      "image": "https://example.com/images/nonstick-frying-pan.jpg",
+      "description": "A nonstick frying pan for easy cooking and cleaning."
     },
     {
       "id": "32",
@@ -246,7 +304,9 @@
       "sku": "EG-032",
       "quantity": 25,
       "price": 199.99,
-      "category": "Kitchen"
+      "category": "Kitchen",
+      "image": "https://example.com/images/electric-grill.jpg",
+      "description": "An electric grill perfect for indoor grilling without the mess."
     },
     {
       "id": "33",
@@ -254,7 +314,9 @@
       "sku": "MO-033",
       "quantity": 60,
       "price": 89.99,
-      "category": "Kitchen"
+      "category": "Kitchen",
+      "image": "https://example.com/images/microwave-oven.jpg",
+      "description": "A microwave oven for quick and easy meal preparation."
     },
     {
       "id": "34",
@@ -262,7 +324,9 @@
       "sku": "T-034",
       "quantity": 120,
       "price": 29.99,
-      "category": "Kitchen"
+      "category": "Kitchen",
+      "image": "https://example.com/images/toaster.jpg",
+      "description": "A toaster for perfectly toasted bread, bagels, and more."
     },
     {
       "id": "35",
@@ -270,7 +334,9 @@
       "sku": "CUS-035",
       "quantity": 150,
       "price": 19.99,
-      "category": "Kitchen"
+      "category": "Kitchen",
+      "image": "https://example.com/images/cooking-utensil-set.jpg",
+      "description": "A set of essential cooking utensils for preparing meals."
     },
     {
       "id": "36",
@@ -278,7 +344,9 @@
       "sku": "TCC-036",
       "quantity": 40,
       "price": 39.99,
-      "category": "Kitchen"
+      "category": "Kitchen",
+      "image": "https://example.com/images/thermal-coffee-carafe.jpg",
+      "description": "A thermal coffee carafe to keep your coffee hot for hours."
     },
     {
       "id": "37",
@@ -286,7 +354,9 @@
       "sku": "EK-037",
       "quantity": 90,
       "price": 39.99,
-      "category": "Kitchen"
+      "category": "Kitchen",
+      "image": "https://example.com/images/electric-kettle.jpg",
+      "description": "An electric kettle for quickly boiling water for tea, coffee, and more."
     },
     {
       "id": "38",
@@ -294,103 +364,46 @@
       "sku": "WGS-038",
       "quantity": 250,
       "price": 15.99,
-      "category": "Kitchen"
+      "category": "Kitchen",
+      "image": "https://example.com/images/wine-glass-set.jpg",
+      "description": "A set of elegant wine glasses for enjoying your favorite wines."
     },
     {
       "id": "39",
       "name": "Shoe Rack",
       "sku": "SR-039",
       "quantity": 60,
-      "price": 49.99,
-      "category": "Storage"
+      "price": 19.99,
+      "category": "Furniture",
+      "image": "https://example.com/images/shoe-rack.jpg",
+      "description": "A simple and sturdy shoe rack to organize your footwear."
     },
     {
       "id": "40",
-      "name": "Wall Shelf",
-      "sku": "WS-040",
-      "quantity": 100,
-      "price": 29.99,
-      "category": "Furniture"
+      "name": "Storage Shelf",
+      "sku": "SS-040",
+      "quantity": 150,
+      "price": 59.99,
+      "category": "Furniture",
+      "image": "https://example.com/images/storage-shelf.jpg",
+      "description": "A versatile storage shelf perfect for organizing books, decor, and more."
     },
     {
-      "id": "41",
-      "name": "Plastic Storage Bins",
-      "sku": "PSB-041",
-      "quantity": 400,
-      "price": 19.99,
-      "category": "Storage"
+      "id": "05b6",
+      "name": "Mobile",
+      "sku": "MO-001",
+      "quantity": 20,
+      "price": 10000,
+      "category": "Electronics",
+      "description": "A high-end mobile phone with advanced features and a sleek design."
     },
     {
-      "id": "42",
-      "name": "Home Safe",
-      "sku": "HS-042",
-      "quantity": 45,
-      "price": 129.99,
-      "category": "Storage"
-    },
-    {
-      "id": "43",
-      "name": "Shoe Storage Box",
-      "sku": "SSB-043",
-      "quantity": 200,
-      "price": 14.99,
-      "category": "Storage"
-    },
-    {
-      "id": "44",
-      "name": "Double Bed",
-      "sku": "DB-044",
-      "quantity": 35,
-      "price": 499.99,
-      "category": "Furniture"
-    },
-    {
-      "id": "45",
-      "name": "Mattress",
-      "sku": "M-045",
-      "quantity": 40,
-      "price": 399.99,
-      "category": "Furniture"
-    },
-    {
-      "id": "46",
-      "name": "Luggage Set",
-      "sku": "LS-046",
-      "quantity": 80,
-      "price": 149.99,
-      "category": "Travel"
-    },
-    {
-      "id": "47",
-      "name": "Travel Backpack",
-      "sku": "TB-047",
-      "quantity": 120,
-      "price": 49.99,
-      "category": "Travel"
-    },
-    {
-      "id": "48",
-      "name": "Rolling Suitcase",
-      "sku": "RS-048",
-      "quantity": 60,
-      "price": 89.99,
-      "category": "Travel"
-    },
-    {
-      "id": "49",
-      "name": "Sleep Mask",
-      "sku": "SM-049",
-      "quantity": 300,
-      "price": 5.99,
-      "category": "Travel"
-    },
-    {
-      "id": "50",
-      "name": "Neck Pillow",
-      "sku": "NP-050",
-      "quantity": 400,
-      "price": 12.99,
-      "category": "Travel"
+      "id": "a886",
+      "name": "Mobile",
+      "sku": "MO-01",
+      "quantity": 10,
+      "price": 10000,
+      "category": "Electronics"
     }
   ],
   "categories": [

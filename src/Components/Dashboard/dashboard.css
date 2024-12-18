@@ -1,19 +1,21 @@
-/* dashboard.css */
+/* General Dashboard Styles */
 .dashboard {
-  font-family: Arial, sans-serif;
+  font-family: 'Arial', sans-serif;
   background-color: #f4f4f4;
   padding: 20px;
   transition: margin-left 0.3s ease-in-out;
 }
 
 .dashboard.sidebar-open {
-  margin-left: 250px; /* Offset for sidebar when open */
+  margin-left: 250px; /* Sidebar open offset */
 }
 
 .metrics {
   display: flex;
   justify-content: space-around;
+  gap: 20px;
   margin-top: 20px;
+  flex-wrap: wrap; /* Ensure proper alignment on smaller screens */
 }
 
 .metric {
@@ -21,13 +23,19 @@
   border-radius: 10px;
   padding: 20px;
   width: 200px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.metric:hover {
+  transform: translateY(-5px); /* Subtle hover effect */
 }
 
 .metric h3 {
   font-size: 18px;
   color: #333;
+  margin-bottom: 10px;
 }
 
 .metric p {
@@ -36,9 +44,45 @@
   font-weight: bold;
 }
 
-.product-list,
-.orders {
-  margin-top: 20px;
+.chart-wrapper {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 30px;
+  flex-wrap: wrap; /* Responsive layout */
 }
 
-/* You can adjust these styles if necessary */
+.chart-container {
+  flex: 1;
+  min-width: 300px;
+  max-width: 48%;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  height: 400px;
+}
+
+.pie-chart-container {
+  flex: 1;
+  min-width: 300px;
+  max-width: 48%;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  height: 400px; /* Ensure height consistency */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center chart vertically */
+  align-items: center; /* Center chart horizontally */
+  overflow: hidden; /* Prevent overflow issues */
+}
+
+.pie {
+  width: 100%; /* Ensure the chart fits within the container */
+  max-height: 90%; /* Prevent the chart from overflowing vertically */
+  margin: 0 auto; /* Center the chart */
+}

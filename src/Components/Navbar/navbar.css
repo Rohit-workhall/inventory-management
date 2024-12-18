@@ -1,9 +1,4 @@
-/* General styles */
-body {
-  margin: 0;
-  font-family: 'Poppins', Arial, sans-serif;
-}
-
+/* General Navbar Styles */
 .navbar-container {
   position: relative;
 }
@@ -12,13 +7,13 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: white;
-  color: black;
+  background: #ffffff; /* White background */
+  color: #333333; /* Dark grey text */
   padding: 15px 20px;
-  position: sticky;
+  position: sticky; /* Sticky navigation */
   top: 0;
   z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
 .navbar-left {
@@ -28,26 +23,28 @@ body {
 }
 
 .navbar-left .brand {
-  font-size: 20px;
+  font-size: 24px;
   font-weight: bold;
+  color: #0a0909; /* Brand color */
 }
 
 .navbar-left .highlight {
-  color: grey;
+  color: #8f968f; /* Highlight color */
 }
 
 .navbar-right .user {
   font-size: 16px;
-  color: grey;
+  color: #555555; /* Slightly lighter grey */
 }
 
+/* Hamburger Menu */
 .hamburger {
-  display: none;
+  display: none; /* Hidden by default */
   background: none;
   border: none;
   cursor: pointer;
   flex-direction: column;
-  gap: 4px;
+  gap: 5px;
   justify-content: center;
   align-items: center;
 }
@@ -55,15 +52,16 @@ body {
 .hamburger-line {
   width: 24px;
   height: 3px;
-  background: black;
+  background: #333333; /* Dark grey */
   border-radius: 5px;
   transition: all 0.3s ease;
 }
 
 .hamburger:hover .hamburger-line {
-  background: grey;
+  background: #4caf50; /* Highlight color on hover */
 }
 
+/* Navbar Links */
 .navbar-links {
   display: flex;
   gap: 20px;
@@ -81,7 +79,9 @@ body {
   cursor: pointer;
   border-radius: 5px;
   transition: background-color 0.3s ease, transform 0.2s;
-  color: black;
+  color: #333333;
+  font-size: 16px;
+  font-weight: 500;
 }
 
 .navbar-links ul li:hover {
@@ -96,7 +96,7 @@ body {
 /* Responsive Styles */
 @media (max-width: 768px) {
   .hamburger {
-    display: flex; /* Show hamburger menu */
+    display: flex; /* Show hamburger menu on small screens */
   }
 
   .navbar-links {
@@ -105,12 +105,12 @@ body {
     top: 100%;
     left: 0;
     right: 0;
-    background-color: white;
+    background-color: #ffffff; /* White background */
     flex-direction: column;
     gap: 0;
     padding: 10px 0;
     z-index: 999;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Dropdown shadow */
   }
 
   .navbar-links.open {
@@ -127,17 +127,18 @@ body {
   .navbar-links ul li {
     padding: 15px 20px;
     width: 100%;
+    color: #333333;
   }
 }
 
-
+/* Overlay for Mobile Menu */
 .overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
   z-index: 998;
 }
 
@@ -151,4 +152,15 @@ body {
     transform: translateY(0);
     opacity: 1;
   }
+}
+
+/* Additional Improvements */
+.navbar-links ul li a {
+  text-decoration: none;
+  color: inherit; /* Inherit the text color */
+}
+
+
+.navbar-right .user strong {
+  color: #727783; /* Highlight user name */
 }
