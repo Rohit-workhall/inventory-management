@@ -47,9 +47,6 @@ const Navbar = ({ onSignOut }) => {
           </div>
         </div>
         <div className="navbar-right">
-          <span className="user">
-            Hello, <strong>User</strong>
-          </span>
           <button className="signout-button" onClick={onSignOut}>
             Sign Out
           </button>
