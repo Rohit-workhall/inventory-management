@@ -11,13 +11,10 @@ import {
   ArcElement, // Required for Pie Chart
 } from "chart.js";
 
-import Navbar from "../Navbar/Navbar";
-import Orders from "../Orders/Orders";
+
 import "./dashboard.css";
 import "../../Components/Navbar/navbar.css";
 import productData from "../../Products/Products.json";
-import ProductLists from "../ProductList/ProductLists";
-import Admin from "../../Admin/Admin";
 
 // Register required components
 ChartJS.register(
@@ -31,13 +28,13 @@ ChartJS.register(
 );
 
 const Dashboard = () => {
-  const [user, setUser] = useState("");
-  const [currentPage, setCurrentPage] = useState("dashboard");
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  // const [user, setUser] = useState("");
+  // const [currentPage, setCurrentPage] = useState("dashboard");
+  // const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-  const toggleSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen);
-  };
+  // const toggleSidebar = () => {
+  //   setIsSidebarOpen(!isSidebarOpen);
+  // };
 
   const totalProducts = productData.products.length;
   const lowStockItems = productData.products.filter(
@@ -82,8 +79,6 @@ const Dashboard = () => {
   };
 
   const renderPage = () => {
-    switch (currentPage) {
-      case "dashboard":
         return (
           <div>
             <div className="metrics">
@@ -116,11 +111,11 @@ const Dashboard = () => {
           </div>
         );
       
-    }
+    
   };
 
   return (
-    <div className={`dashboard ${isSidebarOpen ? "sidebar-open" : ""}`}>
+    <div >
       {/* <Navbar
         user={user}
         onNavClick={setCurrentPage}
