@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./navbar.css";
 
-const Navbar = () => {
+const Navbar = ({ onSignOut }) => {
   const [isNavOpen, setIsNavOpen] = useState(false);
 
   const toggleNav = () => {
@@ -24,17 +24,15 @@ const Navbar = () => {
           <div className={`navbar-links ${isNavOpen ? "open" : ""}`}>
             <ul>
               <li>
-                <Link to="/" >
+                <Link to="/" onClick={() => setIsNavOpen(false)}>
                   Dashboard
                 </Link>
               </li>
-              
               <li>
-              <Link to="/product" >
+                <Link to="/product" onClick={() => setIsNavOpen(false)}>
                   Product List
-                  </Link>
+                </Link>
               </li>
-              
               <li>
                 <Link to="/orders" onClick={() => setIsNavOpen(false)}>
                   Orders
@@ -52,6 +50,9 @@ const Navbar = () => {
           <span className="user">
             Hello, <strong>User</strong>
           </span>
+          <button className="signout-button" onClick={onSignOut}>
+            Sign Out
+          </button>
         </div>
       </div>
       {isNavOpen && <div className="overlay" onClick={toggleNav}></div>}

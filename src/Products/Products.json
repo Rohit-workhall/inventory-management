@@ -404,6 +404,14 @@
       "quantity": 10,
       "price": 10000,
       "category": "Electronics"
+    },
+    {
+      "id": "0c50",
+      "name": "fhgkvh",
+      "sku": "gf45",
+      "quantity": 0,
+      "price": 80,
+      "category": "Kitchen"
     }
   ],
   "categories": [
