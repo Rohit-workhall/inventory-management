@@ -1,0 +1,75 @@
+/* Product Form */
+.product-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 20px;
+  }
+  
+  .form-row {
+    padding: 10px;
+    display: flex;
+    gap: 70px; /* Space between left and right columns */
+  }
+  
+  .form-column {
+    
+    flex: 1;
+  }
+  
+  .input-label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+  }
+  
+  .input-field {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    width: 110%;
+    margin-bottom: 20px;
+    margin-top: 10px;
+  }
+
+  .input-field-category{
+     
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 14px;
+        width: 122%;
+        margin-bottom: 10px;
+        margin-top: 10px;
+  }
+  
+  .input-field:focus {
+    border-color: #333;
+    outline: none;
+    box-shadow: 0 0 5px rgba(51, 51, 51, 0.3);
+  }
+  
+  textarea.input-field {
+    resize: horizontal;
+    height: 80px; /* Adjust the height of the description textarea */
+  }
+  
+  .form-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: flex-end;
+  }
+  
+  .button.cancel-btn {
+    background-color: #d2d0db;
+  }
+  
+  .button:hover {
+    background-color: #0056b3;
+  }
+  
+  .button.cancel-btn:hover {
+    background-color: #aaa;
+  }
+  

@@ -85,65 +85,73 @@ function Auth({ setIsLoggedIn }) {
     <div className="all">
       <div className="app-container">
         <div className="form-container">
-          <h2>{isSignUp ? 'Sign Up' : 'Sign In'}</h2>
+          {/* <h2>{isSignUp ? 'StockWise' : 'StockWise'}</h2> */}
+          <h2 className="brand">
+            Stock<span className="highlight">Wise</span>
+          </h2>
 
           {serverMessage && <div className="error">{serverMessage}</div>}
 
           <form className="form" onSubmit={handleSubmit}>
             {isSignUp && (
-              <input
-                type="text"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                placeholder="Name"
-                required
-              />
+              <div className="input-group">
+                <label htmlFor="name">Name</label>
+                <input
+                  id="name"
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  placeholder="Enter your name"
+                  required
+                />
+              </div>
             )}
 
-            {isSignUp && (
+            <div className="input-group">
+              <label htmlFor="email">Email</label>
               <input
-                type="number"
-                name="phone_number"
-                value={formData.phone_number}
+                id="email"
+                type="email"
+                name="email"
+                value={formData.email}
                 onChange={handleChange}
-                placeholder="Phone Number"
+                placeholder="Enter your email"
                 required
               />
-            )}
+              {errors.email && <div className="error">{errors.email}</div>}
+            </div>
 
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              placeholder="Email"
-              required
-            />
-            {errors.email && <div className="error">{errors.email}</div>}
-
-            <input
-              type="password"
-              name="password"
-              value={formData.password}
-              onChange={handleChange}
-              placeholder="Password"
-              required
-            />
-            {errors.password && <div className="error">{errors.password}</div>}
-
-            {isSignUp && (
+            <div className="input-group">
+              <label htmlFor="password">Password</label>
               <input
+                id="password"
                 type="password"
-                name="confirmPassword"
-                value={formData.confirmPassword}
+                name="password"
+                value={formData.password}
                 onChange={handleChange}
-                placeholder="Confirm Password"
+                placeholder="Enter your password"
                 required
               />
-            )}
-            {isSignUp && errors.confirmPassword && (
-              <div className="error">{errors.confirmPassword}</div>
+              {errors.password && <div className="error">{errors.password}</div>}
+            </div>
+
+            {isSignUp && (
+              <div className="input-group">
+                <label htmlFor="confirmPassword">Confirm Password</label>
+                <input
+                  id="confirmPassword"
+                  type="password"
+                  name="confirmPassword"
+                  value={formData.confirmPassword}
+                  onChange={handleChange}
+                  placeholder="Re-enter your password"
+                  required
+                />
+                {errors.confirmPassword && (
+                  <div className="error">{errors.confirmPassword}</div>
+                )}
+              </div>
             )}
 
             <button type="submit">{isSignUp ? 'Sign Up' : 'Sign In'}</button>

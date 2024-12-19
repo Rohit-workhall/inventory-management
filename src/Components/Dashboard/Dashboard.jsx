@@ -81,16 +81,17 @@ const Dashboard = () => {
         return (
           <div>
             <div className="metrics">
-              <div className="metric">
+              <div className="metric-total-products">
                 <h3>Total Products</h3>
                 <p style={{color:"green"}}>{totalProducts}</p>
               </div>
-              <div className="metric">
+              <div className="metric-lowstock">
                 <h3>Low Stock Items</h3>
                 <p style={{color:"orange"}}>{lowStockItems}</p>
               </div>
-              <div className="metric">
+              <div className="metric-outofstock">
                 <h3>Out of Stock Items</h3>
+                <p style={{color:"red"}}>{outOfStockItems}</p>
                 <p style={{color:"red"}}>{outOfStockItems}</p>
               </div>
             </div>

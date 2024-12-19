@@ -7,7 +7,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background:black; /* White background */
+  background: black; /* White background */
   color: #333333; /* Dark grey text */
   padding: 2px 50px;
   position: sticky; /* Sticky navigation */
@@ -227,7 +227,7 @@
 }
 
 .hamburger:hover .hamburger-line {
-  background:whitesmoke; /* Highlight color on hover */
+  background: #488ae1; /* Highlight color on hover */
 }
 
 /* Navbar Links */
@@ -254,7 +254,7 @@
 }
 
 .navbar-links ul li:hover {
-  color: rgb(25, 150, 213);
+  background-color: rgb(70, 63, 63);
   transform: translateY(-2px);
 }
 
