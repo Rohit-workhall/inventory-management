@@ -1,0 +1,37 @@
+/* ProductDetail.css */
+.product-detail {
+    background-color: whitesmoke; /* Dark background */
+    color: black; /* Light text color */
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 800px;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    
+  }
+  
+  .product-title {
+    padding-top: 35px;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    /* Lighter shade for titles */
+  }
+  
+  .product-image {
+    width: 400px;
+    height: auto;
+    /* border-radius: 10px;  */
+    margin-bottom: 20px;
+    padding-left: 20%;
+  }
+  
+  .product-detail p {
+    font-size: 1rem;
+    margin: 10px 0;
+    
+  }
+  
+  .product-detail p strong {
+    color: black; /* White for bold labels */
+  }
+  

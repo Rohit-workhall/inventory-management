@@ -1,6 +1,6 @@
 import React from "react";
 import { Table } from "antd";
-
+import './ProductLists.css'
 const ProductTable = ({ columns, data, loading }) => {
   return (
     <Table

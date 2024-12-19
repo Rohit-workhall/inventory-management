@@ -1,56 +1,101 @@
-/* ProductLists.css */
+/* General Container Styles */
 .product-list-container {
-    background-color: #f9f9f9; /* Light grey background for the container */
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 1200px;
-    margin: 20px auto;
-  }
-  
-  .product-list-title {
-    font-size: 24px;
-    font-weight: bold;
-    color: #333; /* Dark grey */
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .product-table .ant-table-thead > tr > th {
-    background-color: #333; /* Dark grey header */
-    color: white;
-    font-weight: bold;
-    text-align: center;
-  }
-  
-  .product-table .ant-table-tbody > tr > td {
-    text-align: center;
-    color: #555; /* Medium grey text */
-  }
-  
-  .product-table .ant-table-row:nth-child(odd) {
-    background-color: #f7f7f7; /* Alternating light grey rows */
-  }
-  
-  .product-table .ant-table-row:nth-child(even) {
-    background-color: #fff; /* White rows */
-  }
-  
-  .product-table .ant-pagination-item {
-    border-color: #333; /* Pagination border color */
-  }
-  
-  .product-table .ant-pagination-item-active {
-    background-color: #333; /* Active pagination background */
-    border-color: #333;
-    color: white;
-  }
-  
-  .ant-drawer-body {
-    display: flex;
-    flex-direction: column;
-  }
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 1200px;
+  margin: 80px auto 20px; /* Account for navbar height */
+}
 
-  .filter {
-    margin-left: 380%;
-  }
+/* Product Table Styles */
+.product-table .ant-table-thead > tr > th {
+  background-color: #333;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+}
+
+.product-table .ant-table-tbody > tr > td {
+  text-align: center;
+  color: #555;
+}
+
+.product-table .ant-table-row:nth-child(odd) {
+  background-color: #f7f7f7;
+}
+
+.product-table .ant-table-row:nth-child(even) {
+  background-color: #fff;
+}
+
+.product-table .ant-pagination-item {
+  border-color: #333;
+}
+
+.product-table .ant-pagination-item-active {
+  background-color: #333;
+  border-color: #333;
+  color: white;
+}
+
+/* Filter Drawer Styles */
+.ant-drawer-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.filter-button {
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: background-color 0.2s ease;
+}
+
+.filter-button:hover {
+  background-color: #f39c12;
+  color: #fff;
+}
+
+/* Search Bar */
+.search-bar {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.search-bar .ant-input {
+  border-radius: 5px;
+}
+
+.search-bar .ant-btn {
+  background-color: #333;
+  color: white;
+  border-radius: 5px;
+  border: none;
+}
+
+.search-bar .ant-btn:hover {
+  background-color: #f39c12;
+}
+
+/* Ensure parent row and columns align content properly */
+.ant-row {
+  display: flex;
+  align-items: center; /* Align items vertically */
+}
+
+/* Search bar and button spacing adjustment */
+.ant-input-search {
+  margin-right: 10px; /* Optional: Add spacing if needed */
+}
+
+/* Button height adjustment to match the search bar */
+.ant-btn {
+  height: 40px; /* Match the height of the search bar */
+  line-height: 40px; /* Vertically center the text inside the button */
+}
