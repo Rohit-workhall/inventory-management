@@ -34,7 +34,7 @@ router.post(
             }
 
             // User authentication successful
-            res.status(200).json({ message: ['Login successful'], user: { id: user._id, email: user.email } });
+            res.status(200).json({ message: ['Login successful'], user: { id: user._id, name: user.name, email: user.email, role:user.role } });
         } catch (err) {
             console.error(err.message);
             res.status(500).json({ message: ['Server error'] });

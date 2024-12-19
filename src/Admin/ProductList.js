@@ -25,6 +25,7 @@ const ProductList = ({ onEdit, onAdd }) => {
   const { data, filteredData, loading, filters } = useSelector(
     (state) => state.products
   );
+  const Role = localStorage.getItem("Role");
 
   // Fetch products on component mount
   useEffect(() => {
@@ -45,12 +46,11 @@ const ProductList = ({ onEdit, onAdd }) => {
     { title: "SKU", dataIndex: "sku", key: "sku" },
     { title: "Quantity", dataIndex: "quantity", key: "quantity" },
     { title: "Price ($)", dataIndex: "price", key: "price" },
-    {
-      title: "Category",
-      dataIndex: "category",
-      key: "category",
-    },
-    {
+    { title: "Category", dataIndex: "category", key: "category" },
+  ];
+
+  if (Role === "admin") {
+    columns.push({
       title: "Actions",
       key: "actions",
       render: (_, record) => (
@@ -66,8 +66,8 @@ const ProductList = ({ onEdit, onAdd }) => {
           </button>
         </div>
       ),
-    },
-  ];
+    });
+  }
 
   const confirmDelete = (id) => {
     setSelectedProductId(id);

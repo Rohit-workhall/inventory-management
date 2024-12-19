@@ -19,6 +19,7 @@ const App = () => {
 
   const handleSignOut = () => {
     localStorage.removeItem("userId"); // Clear the logged-in user
+    localStorage.removeItem("Role");
     setIsLoggedIn(false);
   };
 
@@ -33,7 +34,7 @@ const App = () => {
             <Route path="/product" element={<ProductLists />} />
             <Route path="/product/:productId" element={<ProductDetail />} />
             <Route path="/orders" element={<Orders />} />
-            <Route path="/admin" element={<Admin />} />
+            <Route path="/StockManagement" element={<Admin />} />
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         </>
