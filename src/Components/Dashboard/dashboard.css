@@ -19,7 +19,7 @@
 }
 
 .metric-total-products {
-  background-color: gainsboro;
+  background-color: white;
   border-radius: 10px;
   padding: 20px;
   width: 200px;
@@ -28,7 +28,7 @@
   transition: transform 0.2s ease;
 }
 .metric-lowstock {
-  background-color: gainsboro;
+  background-color: white;
   border-radius: 10px;
   padding: 20px;
   width: 200px;
@@ -37,7 +37,7 @@
   transition: transform 0.2s ease;
 }
 .metric-outofstock {
-  background-color: gainsboro;
+  background-color: white;
   border-radius: 10px;
   padding: 20px;
   width: 200px;

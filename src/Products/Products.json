@@ -412,14 +412,6 @@
       "quantity": 74,
       "price": 20,
       "category": "Computers"
-    },
-    {
-      "name": "ars",
-      "sku": "sdgf46",
-      "quantity": 12,
-      "price": 10,
-      "category": "Electronics",
-      "id": "956a"
     }
   ],
   "categories": [
