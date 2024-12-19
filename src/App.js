@@ -7,8 +7,7 @@ import OrderPage from "./Components/Orders/OrderPage";
 import Admin from "./Admin/Admin";
 import OrderManagement from "./Components/Orders/OrderManagementPage";
 import Auth from "./Components/Auth/Auth"; // Import the Auth page
-import OrderPage from "./Components/Orders/OrderPage";
-import OrderManagement from "./Components/Orders/OrderManagementPage";
+
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);

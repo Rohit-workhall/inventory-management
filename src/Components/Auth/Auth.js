@@ -108,6 +108,21 @@ function Auth({ setIsLoggedIn }) {
               </div>
             )}
 
+{isSignUp && (
+              <div className="input-group">
+                <label htmlFor="phone_number">Phone Number</label>
+                <input
+                  id="phone_number"
+                  type="Number"
+                  name="phone_number"
+                  value={formData.phone_number}
+                  onChange={handleChange}
+                  placeholder="Enter your Phone Number"
+                  required
+                />
+              </div>
+            )}
+
             <div className="input-group">
               <label htmlFor="email">Email</label>
               <input
@@ -121,7 +136,7 @@ function Auth({ setIsLoggedIn }) {
               />
               {errors.email && <div className="error">{errors.email}</div>}
             </div>
-
+            
             <div className="input-group">
               <label htmlFor="password">Password</label>
               <input

@@ -49,6 +49,26 @@
       "status": "ordered",
       "email": "wdd@gmail.com",
       "date": "2024-12-18"
+    },
+    {
+      "id": "8f34",
+      "productId": "2",
+      "productName": "Office Chair",
+      "quantity": 1,
+      "totalPrice": 149.99,
+      "status": "ordered",
+      "email": "dd@gmail.com",
+      "date": "2024-12-31"
+    },
+    {
+      "id": "84f2",
+      "productId": "19",
+      "productName": "Washing Machine",
+      "quantity": 1,
+      "totalPrice": 499.99,
+      "status": "ordered",
+      "email": "ww@gmail.com",
+      "date": "2024-12-20"
     }
   ]
 }

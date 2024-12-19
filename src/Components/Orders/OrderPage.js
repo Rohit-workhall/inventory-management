@@ -102,6 +102,7 @@ const OrderPage = () => {
   };
 
   return (
+    <div className='all1'>
     <div className="order-page">
       <h2 className="order-page__header">Place Your Order</h2>
       <div className="order-page__content">
@@ -221,6 +222,7 @@ const OrderPage = () => {
           <p>Your order has been successfully placed.</p>
         </div>
       )}
+    </div>
     </div>
   );
 };
