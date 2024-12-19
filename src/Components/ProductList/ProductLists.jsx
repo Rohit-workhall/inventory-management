@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
+import { Table, Input, Row, Col, Button } from "antd";
 import { useSelector, useDispatch } from "react-redux";
 import {
   fetchProducts,
@@ -10,15 +11,15 @@ import {
   setSearchText,
   applyFilters,
 } from "../../store/productsSlice";
-import { Input, Row, Col, Button } from "antd";
-import ProductTable from "./ProductTable";
+import { Link } from "react-router-dom";
 import FilterDrawer from "./FilterDrawer";
-import { Link } from "react-router-dom";  // Import Link from react-router-dom
 
 const { Search } = Input;
 
 const ProductLists = () => {
   const [isFilterDrawerVisible, setIsFilterDrawerVisible] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1); // Track current page
+  const [pageSize, setPageSize] = useState(10); // Track page size
   const dispatch = useDispatch();
   const { data, filteredData, loading, filters } = useSelector((state) => state.products);
 
@@ -34,17 +35,26 @@ const ProductLists = () => {
   const categories = [...new Set(data.map((item) => item.category))];
 
   const columns = [
-    { title: "Id", dataIndex: "id", key: "id" },
+    {
+      title: "SI.No",
+      key: "siNo",
+      render: (_, __, index) => (currentPage - 1) * pageSize + index + 1, // Calculate serial number correctly
+      fixed: "left",
+    },
     {
       title: "Name",
       dataIndex: "name",
       key: "name",
-      render: (name, record) => (
-        <Link to={`/product/${record.id}`}>{name}</Link>  // Wrap name with Link
-      ),
+      sorter: (a, b) => a.name.localeCompare(b.name),
+      render: (name, record) => <Link to={`/product/${record.id}`}>{name}</Link>,
     },
     { title: "SKU", dataIndex: "sku", key: "sku" },
-    { title: "Quantity", dataIndex: "quantity", key: "quantity" },
+    {
+      title: "Quantity",
+      dataIndex: "quantity",
+      key: "quantity",
+      sorter: (a, b) => a.quantity - b.quantity,
+    },
     {
       title: "Availability",
       key: "availability",
@@ -58,10 +68,16 @@ const ProductLists = () => {
       title: "Price ($)",
       dataIndex: "price",
       key: "price",
+      sorter: (a, b) => a.price - b.price,
       render: (price) => `$${price.toFixed(2)}`,
     },
     { title: "Category", dataIndex: "category", key: "category" },
   ];
+
+  const handleTableChange = (pagination, filters, sorter) => {
+    setCurrentPage(pagination.current);
+    setPageSize(pagination.pageSize);
+  };
 
   return (
     <div style={{ padding: "20px" }}>
@@ -75,14 +91,25 @@ const ProductLists = () => {
             allowClear
           />
         </Col>
-        <Col span={4} >
+        <Col span={4}>
           <Button type="primary" onClick={() => setIsFilterDrawerVisible(true)}>
             Filter
           </Button>
         </Col>
       </Row>
 
-      <ProductTable columns={columns} data={filteredData} loading={loading} />
+      <Table
+        columns={columns}
+        dataSource={filteredData}
+        loading={loading}
+        rowKey="sku"
+        pagination={{
+          current: currentPage,
+          pageSize,
+          total: filteredData.length,
+        }}
+        onChange={handleTableChange}
+      />
 
       <FilterDrawer
         isVisible={isFilterDrawerVisible}
@@ -91,7 +118,9 @@ const ProductLists = () => {
         categories={categories}
         onQuantityTypeChange={(value) => dispatch(setQuantityFilterType(value))}
         onQuantityChange={(value) => dispatch(setQuantityFilter(value))}
-        onAvailabilityChange={(checkedValues) => dispatch(setAvailabilityFilter(checkedValues))}
+        onAvailabilityChange={(checkedValues) =>
+          dispatch(setAvailabilityFilter(checkedValues))
+        }
         onPriceChange={(value) => dispatch(setPriceRange(value))}
         onCategoryChange={(checkedValues) => dispatch(setCategoryFilter(checkedValues))}
       />

@@ -52,10 +52,10 @@
   }
   
   /* Product Form */
-  .product-form {
+  /* .product-form {
     display: flex;
     flex-direction: column;
-    gap: 15px; /* Increase gap between form fields */
+    gap: 15px; 
     margin-top: 20px;
   }
   
@@ -78,7 +78,7 @@
     outline: none;
     box-shadow: 0 0 5px rgba(51, 51, 51, 0.3);
   }
-  
+   */
   /* Buttons Container */
   .form-buttons {
     display: flex;

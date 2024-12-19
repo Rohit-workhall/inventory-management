@@ -7,9 +7,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #ffffff; /* White background */
+  background: black; /* White background */
   color: #333333; /* Dark grey text */
-  padding: 15px 20px;
+  padding: 2px 50px;
   position: sticky; /* Sticky navigation */
   top: 0;
   z-index: 1000;
@@ -25,17 +25,100 @@
 .navbar-left .brand {
   font-size: 24px;
   font-weight: bold;
-  color: #0a0909; /* Brand color */
+  color: #d7d6d6; /* Brand color */
 }
 
 .navbar-left .highlight {
   color: #8f968f; /* Highlight color */
 }
 
-.navbar-right .user {
-  font-size: 16px;
-  color: #555555; /* Slightly lighter grey */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  position: relative;
 }
+
+.navbar-right .user-container {
+  position: relative;
+  cursor: pointer;
+}
+
+.navbar-right .user-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #007bff;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.navbar-right .dropdown {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background-color: white;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  width: 150px;
+  z-index: 1000;
+  animation: slideIn 0.3s ease;
+}
+
+.navbar-right .dropdown-item {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.navbar-right .dropdown-item:hover {
+  background-color: #f8f9fa;
+}
+
+.navbar-right .dropdown-item .user-circle {
+  width: 30px;
+  height: 30px;
+  font-size: 14px;
+}
+
+.navbar-right .user-name {
+  font-weight: bold;
+  color: #555;
+}
+
+.navbar-right .logout {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px;
+  color: #d9534f; /* Logout color */
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar-right .logout:hover {
+  background-color: #f8d7da; /* Light red background */
+  color: #c9302c; /* Darker red text on hover */
+}
+
+.navbar-right .logout-icon {
+  font-size: 18px;
+  margin-right: 5px;
+  transition: transform 0.3s ease;
+}
+
+.navbar-right .logout:hover .logout-icon {
+  transform: scale(1.1); /* Slightly enlarge icon on hover */
+}
+
 
 /* Hamburger Menu */
 .hamburger {
@@ -58,7 +141,7 @@
 }
 
 .hamburger:hover .hamburger-line {
-  background: #4caf50; /* Highlight color on hover */
+  background: #488ae1; /* Highlight color on hover */
 }
 
 /* Navbar Links */
@@ -79,13 +162,13 @@
   cursor: pointer;
   border-radius: 5px;
   transition: background-color 0.3s ease, transform 0.2s;
-  color: #333333;
+  color: white;
   font-size: 16px;
   font-weight: 500;
 }
 
 .navbar-links ul li:hover {
-  background-color: #f7f7f7;
+  background-color: rgb(70, 63, 63);
   transform: translateY(-2px);
 }
 
@@ -142,6 +225,21 @@
   z-index: 998;
 }
 
+.signout-button {
+  margin-left: 20px;
+  padding: 5px 10px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.signout-button:hover {
+  background-color: #d32f2f;
+}
+
 /* Animations */
 @keyframes slideIn {
   from {
@@ -160,7 +258,7 @@
   color: inherit; /* Inherit the text color */
 }
 
-
 .navbar-right .user strong {
   color: #727783; /* Highlight user name */
 }
+

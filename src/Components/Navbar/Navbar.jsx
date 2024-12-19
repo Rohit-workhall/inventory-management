@@ -2,12 +2,25 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./navbar.css";
 
-const Navbar = () => {
+const Navbar = ({ onSignOut }) => {
   const [isNavOpen, setIsNavOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const toggleNav = () => {
     setIsNavOpen(!isNavOpen);
   };
+
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
+
+  const handleLogout = () => {
+    // Add your logout logic here
+    console.log("User logged out");
+  };
+
+  const userName = "Vishali"; // Replace with dynamic user name
+  const userInitial = userName.charAt(0).toUpperCase();
 
   return (
     <div className="navbar-container">
@@ -24,34 +37,41 @@ const Navbar = () => {
           <div className={`navbar-links ${isNavOpen ? "open" : ""}`}>
             <ul>
               <li>
-                <Link to="/" >
+                <Link to="/" onClick={() => setIsNavOpen(false)}>
                   Dashboard
                 </Link>
               </li>
-              
               <li>
-              <Link to="/product" >
+                <Link to="/product" onClick={() => setIsNavOpen(false)}>
                   Product List
-                  </Link>
-              </li>
-              
-              <li>
-                <Link to="/orders" onClick={() => setIsNavOpen(false)}>
-                  Orders
                 </Link>
               </li>
               <li>
-                <Link to="/admin" onClick={() => setIsNavOpen(false)}>
-                  Admin
-                </Link>
+                <Link to="/orders">Orders</Link>
+              </li>
+              <li>
+                <Link to="/admin">Admin</Link>
               </li>
             </ul>
           </div>
         </div>
         <div className="navbar-right">
-          <span className="user">
-            Hello, <strong>User</strong>
-          </span>
+          <div className="user-container" onClick={toggleDropdown}>
+            <div className="user-circle">{userInitial}</div>
+            {isDropdownOpen && (
+              <div className="dropdown">
+                <div className="dropdown-item user-info">
+                  <div className="user-circle dropdown-circle">
+                    {userInitial}
+                  </div>
+                  <span className="user-name">{userName}</span>
+                </div>
+                <div className="dropdown-item logout" onClick={onSignOut}>
+                  Logout
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       </div>
       {isNavOpen && <div className="overlay" onClick={toggleNav}></div>}

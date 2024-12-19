@@ -1,23 +1,7 @@
 {
   "products": [
     {
-      "name": "Wireless Mouse",
-      "sku": "WM-001",
-      "quantity": 122,
-      "price": 19.99,
-      "category": "Electronics",
-      "id": "1"
-    },
-    {
-      "id": "2",
-      "name": "Mechanical Keyboard",
-      "sku": "MK-002",
-      "quantity": 74,
-      "price": 99.99,
-      "category": "Electronics"
-    },
-    {
-      "id": "3",
+      "id": "1",
       "name": "Gaming Laptop",
       "sku": "GL-003",
       "quantity": 45,
@@ -25,7 +9,7 @@
       "category": "Computers"
     },
     {
-      "id": "4",
+      "id": "2",
       "name": "Office Chair",
       "sku": "OC-004",
       "quantity": 30,
@@ -33,12 +17,34 @@
       "category": "Furniture"
     },
     {
-      "id": "5",
+      "id": "3",
       "name": "Bluetooth Headphones",
       "sku": "BH-005",
       "quantity": 200,
       "price": 39.99,
-      "category": "Electronics"
+      "category": "Electronics",
+      "image": "https://m.media-amazon.com/images/I/61zumJIxYrL.jpg",
+      "description": "Wireless Bluetooth headphones with noise cancellation and high-quality sound."
+    },
+    {
+      "id": "4",
+      "name": "Mechanical Keyboard",
+      "sku": "MK-002",
+      "quantity": 76,
+      "price": 99.99,
+      "category": "Electronics",
+      "image": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQIsriZ5eBXe51syDL7UQrP0Fg8XOrYM0U_QAnDpFRPhPkjGUo9L_WfVOm_Mpq2xpoYdN2PkuCjDcYMbyS0rHma7o5ZbzY98_qdiUoXwaLaDGedG2sL38M1Wg",
+      "description": "Mechanical keyboard with tactile keys, RGB lighting, and durable, ergonomic design."
+    },
+    {
+      "id": "5",
+      "name": "HDMI Cable",
+      "sku": "HDMI-028",
+      "quantity": 600,
+      "price": 7.99,
+      "category": "Electronics",
+      "image": "https://m.media-amazon.com/images/I/61hqsN2bBWL.jpg",
+      "description": "A high-quality HDMI cable for clear video and audio transmission."
     },
     {
       "id": "6",
@@ -217,14 +223,6 @@
       "category": "Home Appliances"
     },
     {
-      "id": "28",
-      "name": "HDMI Cable",
-      "sku": "HDMI-028",
-      "quantity": 600,
-      "price": 7.99,
-      "category": "Electronics"
-    },
-    {
       "id": "29",
       "name": "Wi-Fi Extender",
       "sku": "WE-029",
@@ -393,12 +391,21 @@
       "category": "Travel"
     },
     {
-      "id": "50",
-      "name": "Neck Pillow",
-      "sku": "NP-050",
-      "quantity": 400,
-      "price": 12.99,
-      "category": "Travel"
+      "id": "a886",
+      "name": "Mobile",
+      "sku": "MO-01",
+      "quantity": 10,
+      "price": 10000,
+      "category": "Electronics"
+    },
+    {
+      "id": "3c8c",
+      "name": "Mobile",
+      "sku": "MO-001",
+      "quantity": 20,
+      "price": 10000,
+      "category": "Electronics",
+      "description": "Mobile Phones"
     }
   ],
   "categories": [
