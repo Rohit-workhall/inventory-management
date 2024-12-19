@@ -1,90 +1,177 @@
-.all{
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    color: #333;
-  }
-  
-  .app-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-  }
-  
-  .form-container {
-    background-color: white;
-    padding: 40px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    width: 300px;
-    text-align: center;
-  }
-  
-  h2 {
-    color: black;
-    margin-bottom: 20px;
-  }
-  
-  .form input {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 14px;
-    background-color: #f7f7f7;
-  }
-  
-  .form input:focus {
-    outline: none;
-    border-color: #333;
-  }
-  
-  .form button {
-    width: 100%;
-    padding: 12px;
-    background-color: #333;
-    color: white;
-    font-size: 16px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .form button:hover {
-    background-color: #555;
-  }
-  
-  .toggle-container {
-    margin-top: 20px;
-  }
-  
-  .toggle-container span {
-    color: #888;
-    font-size: 14px;
-  }
-  
-  .toggle-container button {
-    background: none;
-    color: #333;
-    border: none;
-    font-size: 14px;
-    cursor: pointer;
-    transition: color 0.3s ease;
-  }
-  
-  .toggle-container button:hover {
-    color: #555;
-  }
-  
-  .error {
-    color: red;
-    font-size: 12px;
-    margin-bottom: 10px;
-    text-align: left;
-  }
+/* General Styles */
+.all {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom, white 50%, grey 50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: #333;
+}
+
+.app-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.form-container {
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 400px;
+  text-align: center;
+}
+
+h2 {
+  color: black;
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Input Group Styles */
+.input-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.input-group label {
+  padding-left: 10px;
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: #333;
+  font-weight: bold;
+}
+
+.input-group input {
+  width: 90%;
+  padding: 10px;
+  margin: 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: #f7f7f7;
+  margin-left: 10px;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: black;
+}
+
+/* Button Styles */
+.form button {
+  width: 95%;
+  padding: 12px;
+  background-color: black;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.form button:hover {
+  background-color: #555;
+}
+
+/* Toggle Container Styles */
+.toggle-container {
+  margin-top: 20px;
+}
+
+.toggle-container span {
+  color: #888;
+  font-size: 14px;
+}
+
+.toggle-container button {
+  background: none;
+  color: black;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.toggle-container button:hover {
+  color: grey;
+}
+
+/* Error Styles */
+.error {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+/* Server Message Styles */
+.server-message {
+  color: black;
+  background-color: #f8d7da;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* Custom Theme for StockWise */
+.app-header {
+  font-size: 28px;
+  font-weight: bold;
+  color: black;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.social-login {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.social-login button {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.social-login button.google {
+  color: black;
+  background-color: white;
+  border-color: black;
+}
+
+.social-login button.microsoft {
+  color: white;
+  background-color: grey;
+  border-color: black;
+}
+
+.social-login button:hover {
+  border-color: grey;
+}
+
+
+.form-container.brand {
+  font-size: 24px;
+  font-weight: bold;
+  color: #0a0909; /* Brand color */
+}
+
+.form-container .highlight {
+  color: #8f968f; /* Highlight color */
+}

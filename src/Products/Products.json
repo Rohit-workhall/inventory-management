@@ -406,6 +406,15 @@
       "quantity": 10,
       "price": 10000,
       "category": "Electronics"
+    },
+    {
+      "id": "3c8c",
+      "name": "Mobile",
+      "sku": "MO-001",
+      "quantity": 20,
+      "price": 10000,
+      "category": "Electronics",
+      "description": "Mobile Phones"
     }
   ],
   "categories": [
