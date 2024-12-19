@@ -3,8 +3,9 @@ import { useState, useEffect } from "react";
 import ProductDetail from "./Components/ProductList/ProductDetail";
 import Dashboard from "./Components/Dashboard/Dashboard";
 import Navbar from "./Components/Navbar/Navbar";
-import Orders from "./Components/Orders/Orders";
+import OrderPage from "./Components/Orders/OrderPage";
 import Admin from "./Admin/Admin";
+import OrderManagement from "./Components/Orders/OrderManagementPage";
 import Auth from "./Components/Auth/Auth"; // Import the Auth page
 
 const App = () => {
@@ -31,7 +32,8 @@ const App = () => {
             <Route path="/" element={<Dashboard />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/product/:productId" element={<ProductDetail />} />
-            <Route path="/orders" element={<Orders />} />
+            <Route path="/orders/place" element={<OrderPage/>} />
+            <Route path="/orders/manage" element={<OrderManagement/>}></Route>
             <Route path="/StockManagement" element={<Admin />} />
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
