@@ -15,14 +15,15 @@ const Admin = () => {
   return (
     <div>
     <div className="admin-container">
-      <h1 className="admin-header">Admin Dashboard</h1>
-    
+      <h1 className="admin-header">Product Mangement</h1>
       <button className="button" onClick={() => {
         setEditingProduct(null); 
         setShowForm(true);
       }}>
         Add Product
       </button>
+    
+     
 
      
       <ProductList
@@ -46,6 +47,7 @@ const Admin = () => {
         </div>
       )}
     </div>
+  
     </div>
   );
 };

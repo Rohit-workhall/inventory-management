@@ -1,0 +1,199 @@
+/* General container for the order management page */
+.order-management {
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial', sans-serif;
+  color: #333;
+}
+
+/* Header styling */
+.order-management__header {
+  font-size: 32px;
+  font-weight: bold;
+  color: #222;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Container for the table */
+.order-management__table-container {
+  overflow-x: auto;
+}
+
+/* Table Styling */
+.order-management__table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #ddd;
+  margin-bottom: 20px;
+  background-color: #fff;
+}
+
+.order-management__table th, .order-management__table td {
+  padding: 16px 20px;
+  text-align: left;
+  font-size: 16px;
+  color: #555;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Table Header */
+.order-management__table th {
+  background-color: #333;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Alternate Row Background */
+.order-management__table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* Button styling for 'Mark as Delivered' and 'View' buttons */
+.order-management__button {
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.order-management__button--delivered {
+  background-color: #4CAF50;
+  color: #fff;
+}
+
+.order-management__button--delivered:hover {
+  background-color: #45a049;
+}
+
+.order-management__button--view {
+  background-color: #2196F3;
+  color: #fff;
+}
+
+.order-management__button--view:hover {
+  background-color: #1e88e5;
+}
+
+.order-management__button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+/* Modal styling */
+.order-details-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+/* Modal content */
+.order-details-modal__content {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  width: 450px;
+  max-width: 80%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  animation: slideIn 0.4s ease-out;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Modal title */
+.order-details-modal__content h3 {
+  margin-top: 0;
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Modal content text */
+.order-details-modal__content p {
+  font-size: 16px;
+  color: #555;
+  margin: 10px 0;
+  line-height: 1.5;
+}
+
+/* Make labels bold and improve spacing */
+.order-details-modal__content p strong {
+  font-weight: 600;
+  color: #333;
+  margin-right: 5px;
+}
+
+/* Close button styling */
+.order-details-modal__close-btn {
+  background-color: #f44336;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 20px;
+  width: 100%;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.order-details-modal__close-btn:hover {
+  background-color: #e53935;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .order-details-modal__content {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .order-details-modal__content h3 {
+    font-size: 20px;
+  }
+
+  .order-details-modal__content p {
+    font-size: 14px;
+  }
+
+  .order-details-modal__close-btn {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+}

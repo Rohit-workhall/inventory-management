@@ -1,0 +1,44 @@
+{
+  "orders": [
+    {
+      "id": "732d",
+      "productId": "1",
+      "productName": "Wireless Mouse",
+      "quantity": 1,
+      "totalPrice": 19.99,
+      "status": "delivered",
+      "email": "aaa@gmail.com",
+      "date": "2024-12-20"
+    },
+    {
+      "id": "81a1",
+      "productId": "29",
+      "productName": "Wi-Fi Extender",
+      "quantity": 1,
+      "totalPrice": 39.99,
+      "status": "delivered",
+      "email": "harshid@gmail.com",
+      "date": "2024-12-18"
+    },
+    {
+      "id": "9ea2",
+      "productId": "9",
+      "productName": "Wireless Router",
+      "quantity": 1,
+      "totalPrice": 49.99,
+      "status": "delivered",
+      "email": "rohit@gmail.com",
+      "date": "2024-12-18"
+    },
+    {
+      "id": "ec0c",
+      "productId": "38",
+      "productName": "Wine Glass Set",
+      "quantity": 1,
+      "totalPrice": 15.99,
+      "status": "ordered",
+      "email": "rr@gmail.com",
+      "date": "2024-12-18"
+    }
+  ]
+}

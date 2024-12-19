@@ -1,6 +1,6 @@
 // src\store\productsSlice.js
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { addProduct as addProductAPI } from "../Admin/Api"; // Import API functions
+import { addProduct as addProductAPI } from "../Admin/Api"; 
   
 // Async actions for add, edit, delete
 export const addProduct = createAsyncThunk("products/addProduct", async (productData) => {
@@ -10,23 +10,22 @@ export const addProduct = createAsyncThunk("products/addProduct", async (product
 
 export const fetchProducts = createAsyncThunk("products/fetchProducts", async () => {
     try {
-      const response = await fetch("http://localhost:3001/products"); // Update this URL if needed
+      const response = await fetch("http://localhost:3001/products"); 
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
       const data = await response.json();
-      return data; // Return data to update the Redux state
+      return data; 
     } catch (error) {
       console.error("Error fetching products:", error);
-      throw error; // Ensure the error is caught
-    }
+      throw error;    }
   });
 
-// Define the productsSlice with the additional actions for add, edit, and delete
+
 const productsSlice = createSlice({
     name: "products",
     initialState: {
-      data: [], // Ensure data is an array
+      data: [], 
       filteredData: [],
       loading: true,
       filters: {
