@@ -1,12 +1,12 @@
 {
   "products": [
     {
-      "id": "1",
       "name": "Gaming Laptop",
       "sku": "GL-003",
-      "quantity": 45,
+      "quantity": 40,
       "price": 899.99,
-      "category": "Computers"
+      "category": "Computers",
+      "id": "1"
     },
     {
       "id": "2",
@@ -399,13 +399,12 @@
       "category": "Electronics"
     },
     {
-      "id": "3c8c",
-      "name": "Mobile",
-      "sku": "MO-001",
-      "quantity": 20,
-      "price": 10000,
-      "category": "Electronics",
-      "description": "Mobile Phones"
+      "id": "c657",
+      "name": "adfgf",
+      "sku": "hj788",
+      "quantity": 74,
+      "price": 20,
+      "category": "Computers"
     }
   ],
   "categories": [

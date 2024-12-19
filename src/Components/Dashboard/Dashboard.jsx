@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { Bar, Pie } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -84,15 +83,16 @@ const Dashboard = () => {
             <div className="metrics">
               <div className="metric-total-products">
                 <h3>Total Products</h3>
-                <p style={{color:"blue"}}>{totalProducts}</p>
+                <strong><p style={{color:"green"}}>{totalProducts}</p></strong>
               </div>
               <div className="metric-lowstock">
                 <h3>Low Stock Items</h3>
-                <p style={{color:"yellow"}}>{lowStockItems}</p>
+                <strong><p style={{color:"orange"}}>{lowStockItems}</p></strong>
               </div>
               <div className="metric-outofstock">
                 <h3>Out of Stock Items</h3>
-                <p style={{color:"red"}}>{outOfStockItems}</p>
+                <strong><p style={{color:"red"}}>{outOfStockItems}</p></strong>
+                
               </div>
             </div>
             <div className="chart-wrapper">

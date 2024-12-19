@@ -4,7 +4,7 @@
     padding: 20px;
     max-width: 1200px;
     margin: 0 auto;
-    background-color: #fff;
+    background-color: #f5f5f5;
   }
   
   .admin-header {
@@ -90,7 +90,6 @@
   .button {
     background-color: #333;
     color: white;
-    padding: 10px 15px;
     min-width: 120px; /* Ensure buttons have consistent width */
     text-align: center; /* Center button text */
     border: none;
@@ -149,3 +148,15 @@
   justify-content: center;
   gap: 10px; /* Space between buttons */
 }
+
+.ant-input-search-button {
+  display: flex;
+  color: gray;
+  background-color: white;
+  border-color: gray;
+  align-items: center;
+  height: 40px; /* Match the height of the input */
+  margin: 0; /* Ensure no extra margins */
+  padding: 0 10px; /* Adjust padding for better alignment */
+}
+

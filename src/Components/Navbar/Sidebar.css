@@ -1,0 +1,46 @@
+/* Sidebar container */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -300px; /* Hidden by default */
+    width: 300px;
+    height: 100%;
+    background-color: #fff;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+    transition: right 0.3s ease-in-out;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .sidebar.open {
+    right: 0; /* Slide in */
+  }
+  
+  .sidebar-header {
+    padding: 20px;
+    background-color: gray;
+    color: #fff;
+    font-size: 1.2rem;
+  }
+  
+  .sidebar-content {
+    padding: 20px;
+    font-size: 1rem;
+  }
+  
+  .sidebar-content p {
+    margin-bottom: 10px;
+  }
+  
+  /* Overlay for the rest of the screen */
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+    z-index: 999; /* Below sidebar but above main content */
+  }
+  

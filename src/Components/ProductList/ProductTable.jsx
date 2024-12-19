@@ -2,7 +2,6 @@
   import { Table } from "antd";
   import AscendingSorter from "../ProductList/Sorter/AscendingSorter";
   import DescendingSorter from "../ProductList/Sorter/DescendingSorter";
-  import "./ProductLists.css";
 
   const ProductTable = ({ columns, data, loading }) => {
     // Initialize state for sorted data

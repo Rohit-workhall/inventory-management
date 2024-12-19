@@ -3,17 +3,18 @@ import axios from 'axios';
 import './Auth.css';
 import { useNavigate } from 'react-router-dom';
 
-function Auth({ setIsLoggedIn }) { // Receive setIsLoggedIn as a prop
+function Auth({ setIsLoggedIn }) {
   const [isSignUp, setIsSignUp] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
+    phone_number: '',
     email: '',
     password: '',
     confirmPassword: '',
   });
   const [errors, setErrors] = useState({});
   const [serverMessage, setServerMessage] = useState('');
-  
+
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -24,34 +25,46 @@ function Auth({ setIsLoggedIn }) { // Receive setIsLoggedIn as a prop
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Frontend validation for sign-up
+    if (isSignUp) {
+      if (formData.password !== formData.confirmPassword) {
+        setErrors({ confirmPassword: "Passwords do not match!" });
+        return;
+      }
+    }
+
     const url = isSignUp ? 'http://localhost:5000/api/signup' : 'http://localhost:5000/api/login';
     const payload = isSignUp
-      ? { name: formData.name, email: formData.email, password: formData.password }
+      ? { 
+          name: formData.name, 
+          phone_number: formData.phone_number, 
+          email: formData.email, 
+          password: formData.password 
+        }
       : { email: formData.email, password: formData.password };
 
     try {
       const response = await axios.post(url, payload);
-      setServerMessage(response.data.message.join(' '));
+      setServerMessage(response.data.message);
 
       if (isSignUp) {
-        // On successful signup, toggle back to sign-in
-        toggleForm();
+        toggleForm(); // Redirect to login after successful sign-up
       } else {
-        // Save the user ID to localStorage after login
-        const userId = response.data.user.id; // Ensure backend sends user.id
+        const userId = response.data.user.id; 
+        const userRole = response.data.user.role; 
         localStorage.setItem('userId', userId);
+        localStorage.setItem('Role', userRole);
 
-        // Update the parent component state and redirect
-        setIsLoggedIn(true); // Set login state in App
-        navigate('/dashboard'); // Redirect to the dashboard
+        setIsLoggedIn(true); // Update parent state
+        navigate('/dashboard'); // Redirect to dashboard
       }
     } catch (err) {
       console.error("Error:", err.response ? err.response.data : err.message);
-      if (err.response && err.response.data.message) {
-        setServerMessage(err.response.data.message.join(' '));
-      } else {
-        setServerMessage('Something went wrong. Please try again.');
-      }
+      setServerMessage(
+        err.response && err.response.data.message
+          ? err.response.data.message
+          : "Something went wrong. Please try again."
+      );
     }
   };
 
@@ -59,6 +72,7 @@ function Auth({ setIsLoggedIn }) { // Receive setIsLoggedIn as a prop
     setIsSignUp((prevState) => !prevState);
     setFormData({
       name: '',
+      phone_number: '',
       email: '',
       password: '',
       confirmPassword: '',
@@ -76,7 +90,7 @@ function Auth({ setIsLoggedIn }) { // Receive setIsLoggedIn as a prop
             Stock<span className="highlight">Wise</span>
           </h2>
 
-          {serverMessage && <div className="server-message">{serverMessage}</div>}
+          {serverMessage && <div className="error">{serverMessage}</div>}
 
           <form className="form" onSubmit={handleSubmit}>
             {isSignUp && (
