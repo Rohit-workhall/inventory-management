@@ -10,6 +10,7 @@ const Navbar = ({ onSignOut }) => {
   const [isOrdersDropdownOpen, setIsOrdersDropdownOpen] = useState(false); // State for Orders dropdown
   const [isSidebarOpen, setIsSidebarOpen] = useState(false); // State for sidebar
   const [userDetails, setUserDetails] = useState(null); // State for user details
+  const Role = localStorage.getItem("Role");
 
   useEffect(() => {
     fetchUserDetails();
@@ -67,11 +68,7 @@ const Navbar = ({ onSignOut }) => {
                   Dashboard
                 </Link>
               </li>
-              <li>
-                <Link to="/product" onClick={() => setIsNavOpen(false)}>
-                  Product List
-                </Link>
-              </li>
+              {Role==='admin' &&(
               <li className="dropdown-trigger" onMouseLeave={() => setIsOrdersDropdownOpen(false)}>
                 <span onMouseEnter={toggleOrdersDropdown}>Orders</span>
                 {isOrdersDropdownOpen && (
@@ -85,6 +82,7 @@ const Navbar = ({ onSignOut }) => {
                   </div>
                 )}
               </li>
+              )}
               <li>
                 <Link to="/StockManagement">Stock Management</Link>
               </li>

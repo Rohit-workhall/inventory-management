@@ -1,6 +1,5 @@
 import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import ProductLists from "./Components/ProductList/ProductLists";
 import ProductDetail from "./Components/ProductList/ProductDetail";
 import Dashboard from "./Components/Dashboard/Dashboard";
 import Navbar from "./Components/Navbar/Navbar";
@@ -31,7 +30,6 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/product" element={<ProductLists />} />
             <Route path="/product/:productId" element={<ProductDetail />} />
             <Route path="/orders" element={<Orders />} />
             <Route path="/StockManagement" element={<Admin />} />

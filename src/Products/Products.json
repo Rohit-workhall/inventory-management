@@ -1,25 +1,15 @@
 {
   "products": [
     {
-      "name": "Mechanical Keyboard",
-      "sku": "MK-002",
-      "quantity": 76,
-      "price": 99.99,
-      "category": "Electronics",
-      "id": "2"
-    },
-    {
-      "id": "3",
       "name": "Gaming Laptop",
       "sku": "GL-003",
-      "quantity": 45,
+      "quantity": 40,
       "price": 899.99,
       "category": "Computers",
-      "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSvZFcKPW8BJOj96uIbd50Eq0EGnr9T9CwfxGCwPuBHl0ZNTwAWw15J7IvrXpI5_y4ZxENUGH-tVdj9FqKA7fqG8S7eqWWa-Ct4G4b3DEc6-S6Ol9yF-3bthw",
-      "description": "A powerful gaming laptop with high-resolution display and fast processing speeds."
+      "id": "1"
     },
     {
-      "id": "4",
+      "id": "2",
       "name": "Office Chair",
       "sku": "OC-004",
       "quantity": 30,
@@ -29,7 +19,7 @@
       "description": "An ergonomic office chair with adjustable height and lumbar support."
     },
     {
-      "id": "5",
+      "id": "3",
       "name": "Bluetooth Headphones",
       "sku": "BH-005",
       "quantity": 200,
@@ -37,6 +27,26 @@
       "category": "Electronics",
       "image": "https://m.media-amazon.com/images/I/61zumJIxYrL.jpg",
       "description": "Wireless Bluetooth headphones with noise cancellation and high-quality sound."
+    },
+    {
+      "id": "4",
+      "name": "Mechanical Keyboard",
+      "sku": "MK-002",
+      "quantity": 76,
+      "price": 99.99,
+      "category": "Electronics",
+      "image": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQIsriZ5eBXe51syDL7UQrP0Fg8XOrYM0U_QAnDpFRPhPkjGUo9L_WfVOm_Mpq2xpoYdN2PkuCjDcYMbyS0rHma7o5ZbzY98_qdiUoXwaLaDGedG2sL38M1Wg",
+      "description": "Mechanical keyboard with tactile keys, RGB lighting, and durable, ergonomic design."
+    },
+    {
+      "id": "5",
+      "name": "HDMI Cable",
+      "sku": "HDMI-028",
+      "quantity": 600,
+      "price": 7.99,
+      "category": "Electronics",
+      "image": "https://m.media-amazon.com/images/I/61hqsN2bBWL.jpg",
+      "description": "A high-quality HDMI cable for clear video and audio transmission."
     },
     {
       "id": "6",
@@ -259,16 +269,6 @@
       "description": "A smart thermostat for efficient temperature control in your home."
     },
     {
-      "id": "28",
-      "name": "HDMI Cable",
-      "sku": "HDMI-028",
-      "quantity": 600,
-      "price": 7.99,
-      "category": "Electronics",
-      "image": "https://example.com/images/hdmi-cable.jpg",
-      "description": "A high-quality HDMI cable for clear video and audio transmission."
-    },
-    {
       "id": "29",
       "name": "Wi-Fi Extender",
       "sku": "WE-029",
@@ -406,12 +406,20 @@
       "category": "Electronics"
     },
     {
-      "id": "7894",
-      "name": "Abcd",
-      "sku": "Shj645",
-      "quantity": 0,
-      "price": 75,
+      "id": "c657",
+      "name": "adfgf",
+      "sku": "hj788",
+      "quantity": 74,
+      "price": 20,
       "category": "Computers"
+    },
+    {
+      "name": "ars",
+      "sku": "sdgf46",
+      "quantity": 12,
+      "price": 10,
+      "category": "Electronics",
+      "id": "956a"
     }
   ],
   "categories": [

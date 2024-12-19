@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { Bar, Pie } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -10,10 +9,11 @@ import {
   Legend,
   ArcElement, // Required for Pie Chart
 } from "chart.js";
+
+
 import "./dashboard.css";
 import "../../Components/Navbar/navbar.css";
 import productData from "../../Products/Products.json";
-
 
 // Register required components
 ChartJS.register(
@@ -27,13 +27,13 @@ ChartJS.register(
 );
 
 const Dashboard = () => {
-  const [user, setUser] = useState("");
-  const [currentPage, setCurrentPage] = useState("dashboard");
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  // const [user, setUser] = useState("");
+  // const [currentPage, setCurrentPage] = useState("dashboard");
+  // const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-  const toggleSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen);
-  };
+  // const toggleSidebar = () => {
+  //   setIsSidebarOpen(!isSidebarOpen);
+  // };
 
   const totalProducts = productData.products.length;
   const lowStockItems = productData.products.filter(
@@ -78,22 +78,20 @@ const Dashboard = () => {
   };
 
   const renderPage = () => {
-    switch (currentPage) {
-      case "dashboard":
         return (
           <div>
             <div className="metrics">
               <div className="metric">
                 <h3>Total Products</h3>
-                <p>{totalProducts}</p>
+                <p style={{color:"green"}}>{totalProducts}</p>
               </div>
               <div className="metric">
                 <h3>Low Stock Items</h3>
-                <p>{lowStockItems}</p>
+                <p style={{color:"orange"}}>{lowStockItems}</p>
               </div>
               <div className="metric">
                 <h3>Out of Stock Items</h3>
-                <p>{outOfStockItems}</p>
+                <p style={{color:"red"}}>{outOfStockItems}</p>
               </div>
             </div>
             <div className="chart-wrapper">
@@ -112,11 +110,11 @@ const Dashboard = () => {
           </div>
         );
       
-    }
+    
   };
 
   return (
-    <div className={`dashboard ${isSidebarOpen ? "sidebar-open" : ""}`}>
+    <div >
       {/* <Navbar
         user={user}
         onNavClick={setCurrentPage}

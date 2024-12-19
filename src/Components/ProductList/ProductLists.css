@@ -1,14 +1,14 @@
-/* General Container Styles */
+/* General Container Styles
 .product-list-container {
   background-color: #f9f9f9;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   max-width: 1200px;
-  margin: 80px auto 20px; /* Account for navbar height */
+  margin: 80px auto 20px; 
 }
 
-/* Product Table Styles */
+
 .product-table .ant-table-thead > tr > th {
   background-color: #333;
   color: white;
@@ -39,7 +39,7 @@
   color: white;
 }
 
-/* Filter Drawer Styles */
+
 .ant-drawer-body {
   display: flex;
   flex-direction: column;
@@ -60,7 +60,7 @@
   color: #fff;
 }
 
-/* Search Bar */
+
 .search-bar {
   margin-bottom: 20px;
   display: flex;
@@ -77,25 +77,27 @@
   color: white;
   border-radius: 5px;
   border: none;
+  padding-top: 10px;
 }
 
 .search-bar .ant-btn:hover {
   background-color: #f39c12;
 }
 
-/* Ensure parent row and columns align content properly */
+
 .ant-row {
   display: flex;
-  align-items: center; /* Align items vertically */
+  align-items: center; 
 }
 
-/* Search bar and button spacing adjustment */
+
 .ant-input-search {
-  margin-right: 10px; /* Optional: Add spacing if needed */
+  margin-right: 10px; 
 }
 
-/* Button height adjustment to match the search bar */
+
 .ant-btn {
-  height: 40px; /* Match the height of the search bar */
-  line-height: 40px; /* Vertically center the text inside the button */
+  height: 40px;
+  line-height: 40px; 
 }
+ 
