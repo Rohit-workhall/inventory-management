@@ -1,19 +1,19 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import './Auth.css';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import axios from "axios";
+import "./Auth.css";
+import { useNavigate } from "react-router-dom";
 
 function Auth({ setIsLoggedIn }) {
   const [isSignUp, setIsSignUp] = useState(false);
   const [formData, setFormData] = useState({
-    name: '',
-    phone_number: '',
-    email: '',
-    password: '',
-    confirmPassword: '',
+    name: "",
+    phone_number: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
   });
   const [errors, setErrors] = useState({});
-  const [serverMessage, setServerMessage] = useState('');
+  const [serverMessage, setServerMessage] = useState("");
 
   const navigate = useNavigate();
 
@@ -33,13 +33,15 @@ function Auth({ setIsLoggedIn }) {
       }
     }
 
-    const url = isSignUp ? 'http://localhost:5000/api/signup' : 'http://localhost:5000/api/login';
+    const url = isSignUp
+      ? "http://localhost:5000/api/signup"
+      : "http://localhost:5000/api/login";
     const payload = isSignUp
-      ? { 
-          name: formData.name, 
-          phone_number: formData.phone_number, 
-          email: formData.email, 
-          password: formData.password 
+      ? {
+          name: formData.name,
+          phone_number: formData.phone_number,
+          email: formData.email,
+          password: formData.password,
         }
       : { email: formData.email, password: formData.password };
 
@@ -50,13 +52,13 @@ function Auth({ setIsLoggedIn }) {
       if (isSignUp) {
         toggleForm(); // Redirect to login after successful sign-up
       } else {
-        const userId = response.data.user.id; 
-        const userRole = response.data.user.role; 
-        localStorage.setItem('userId', userId);
-        localStorage.setItem('Role', userRole);
+        const userId = response.data.user.id;
+        const userRole = response.data.user.role;
+        localStorage.setItem("userId", userId);
+        localStorage.setItem("Role", userRole);
 
         setIsLoggedIn(true); // Update parent state
-        navigate('/dashboard'); // Redirect to dashboard
+        navigate("/dashboard"); // Redirect to dashboard
       }
     } catch (err) {
       console.error("Error:", err.response ? err.response.data : err.message);
@@ -71,14 +73,14 @@ function Auth({ setIsLoggedIn }) {
   const toggleForm = () => {
     setIsSignUp((prevState) => !prevState);
     setFormData({
-      name: '',
-      phone_number: '',
-      email: '',
-      password: '',
-      confirmPassword: '',
+      name: "",
+      phone_number: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
     });
     setErrors({});
-    setServerMessage('');
+    setServerMessage("");
   };
 
   return (
@@ -103,6 +105,21 @@ function Auth({ setIsLoggedIn }) {
                   value={formData.name}
                   onChange={handleChange}
                   placeholder="Enter your name"
+                  required
+                />
+              </div>
+            )}
+
+            {isSignUp && (
+              <div className="input-group">
+                <label htmlFor="phone_number">Phone Number</label>
+                <input
+                  id="phone_number"
+                  type="Number"
+                  name="phone_number"
+                  value={formData.phone_number}
+                  onChange={handleChange}
+                  placeholder="Enter your Phone Number"
                   required
                 />
               </div>
@@ -133,7 +150,9 @@ function Auth({ setIsLoggedIn }) {
                 placeholder="Enter your password"
                 required
               />
-              {errors.password && <div className="error">{errors.password}</div>}
+              {errors.password && (
+                <div className="error">{errors.password}</div>
+              )}
             </div>
 
             {isSignUp && (
@@ -154,12 +173,16 @@ function Auth({ setIsLoggedIn }) {
               </div>
             )}
 
-            <button type="submit">{isSignUp ? 'Sign Up' : 'Sign In'}</button>
+            <button type="submit">{isSignUp ? "Sign Up" : "Sign In"}</button>
           </form>
 
           <div className="toggle-container">
-            <span>{isSignUp ? 'Already have an account?' : "Don't have an account?"}</span>
-            <button onClick={toggleForm}>{isSignUp ? 'Sign In' : 'Sign Up'}</button>
+            <span>
+              {isSignUp ? "Already have an account?" : "Don't have an account?"}
+            </span>
+            <button onClick={toggleForm}>
+              {isSignUp ? "Sign In" : "Sign Up"}
+            </button>
           </div>
         </div>
       </div>
