@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./navbar.css";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 
-const Navbar = () => {
+const Navbar = ({ onSignOut }) => {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
@@ -21,7 +19,7 @@ const Navbar = () => {
     console.log("User logged out");
   };
 
-  const userName = "User"; // Replace with dynamic user name
+  const userName = "Vishali"; // Replace with dynamic user name
   const userInitial = userName.charAt(0).toUpperCase();
 
   return (
@@ -39,10 +37,14 @@ const Navbar = () => {
           <div className={`navbar-links ${isNavOpen ? "open" : ""}`}>
             <ul>
               <li>
-                <Link to="/">Dashboard</Link>
+                <Link to="/" onClick={() => setIsNavOpen(false)}>
+                  Dashboard
+                </Link>
               </li>
               <li>
-                <Link to="/product">Product List</Link>
+                <Link to="/product" onClick={() => setIsNavOpen(false)}>
+                  Product List
+                </Link>
               </li>
               <li>
                 <Link to="/orders">Orders</Link>
@@ -59,12 +61,13 @@ const Navbar = () => {
             {isDropdownOpen && (
               <div className="dropdown">
                 <div className="dropdown-item user-info">
-                  <div className="user-circle dropdown-circle">{userInitial}</div>
+                  <div className="user-circle dropdown-circle">
+                    {userInitial}
+                  </div>
                   <span className="user-name">{userName}</span>
                 </div>
-                <div className="dropdown-item logout" onClick={handleLogout}>
-                  {/* <i className="logout-icon">\uD83D\uDD12</i>  */}
-                  <FontAwesomeIcon icon="fas fa-sign-out" />Logout
+                <div className="dropdown-item logout" onClick={onSignOut}>
+                  Logout
                 </div>
               </div>
             )}
