@@ -1,19 +1,35 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
-import Sidebar from "./Sidebar"; // Import the Sidebar component
-import axios from "axios"; // Import axios for HTTP requests
+import Sidebar from "./Sidebar"; 
+import axios from "axios"; 
 import "./navbar.css";
 
 const Navbar = ({ onSignOut }) => {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [isOrdersDropdownOpen, setIsOrdersDropdownOpen] = useState(false); // State for Orders dropdown
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false); // State for sidebar
-  const [userDetails, setUserDetails] = useState(null); // State for user details
+  const [isOrdersDropdownOpen, setIsOrdersDropdownOpen] = useState(false); 
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false); 
+  const [userDetails, setUserDetails] = useState(null); 
   const Role = localStorage.getItem("Role");
+
+  const dropdownRef = useRef(null); 
 
   useEffect(() => {
     fetchUserDetails();
+  }, []);
+
+  useEffect(() => {
+    const handleOutsideClick = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleOutsideClick);
+
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    };
   }, []);
 
   const toggleNav = () => {
@@ -68,20 +84,33 @@ const Navbar = ({ onSignOut }) => {
                   Dashboard
                 </Link>
               </li>
-              {Role==='admin' &&(
-              <li className="dropdown-trigger" onMouseLeave={() => setIsOrdersDropdownOpen(false)}>
-                <span onMouseEnter={toggleOrdersDropdown}>Orders</span>
-                {isOrdersDropdownOpen && (
-                  <div className="dropdown orders-dropdown">
-                    <div className="dropdown-item"><Link to="/orders/place" onClick={() => setIsOrdersDropdownOpen(false)}>
-                      Place Orders
-                    </Link></div>
-                    <div className="dropdown-item"><Link to="/orders/manage" onClick={() => setIsOrdersDropdownOpen(false)}>
-                      Manage Orders
-                    </Link></div>
-                  </div>
-                )}
-              </li>
+              {Role === "admin" && (
+                <li
+                  className="dropdown-trigger"
+                  onMouseLeave={() => setIsOrdersDropdownOpen(false)}
+                >
+                  <span onMouseEnter={toggleOrdersDropdown}>Orders</span>
+                  {isOrdersDropdownOpen && (
+                    <div className="dropdown orders-dropdown">
+                      <div className="dropdown-item">
+                        <Link
+                          to="/orders/place"
+                          onClick={() => setIsOrdersDropdownOpen(false)}
+                        >
+                          Place Orders
+                        </Link>
+                      </div>
+                      <div className="dropdown-item">
+                        <Link
+                          to="/orders/manage"
+                          onClick={() => setIsOrdersDropdownOpen(false)}
+                        >
+                          Manage Orders
+                        </Link>
+                      </div>
+                    </div>
+                  )}
+                </li>
               )}
               <li>
                 <Link to="/StockManagement">Stock Management</Link>
@@ -90,7 +119,11 @@ const Navbar = ({ onSignOut }) => {
           </div>
         </div>
         <div className="navbar-right">
-          <div className="user-container" onClick={toggleDropdown}>
+          <div
+            className="user-container"
+            ref={dropdownRef}
+            onClick={toggleDropdown}
+          >
             <div className="user-circle">{userInitial}</div>
             {isDropdownOpen && (
               <div className="dropdown">

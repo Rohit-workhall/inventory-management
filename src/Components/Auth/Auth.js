@@ -25,17 +25,23 @@ function Auth({ setIsLoggedIn }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Frontend validation for sign-up
-    if (isSignUp) {
-      if (formData.password !== formData.confirmPassword) {
-        setErrors({ confirmPassword: "Passwords do not match!" });
-        return;
-      }
+    let validationErrors = {};
+    if(isSignUp)
+    {
+    if ( formData.password !== formData.confirmPassword) {
+      validationErrors.confirmPassword = "Passwords do not match!";
+    }
+  }
+
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
     }
 
     const url = isSignUp
       ? "http://localhost:5000/api/signup"
       : "http://localhost:5000/api/login";
+
     const payload = isSignUp
       ? {
           name: formData.name,
@@ -45,29 +51,41 @@ function Auth({ setIsLoggedIn }) {
         }
       : { email: formData.email, password: formData.password };
 
-    try {
-      const response = await axios.post(url, payload);
-      setServerMessage(response.data.message);
-
-      if (isSignUp) {
-        toggleForm(); // Redirect to login after successful sign-up
-      } else {
-        const userId = response.data.user.id;
-        const userRole = response.data.user.role;
-        localStorage.setItem("userId", userId);
-        localStorage.setItem("Role", userRole);
-
-        setIsLoggedIn(true); // Update parent state
-        navigate("/dashboard"); // Redirect to dashboard
+      try {
+        const response = await axios.post(url, payload);
+      
+        if (isSignUp) {
+          toggleForm();
+        } else {
+          const userId = response.data.user.id;
+          const userRole = response.data.user.role;
+          localStorage.setItem("userId", userId);
+          localStorage.setItem("Role", userRole);
+      
+          setIsLoggedIn(true);
+          navigate("/dashboard");
+        }
+      } catch (err) {
+        if (err.response) {
+          const backendErrors = err.response.data.errors || err.response.data.message;
+      
+          if (Array.isArray(backendErrors)) {
+            const errorMessages = backendErrors.reduce(
+              (acc, message, index) => ({
+                ...acc,
+                [`error-${index}`]: message,
+              }),
+              {}
+            );
+            setErrors(errorMessages);
+          } else if (typeof backendErrors === "string") {
+            setServerMessage(backendErrors);
+          }
+        } else {
+          setServerMessage("Something went wrong. Please try again.");
+        }
       }
-    } catch (err) {
-      console.error("Error:", err.response ? err.response.data : err.message);
-      setServerMessage(
-        err.response && err.response.data.message
-          ? err.response.data.message
-          : "Something went wrong. Please try again."
-      );
-    }
+      
   };
 
   const toggleForm = () => {
@@ -87,12 +105,9 @@ function Auth({ setIsLoggedIn }) {
     <div className="all">
       <div className="app-container">
         <div className="form-container">
-          {/* <h2>{isSignUp ? 'StockWise' : 'StockWise'}</h2> */}
           <h2 className="brand">
             Stock<span className="highlight">Wise</span>
           </h2>
-
-          {serverMessage && <div className="error">{serverMessage}</div>}
 
           <form className="form" onSubmit={handleSubmit}>
             {isSignUp && (
@@ -107,6 +122,7 @@ function Auth({ setIsLoggedIn }) {
                   placeholder="Enter your name"
                   required
                 />
+                {errors.name && <div className="error">{errors.name}</div>}
               </div>
             )}
 
@@ -115,13 +131,16 @@ function Auth({ setIsLoggedIn }) {
                 <label htmlFor="phone_number">Phone Number</label>
                 <input
                   id="phone_number"
-                  type="Number"
+                  type="number"
                   name="phone_number"
                   value={formData.phone_number}
                   onChange={handleChange}
-                  placeholder="Enter your Phone Number"
+                  placeholder="Enter your phone number"
                   required
                 />
+                {errors.phone_number && (
+                  <div className="error">{errors.phone_number}</div>
+                )}
               </div>
             )}
 
@@ -167,11 +186,16 @@ function Auth({ setIsLoggedIn }) {
                   placeholder="Re-enter your password"
                   required
                 />
-                {errors.confirmPassword && (
-                  <div className="error">{errors.confirmPassword}</div>
-                )}
+               
               </div>
             )}
+            {serverMessage && <div className="error">{serverMessage}</div>}
+
+            {Object.keys(errors).map((key) => (
+              <div className="error" key={key}>
+                {errors[key]}
+              </div>
+            ))}
 
             <button type="submit">{isSignUp ? "Sign Up" : "Sign In"}</button>
           </form>

@@ -1,4 +1,4 @@
-/* General Navbar Styles */
+
 .navbar-container {
   position: relative;
 }
@@ -44,34 +44,13 @@
   cursor: pointer;
 }
 
-.navbar-right .user-circle {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #007bff;
-  color: white;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-}
-.navbar-right {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  position: relative;
-}
-
-.navbar-right .user-container {
-  position: relative;
-  cursor: pointer;
-}
 
 .navbar-right .user-circle {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #007bff;
-  color: white;
+  background-color: whitesmoke;
+  color: black;
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -98,10 +77,12 @@
   align-items: center;
   gap: 10px;
   cursor: pointer;
+  background-color:white;
+ 
 }
 
 .navbar-right .dropdown-item:hover {
-  background-color: #f8f9fa;
+  background-color:whitesmoke;
 }
 
 .navbar-right .dropdown-item .user-circle {
@@ -201,7 +182,7 @@
 }
 
 .navbar-right .logout:hover .logout-icon {
-  transform: scale(1.1); /* Slightly enlarge icon on hover */
+  transform: scale(1.1); 
 }
 
 
@@ -221,13 +202,13 @@
 .hamburger-line {
   width: 24px;
   height: 3px;
-  background: #333333; /* Dark grey */
+  background: #333333; 
   border-radius: 5px;
   transition: all 0.3s ease;
 }
 
 .hamburger:hover .hamburger-line {
-  background: #488ae1; /* Highlight color on hover */
+  background: whitesmoke; /* Highlight color on hover */
 }
 
 /* Navbar Links */
@@ -254,7 +235,7 @@
 }
 
 .navbar-links ul li:hover {
-  color: rgb(16, 145, 215);
+  color: lightgray;
   transform: translateY(-2px);
 }
 

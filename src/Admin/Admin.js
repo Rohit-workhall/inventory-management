@@ -13,6 +13,7 @@ const Admin = () => {
   };
 
   return (
+    <div>
     <div className="admin-container">
      
       <div className="toolbar">
@@ -36,6 +37,8 @@ const Admin = () => {
           </div>
         </div>
       )}
+    </div>
+  
     </div>
   );
 };

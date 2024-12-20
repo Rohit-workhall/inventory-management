@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom"; // Use useParams to get the product ID from the URL
-import "./productDetail.css"; // Import the CSS file for styling
+import { useParams } from "react-router-dom"; 
+import "./productDetail.css"; 
 
 const ProductDetail = () => {
-  const { productId } = useParams(); // Extract productId from URL
+  const { productId } = useParams(); 
   const [product, setProduct] = useState(null);
 
-  // Fetch product data based on productId
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await fetch(`http://localhost:3001/products/${productId}`); // Use backticks for template literals
+        const response = await fetch(`http://localhost:3001/products/${productId}`); 
         const productData = await response.json();
         setProduct(productData);
       } catch (error) {

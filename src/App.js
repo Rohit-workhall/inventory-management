@@ -6,19 +6,19 @@ import Navbar from "./Components/Navbar/Navbar";
 import OrderPage from "./Components/Orders/OrderPage";
 import Admin from "./Admin/Admin";
 import OrderManagement from "./Components/Orders/OrderManagementPage";
-import Auth from "./Components/Auth/Auth"; // Import the Auth page
+import Auth from "./Components/Auth/Auth"; 
+
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  // Check if user is already logged in (on page load)
   useEffect(() => {
     const userId = localStorage.getItem("userId");
-    setIsLoggedIn(!!userId); // Convert userId to a boolean
+    setIsLoggedIn(!!userId); 
   }, []);
 
   const handleSignOut = () => {
-    localStorage.removeItem("userId"); // Clear the logged-in user
+    localStorage.removeItem("userId"); 
     localStorage.removeItem("Role");
     setIsLoggedIn(false);
   };

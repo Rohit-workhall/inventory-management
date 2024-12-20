@@ -4,10 +4,8 @@
   import DescendingSorter from "../ProductList/Sorter/DescendingSorter";
 
   const ProductTable = ({ columns, data, loading }) => {
-    // Initialize state for sorted data
     const [sortedData, setSortedData] = useState([]);
 
-    // Sort by product name in ascending order by default
     useEffect(() => {
       const defaultSortedData = [...data].sort((a, b) =>
         a.name.localeCompare(b.name)
@@ -15,7 +13,6 @@
       setSortedData(defaultSortedData);
     }, [data]);
 
-    // Enhance columns with sorting icons
     const enhancedColumns = columns.map((col) => {
       if (["name", "quantity", "price"].includes(col.dataIndex)) {
         return {

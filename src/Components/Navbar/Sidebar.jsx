@@ -4,13 +4,11 @@ import "./Sidebar.css";
 const Sidebar = ({ isOpen, onClose, userDetails }) => {
   return (
     <>
-      {/* Overlay */}
       {isOpen && <div className="overlay" onClick={onClose}></div>}
 
-      {/* Sidebar */}
       <div className={`sidebar ${isOpen ? "open" : ""}`}>
         <div className="sidebar-header">
-          <h2>User Details</h2>
+          <h2 style={{color:"white", textAlign: "center"}}>User Details</h2>
         </div>
         <div className="sidebar-content">
           <p><strong>Name:</strong> {userDetails.name}</p>

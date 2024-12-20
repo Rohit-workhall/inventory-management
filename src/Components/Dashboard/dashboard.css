@@ -1,7 +1,12 @@
 /* General Dashboard Styles */
 .dashboard {
   font-family: 'Arial', sans-serif;
-  background-color: #f4f4f4;
+  background-color:whitesmoke;
+ /* Adjust for the navbar height */
+}
+
+.page-content {
+  flex-grow: 1;
   padding: 20px;
   transition: margin-left 0.3s ease-in-out;
 }
@@ -26,6 +31,7 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
   transition: transform 0.2s ease;
+  margin-top: 20px;
 }
 .metric-lowstock {
   background-color: white;
@@ -35,6 +41,7 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
   transition: transform 0.2s ease;
+  margin-top: 20px;
 }
 .metric-outofstock {
   background-color: white;
@@ -44,6 +51,7 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
   transition: transform 0.2s ease;
+  margin-top: 20px;
 }
 
 .metric:hover {

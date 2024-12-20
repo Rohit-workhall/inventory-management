@@ -1,8 +1,8 @@
 /* General container for the order management page */
 .order-management {
   max-width: 1200px;
-  margin: 50px auto;
-  padding: 20px;
+  margin: 20px auto;
+  padding: 3px;
   background-color: #ffffff;
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -16,7 +16,6 @@
   font-weight: bold;
   color: #222;
   text-align: center;
-  margin-bottom: 30px;
 }
 
 /* Container for the table */
@@ -43,8 +42,8 @@
 
 /* Table Header */
 .order-management__table th {
-  background-color: #333;
-  color: white;
+  background-color: rgb(181, 179, 179);
+  color: black;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -60,9 +59,15 @@
   font-size: 16px;
   border: none;
   border-radius: 6px;
+  background-color: rgb(115, 112, 112);
+  color: white;
   cursor: pointer;
   width: 100%;
   transition: all 0.3s ease;
+}
+
+.order-management__button:hover {
+  background-color: rgb(38, 38, 38);
 }
 
 .order-management__button--delivered {

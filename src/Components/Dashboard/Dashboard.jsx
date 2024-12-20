@@ -7,7 +7,7 @@ import {
   Title,
   Tooltip,
   Legend,
-  ArcElement, // Required for Pie Chart
+  ArcElement, 
 } from "chart.js";
 
 
@@ -15,7 +15,6 @@ import "./dashboard.css";
 import "../../Components/Navbar/navbar.css";
 import productData from "../../Products/Products.json";
 
-// Register required components
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -27,14 +26,6 @@ ChartJS.register(
 );
 
 const Dashboard = () => {
-  // const [user, setUser] = useState("");
-  // const [currentPage, setCurrentPage] = useState("dashboard");
-  // const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-
-  // const toggleSidebar = () => {
-  //   setIsSidebarOpen(!isSidebarOpen);
-  // };
-
   const totalProducts = productData.products.length;
   const lowStockItems = productData.products.filter(
     (item) => item.quantity <= 10 && item.quantity > 0
@@ -44,7 +35,6 @@ const Dashboard = () => {
   ).length;
   const inStockItems = totalProducts - outOfStockItems;
 
-  // Prepare bar chart data
   const categoryQuantities = productData.products.reduce((acc, product) => {
     const category = product.category;
     acc[category] = (acc[category] || 0) + product.quantity;
@@ -52,11 +42,11 @@ const Dashboard = () => {
   }, {});
 
   const barChartData = {
-    labels: Object.keys(categoryQuantities), // Categories
+    labels: Object.keys(categoryQuantities), 
     datasets: [
       {
         label: "Total Quantity by Category",
-        data: Object.values(categoryQuantities), // Quantities
+        data: Object.values(categoryQuantities), 
         backgroundColor: "rgba(54, 162, 235, 0.6)",
         borderColor: "rgba(54, 162, 235, 1)",
         borderWidth: 1,
@@ -64,14 +54,13 @@ const Dashboard = () => {
     ],
   };
 
-  // Prepare pie chart data for stock levels
   const pieChartData = {
     labels: ["In Stock", "Low Stock", "Out of Stock"],
     datasets: [
       {
         label: "Stock Overview",
         data: [inStockItems, lowStockItems, outOfStockItems],
-        backgroundColor: ["#4caf50", "#ffc107", "#f44336"], // Colors for each section
+        backgroundColor: ["#4caf50", "#ffc107", "#f44336"], 
         hoverOffset: 4,
       },
     ],
@@ -96,13 +85,12 @@ const Dashboard = () => {
               </div>
             </div>
             <div className="chart-wrapper">
-              {/* Bar Chart on the Left */}
               <div className="chart-container">
                 <h3>Product Quantity by Category</h3>
                 <Bar data={barChartData} />
               </div>
 
-              {/* Pie Chart on the Right */}
+        
               <div className="pie-chart-container">
                 <h3>Stock Overview</h3>
                 <Pie data={pieChartData} className="pie" />
@@ -116,12 +104,6 @@ const Dashboard = () => {
 
   return (
     <div >
-      {/* <Navbar
-        user={user}
-        onNavClick={setCurrentPage}
-        isOpen={isSidebarOpen}
-        toggleSidebar={toggleSidebar}
-      /> */}
       {renderPage()}
     </div>
   );

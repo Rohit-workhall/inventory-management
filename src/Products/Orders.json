@@ -1,5 +1,54 @@
 {
-    "orders":{
-        
+  "orders": [
+    {
+      "id": "81a1",
+      "productId": "29",
+      "productName": "Wi-Fi Extender",
+      "quantity": 1,
+      "totalPrice": 39.99,
+      "status": "delivered",
+      "email": "harshid@gmail.com",
+      "date": "2024-12-18"
+    },
+    {
+      "id": "9ea2",
+      "productId": "9",
+      "productName": "Wireless Router",
+      "quantity": 1,
+      "totalPrice": 49.99,
+      "status": "delivered",
+      "email": "rohit@gmail.com",
+      "date": "2024-12-18"
+    },
+    {
+      "id": "84f2",
+      "productId": "19",
+      "productName": "Washing Machine",
+      "quantity": 1,
+      "totalPrice": 499.99,
+      "status": "ordered",
+      "email": "ww@gmail.com",
+      "date": "2024-12-20"
+    },
+    {
+      "id": "e6a2",
+      "productId": "4",
+      "productName": "Mechanical Keyboard",
+      "quantity": 1,
+      "totalPrice": 99.99,
+      "status": "delivered",
+      "email": "rr@gmail.com",
+      "date": "2024-12-20"
+    },
+    {
+      "id": "579f",
+      "productId": "9",
+      "productName": "Wireless Router",
+      "quantity": 9,
+      "totalPrice": 449.91,
+      "status": "delivered",
+      "email": "rohit@gmail.com",
+      "date": "2024-12-20"
     }
+  ]
 }

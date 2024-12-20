@@ -1,16 +1,30 @@
-import React from 'react';
-import './OrderDetailsModal.css';
+import React, { useEffect, useRef } from "react";
+import "./OrderDetailsModal.css";
 
 const OrderDetailsModal = ({ viewDetails, closeModal }) => {
+  const modalRef = useRef(null);
+
+  useEffect(() => {
+    const handleOutsideClick = (event) => {
+      if (modalRef.current && !modalRef.current.contains(event.target)) {
+        closeModal();
+      }
+    };
+
+    document.addEventListener("mousedown", handleOutsideClick);
+
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    };
+  }, [closeModal]);
+
   if (!viewDetails) return null;
 
   return (
     <div className="modal-overlay">
-      <div className="modal-container">
+      <div className="modal-container" ref={modalRef}>
         <div className="modal-header">
-          <h3>Order Delivery Details</h3>
-          <button onClick={closeModal} className="modal-close-btn">×</button>
-        </div>
+      </div>
         <div className="modal-content">
           <p><strong>Product Name:</strong> {viewDetails.productName}</p>
           <p><strong>Previous Quantity:</strong> {viewDetails.previousQuantity}</p>

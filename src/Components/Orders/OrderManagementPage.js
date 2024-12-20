@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { getOrders, updateOrderStatus, getProducts, updateProductQuantity } from './Api';
 import './OrderMangementPage.css';
-import OrderDetailsModal from './OrderDetailsModal'; // Import the new modal component
+import OrderDetailsModal from './OrderDetailsModal'; 
+import { notification } from 'antd';
 
 const OrderManagement = () => {
   const [orders, setOrders] = useState([]);
   const [products, setProducts] = useState([]);
-  const [viewDetails, setViewDetails] = useState(null); // For viewing delivery details in a modal
+  const [viewDetails, setViewDetails] = useState(null); 
 
   useEffect(() => {
     fetchOrders();
@@ -43,7 +44,7 @@ const OrderManagement = () => {
       }
 
       await updateOrderStatus(orderId, 'delivered');
-      alert('Order marked as delivered successfully.');
+      notification.open({ message: 'Product delivered successfully.' });
       fetchOrders();
       fetchProducts();
     } catch (error) {
@@ -118,7 +119,6 @@ const OrderManagement = () => {
         </table>
       </div>
 
-      {/* Render the modal component when viewDetails is not null */}
       <OrderDetailsModal viewDetails={viewDetails} closeModal={closeViewModal} />
     </div>
   );

@@ -17,6 +17,7 @@ import { deleteProduct } from "../../Admin/Api";
 import ConfirmationModal from "../../Admin/ConfirmationModal";
 import { FilterFilled } from "@ant-design/icons";
 import ProductForm from "../../Admin/ProductForm";
+import '../../Admin/Admin.css'
 
 const { Search } = Input;
 
@@ -97,7 +98,7 @@ const ProductLists = ({ onEdit }) => {
             Edit
           </button>
           <button
-            className="button delete-btn"
+            className="delete-btn"
             onClick={() => confirmDelete(record.id)}
           >
             Delete

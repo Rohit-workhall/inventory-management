@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { addProduct, editProduct, getCategories } from "./Api";
-import { fetchProducts } from "../store/productsSlice"; // Import fetchProducts action
+import { fetchProducts } from "../store/productsSlice"; 
 import { notification } from "antd";
 import './productForm.css';
 
@@ -36,7 +36,7 @@ const ProductForm = ({ mode, product, onClose, refreshList }) => {
         quantity: product.quantity,
         price: product.price,
         category: product.category,
-        description: product.description || "", // If the description exists
+        description: product.description || "", 
       });
     }
   }, [mode, product]);
