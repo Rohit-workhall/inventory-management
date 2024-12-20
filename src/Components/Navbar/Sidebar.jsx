@@ -22,3 +22,4 @@ const Sidebar = ({ isOpen, onClose, userDetails }) => {
 };
 
 export default Sidebar;
+

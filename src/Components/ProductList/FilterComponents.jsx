@@ -59,3 +59,4 @@ export const CategoryFilter = ({ categories, onCategoryChange }) => (
     />
   </>
 );
+

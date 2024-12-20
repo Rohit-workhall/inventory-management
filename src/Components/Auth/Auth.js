@@ -215,3 +215,4 @@ function Auth({ setIsLoggedIn }) {
 }
 
 export default Auth;
+

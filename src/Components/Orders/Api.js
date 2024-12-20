@@ -39,3 +39,4 @@ export const updateProductQuantity = async (id, newQuantity) => {
   });
   if (!response.ok) throw new Error('Failed to update product quantity.');
 };
+

@@ -13,6 +13,7 @@
       setSortedData(defaultSortedData);
     }, [data]);
 
+    
     const enhancedColumns = columns.map((col) => {
       if (["name", "quantity", "price"].includes(col.dataIndex)) {
         return {

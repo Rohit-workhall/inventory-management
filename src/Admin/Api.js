@@ -36,3 +36,4 @@ export const deleteProduct = async (productId) => {
   const result = await response.json();
   return result;
 };
+
