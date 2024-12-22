@@ -11,11 +11,11 @@ import {
   setSearchText,
   applyFilters,
 } from "../../store/productsSlice";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import FilterDrawer from "./FilterDrawer";
 import { deleteProduct } from "../../Admin/Api";
 import ConfirmationModal from "../../Admin/ConfirmationModal";
-import { FilterFilled } from "@ant-design/icons";
+import { ArrowLeftOutlined, FilterFilled } from "@ant-design/icons";
 import ProductForm from "../../Admin/ProductForm";
 import '../../Admin/Admin.css'
 
@@ -33,6 +33,7 @@ const ProductLists = ({ onEdit }) => {
   const { data, filteredData, loading, filters } = useSelector(
     (state) => state.products
   );
+  const navigate = useNavigate();
   const Role = localStorage.getItem("Role");
 
   useEffect(() => {
@@ -88,7 +89,7 @@ const ProductLists = ({ onEdit }) => {
     { title: "Category", dataIndex: "category", key: "category" },
   ];
 
-  if (Role === "admin") {
+  if (Role === "admin" || Role === "super_admin") {
     columns.push({
       title: "Actions",
       key: "actions",
@@ -146,6 +147,7 @@ const ProductLists = ({ onEdit }) => {
       >
         <Col span={8}>
           <div style={{ display: "flex", alignItems: "center" }}>
+          <ArrowLeftOutlined onClick={()=>{navigate(-1)}} style={{fontSize:"20px", marginRight:"10px"}} />
             <Search
               placeholder="Search by Id, Name, or SKU"
               onChange={(e) => dispatch(setSearchText(e.target.value))}

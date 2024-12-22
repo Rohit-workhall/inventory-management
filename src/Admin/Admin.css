@@ -84,6 +84,17 @@
     background-color: #d9534f;
     color: white;
   }
+
+  .cnf-delete-btn {
+    background-color: rgb(115, 112, 112);
+    color: white;
+  }
+
+  .cnf-delete-btn:hover {
+    background-color: black;
+    color: white;
+  }
+
   
   .delete-btn:hover {
     background-color: #c9302c;

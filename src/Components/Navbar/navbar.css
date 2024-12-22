@@ -1,17 +1,18 @@
 
 .navbar-container {
-  position: relative;
+  position:relative;
 }
 
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: black; /* White background */
+  background: black; /* Black background */
   color: #333333; /* Dark grey text */
-  padding: 2px 50px;
-  position: sticky; /* Sticky navigation */
+  padding: 1px 50px;
+  position: fixed; /* Fixed position */
   top: 0;
+  width: 100%; /* Ensure it spans the full width */
   z-index: 1000;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }

@@ -6,7 +6,7 @@ const ConfirmationModal = ({ message, onConfirm, onCancel }) => {
       <div className="modal-content">
         <p>{message}</p>
         <div className="form-buttons">
-          <button className="button delete-btn" onClick={onConfirm}>
+          <button className="cnf-delete-btn" onClick={onConfirm}>
             Yes
           </button>
           <button className="button cancel-btn" onClick={onCancel}>
