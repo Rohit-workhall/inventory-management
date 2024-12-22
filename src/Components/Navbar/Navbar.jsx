@@ -115,6 +115,10 @@ const Navbar = ({ onSignOut }) => {
               <li>
                 <Link to="/StockManagement">Stock Management</Link>
               </li>
+              <li>
+                <Link to="/user"> User details</Link>
+              
+              </li>
             </ul>
           </div>
         </div>

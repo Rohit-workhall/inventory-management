@@ -40,3 +40,10 @@ export const updateProductQuantity = async (id, newQuantity) => {
   if (!response.ok) throw new Error('Failed to update product quantity.');
 };
 
+const BASE_URL_USERS = 'http://localhost:5000/api/manage-users'; // Correct endpoint for users
+
+export const getUserDetails = async (userId) => {
+  const response = await fetch(`${BASE_URL_USERS}/${userId}`);
+  if (!response.ok) throw new Error('Failed to fetch user details.');
+  return response.json();
+};

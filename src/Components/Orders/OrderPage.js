@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getProducts, createOrder } from './Api';
+import { getProducts, createOrder, getUserDetails } from './Api';
 import './OrderPage.css';
 import { notification } from 'antd';
 import { useNavigate } from 'react-router-dom';
@@ -21,6 +21,8 @@ const OrderPage = () => {
 
   useEffect(() => {
     fetchProducts();
+    populateDate();
+    fetchUserEmail();
   }, []);
 
   useEffect(() => {
@@ -45,6 +47,23 @@ const OrderPage = () => {
     } catch (error) {
       console.error('Failed to fetch products.');
     }
+  };
+
+  const fetchUserEmail = async () => {
+    const userId = localStorage.getItem('userId');
+    if (userId) {
+      try {
+        const userDetails = await getUserDetails(userId);
+        setEmail(userDetails.email);
+      } catch (error) {
+        console.error('Failed to fetch user details.');
+      }
+    }
+  };
+
+  const populateDate = () => {
+    const today = new Date().toISOString().split('T')[0];
+    setDate(today);
   };
 
   const handleProductSelect = (product) => {
@@ -120,7 +139,7 @@ const OrderPage = () => {
   };
 
   return (
-    <div className='all1'>
+    <div className="all1">
       <div className="order-page">
         <h2 className="order-page__header">Place Your Order</h2>
         <div className="order-page__content">
@@ -172,6 +191,7 @@ const OrderPage = () => {
                 onChange={(e) => setEmail(e.target.value)}
                 className={`order-page__input ${errors.email ? 'input-error' : ''}`}
                 placeholder="Enter your email"
+                readOnly
               />
               {errors.email && <span className="error-text">{errors.email}</span>}
             </div>
@@ -183,6 +203,7 @@ const OrderPage = () => {
                 value={date}
                 onChange={(e) => setDate(e.target.value)}
                 className={`order-page__input ${errors.date ? 'input-error' : ''}`}
+                readOnly
               />
               {errors.date && <span className="error-text">{errors.date}</span>}
             </div>
@@ -249,4 +270,3 @@ const OrderPage = () => {
 };
 
 export default OrderPage;
-
