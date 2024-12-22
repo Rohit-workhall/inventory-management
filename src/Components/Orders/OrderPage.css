@@ -21,12 +21,28 @@
   text-align: center;
 }
 
+/* Header container with left alignment */
+.order-page__header-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.order-page__header-container .anticon {
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #444;
+}
+
 /* Header styling */
 .order-page__header {
   font-size: 2rem;
   font-weight: bold;
   color: #333;
-  margin-bottom: 20px;
+  margin-left: 10px; /* Add space between the arrow and the header */
+  flex-grow: 1;
+  text-align: left;
 }
 
 /* Form container */
@@ -183,7 +199,6 @@
   background-color: red;
   color: white;
 }
-
 
 .order-page__button--cancel:hover {
   background-color: red;

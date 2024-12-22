@@ -24,7 +24,8 @@ const UserManagement = () => {
     try {
       const response = await fetch(API_URL);
       const data = await response.json();
-      setUsers(data);
+      const filteredUsers = data.filter(user => user.role !== 'super_admin');
+      setUsers(filteredUsers);
     } catch (error) {
       console.error('Failed to fetch users:', error);
     }

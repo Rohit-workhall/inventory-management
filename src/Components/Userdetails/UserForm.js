@@ -33,7 +33,7 @@ const UserForm = ({ user, onChange, onSubmit, onCancel, isEditing }) => {
       >
         <option value="user">User</option>
         <option value="admin">Admin</option>
-        <option value="super_admin">Super Admin</option>
+      
       </select>
       <button className="action-button1" onClick={onSubmit}>
         {isEditing ? 'Update User' : 'Add User'}

@@ -147,7 +147,7 @@ const ProductLists = ({ onEdit }) => {
       >
         <Col span={8}>
           <div style={{ display: "flex", alignItems: "center" }}>
-          <ArrowLeftOutlined onClick={()=>{navigate(-1)}} style={{fontSize:"20px", marginRight:"10px"}} />
+          <ArrowLeftOutlined onClick={()=>{navigate(-1)}} style={{fontSize:"20px", margin:"10px"}} />
             <Search
               placeholder="Search by Id, Name, or SKU"
               onChange={(e) => dispatch(setSearchText(e.target.value))}
