@@ -32,6 +32,7 @@ h2, h3 {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  width: 80px;
 }
 
 .action-button:hover {
@@ -42,7 +43,7 @@ h2, h3 {
   background-color: #6c757d;
 }
 
-.action-button.delete {
+.action-button.delete1 {
   background-color: #dc3545;
 }
 

@@ -33,14 +33,15 @@ const UserForm = ({ user, onChange, onSubmit, onCancel, isEditing }) => {
       >
         <option value="user">User</option>
         <option value="admin">Admin</option>
-      
       </select>
-      <button className="action-button1" onClick={onSubmit}>
-        {isEditing ? 'Update User' : 'Add User'}
-      </button>
-      <button className="action-button cancel1" onClick={onCancel}>
-        Cancel
-      </button>
+      <div style={{display:"flex"}}>
+        <button className="action-button1" onClick={onSubmit}>
+          {isEditing ? 'Update User' : 'Add User'}
+        </button>
+        <button className="action-button cancel1" onClick={onCancel}>
+          Cancel
+        </button>
+      </div>
     </div>
   );
 };

@@ -197,7 +197,7 @@ const OrderPage = () => {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className={`order-page__input ${errors.email ? 'input-error' : ''}`}
+                className={`order-page__input1 ${errors.email ? 'input-error' : ''}`}
                 placeholder="Enter your email"
                 readOnly
               />
@@ -210,7 +210,7 @@ const OrderPage = () => {
                 type="date"
                 value={date}
                 onChange={(e) => setDate(e.target.value)}
-                className={`order-page__input ${errors.date ? 'input-error' : ''}`}
+                className={`order-page__input1 ${errors.date ? 'input-error' : ''}`}
                 readOnly
               />
               {errors.date && <span className="error-text">{errors.date}</span>}

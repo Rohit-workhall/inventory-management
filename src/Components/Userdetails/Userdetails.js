@@ -112,8 +112,10 @@ const UserManagement = () => {
         <div className="modal">
           <div className="modal-content">
             <p>Are you sure you want to delete this user?</p>
-            <button className="action-button" onClick={confirmDeleteUser}>Yes</button>
-            <button className="action-button delete" onClick={cancelDeleteUser}>No</button>
+            <div style={{display:"flex"}}>
+              <button className="action-button" onClick={confirmDeleteUser}>Yes</button>
+              <button className="action-button delete" onClick={cancelDeleteUser}>No</button>
+            </div>
           </div>
         </div>
       )}
@@ -137,7 +139,7 @@ const UserManagement = () => {
               <td>{user.role}</td>
               <td>
                 <button className="action-button" onClick={() => handleEditUser(user)}>Edit</button>
-                <button className="action-button delete" onClick={() => handleDeleteClick(user._id)}>Delete</button>
+                <button className="action-button delete1" onClick={() => handleDeleteClick(user._id)}>Delete</button>
               </td>
             </tr>
           ))}
