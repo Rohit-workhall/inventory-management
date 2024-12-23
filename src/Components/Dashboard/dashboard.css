@@ -1,8 +1,7 @@
 /* General Dashboard Styles */
 .dashboard {
   font-family: 'Arial', sans-serif;
-  background-color:whitesmoke;
- /* Adjust for the navbar height */
+  background-color: whitesmoke;
 }
 
 .page-content {
@@ -23,26 +22,8 @@
   flex-wrap: wrap; /* Ensure proper alignment on smaller screens */
 }
 
-.metric-total-products {
-  background-color: white;
-  border-radius: 10px;
-  padding: 20px;
-  width: 200px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  transition: transform 0.2s ease;
-  margin-top: 20px;
-}
-.metric-lowstock {
-  background-color: white;
-  border-radius: 10px;
-  padding: 20px;
-  width: 200px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  transition: transform 0.2s ease;
-  margin-top: 20px;
-}
+.metric-total-products,
+.metric-lowstock,
 .metric-outofstock {
   background-color: white;
   border-radius: 10px;
@@ -78,38 +59,75 @@
   flex-wrap: wrap; /* Responsive layout */
 }
 
-.chart-container {
-  flex: 1;
-  width: fit-content;
-  background: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  /* height: 400px; */
-}
-
+.chart-container,
 .pie-chart-container {
-  flex: 1;
-  /* min-width: 300px;
-  max-width: 48%; */
-  width: fit-content;
   background: #fff;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
   height: 400px; /* Ensure height consistency */
+  width: 100%; /* Ensure charts fill their container width */
+  max-width: 100%; /* Avoid overflow */
+  box-sizing: border-box;
+}
+
+.chart-container {
+  flex: 1 1 48%; /* Flex items side-by-side */
+  min-width: 300px; /* Prevent it from being too narrow */
+}
+
+.pie-chart-container {
+  flex: 1 1 48%; /* Flex items side-by-side */
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Center chart vertically */
-  align-items: center; /* Center chart horizontally */
-  overflow: hidden; /* Prevent overflow issues */
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  min-width: 300px; /* Prevent it from being too narrow */
 }
 
 .pie {
-  width: 100%; /* Ensure the chart fits within the container */
-  max-height: 90%; /* Prevent the chart from overflowing vertically */
-  margin: 0 auto; /* Center the chart */
+  width: 100%;
+  max-height: 90%;
+  margin: 0 auto;
 }
 
+/* Responsive layout for smaller screens */
+
+/* For screens smaller than 768px */
+@media (max-width: 768px) {
+  .metrics {
+    gap: 10px;
+  }
+
+  .metric-total-products,
+  .metric-lowstock,
+  .metric-outofstock {
+    width: 100%; /* Full width on smaller screens */
+  }
+
+  .chart-wrapper {
+    flex-direction: column; /* Stack the charts vertically */
+    gap: 20px;
+    margin: 20px;
+  }
+
+  .chart-container,
+  .pie-chart-container {
+    width: 100%; /* Full width for the charts on smaller screens */
+    height: 300px; /* Adjust the height for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .chart-wrapper {
+    margin: 10px;
+  }
+
+  .metric-total-products,
+  .metric-lowstock,
+  .metric-outofstock {
+    padding: 10px;
+  }
+}
