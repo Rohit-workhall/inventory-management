@@ -40,7 +40,7 @@
   font-size: 2rem;
   font-weight: bold;
   color: #333;
-  margin-left: 10px; /* Add space between the arrow and the header */
+  margin-left: 10px;
   flex-grow: 1;
   text-align: left;
 }
@@ -91,36 +91,50 @@
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Dropdown container */
-.custom-dropdown {
-  position: relative;
+/* Enhanced Dropdown Styles */
+.order-page__select {
   width: 100%;
-}
-
-.custom-dropdown__list {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  background-color: #fff;
+  padding: 10px;
+  font-size: 1rem;
   border: 1px solid #ccc;
   border-radius: 4px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  max-height: 200px;
-  overflow-y: auto;
-  z-index: 10;
+  background-color: #fff;
+  color: #333;
+  cursor: pointer;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns%3D%27http://www.w3.org/2000/svg%27 viewBox%3D%270 0 140 140%27 fill%3D%27%23333%27%3E%3Cpath d%3D%27M0 40l70 70 70-70H0z%27/%3E%3C/svg%3E');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 15px;
+  padding-right: 30px;
 }
 
+.order-page__select:focus {
+  border-color: #555;
+  outline: none;
+  box-shadow: 0 0 5px rgba(85, 85, 85, 0.5);
+  background-color: #f9f9f9;
+}
+
+.order-page__select:hover {
+  background-color: #f0f0f0;
+}
+
+/* Custom dropdown item styling */
 .custom-dropdown__item {
-  padding: 10px;
+  padding: 12px;
   font-size: 1rem;
   color: #333;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .custom-dropdown__item:hover {
   background-color: #f0f0f0;
+  color: #555;
 }
 
 /* Button styling */
@@ -191,17 +205,18 @@
 }
 
 .order-page__button--place-order:hover {
-  background-color: green;
+  background-color: darkgreen;
 }
 
 /* Cancel button */
 .order-page__button--cancel {
   background-color: red;
   color: white;
+  width: 100px;
 }
 
 .order-page__button--cancel:hover {
-  background-color: red;
+  background-color: darkred;
 }
 
 /* Confirmation message */
@@ -229,6 +244,7 @@
     padding: 20px;
   }
 
+
   .order-page__header {
     font-size: 1.8rem;
   }
@@ -252,4 +268,14 @@
     font-size: 0.9rem;
     padding: 8px;
   }
+}
+.order-page__input1 {
+  width: 95%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color:#ccc;
+  color: #333;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
 }
