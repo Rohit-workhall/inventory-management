@@ -74,7 +74,7 @@
       "id": "9",
       "name": "Wireless Router",
       "sku": "WR-009",
-      "quantity": 71,
+      "quantity": 70,
       "price": 49.99,
       "category": "Electronics"
     },
@@ -408,12 +408,13 @@
     }
   ],
 "categories": [
-      { "id": 1, "name": "Electronics" },
-      { "id": 2, "name": "Furniture" },
-      { "id": 3, "name": "Storage" },
-      { "id": 4, "name": "Travel" },
-      { "id": 5, "name": "Kitchen" },
-      { "id": 6, "name": "Home Appliances" },
-      { "id": 7, "name": "Computers" }
-    ]
+    "Electronics",
+    "Furniture",
+    "Storage",
+    "Furniture",
+    "Travel",
+    "Kitchen",
+    "Home Appliances",
+    "Computers"
+  ]
 }

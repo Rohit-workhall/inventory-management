@@ -220,9 +220,9 @@ const OrderPage = () => {
             <button className="order-page__button-proceed" onClick={handleProceed}>
                 Proceed
               </button>
-              <button className="order-page__button-back" onClick={() => navigate(-1)}>
+              {/* <button className="order-page__button-back" onClick={() => navigate(-1)}>
                 Back
-              </button>
+              </button> */}
               
             </div>
           </div>
