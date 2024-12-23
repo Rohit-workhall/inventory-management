@@ -92,8 +92,10 @@ const UserManagement = () => {
 
   return (
     <div className="user-management">
-      <ArrowLeftOutlined onClick={()=>{navigate(-1)}} style={{fontSize:"20px"}} />
-      <h2>User Management</h2>
+      <div style={{display:"flex"}}>
+        <ArrowLeftOutlined onClick={()=>{navigate(-1)}} style={{fontSize:"20px"}} />
+        <h2 style={{marginLeft:"10px"}}>User Management</h2>
+      </div>
       {formVisible && (
         <div className="modal">
           <div className="modal-content">
