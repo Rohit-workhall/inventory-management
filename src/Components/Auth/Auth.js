@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import Joi from "joi";
 import axios from "axios";
 import "./Auth.css";
 import { useNavigate } from "react-router-dom";
+import { notification } from "antd";
 
 function Auth({ setIsLoggedIn }) {
   const [isSignUp, setIsSignUp] = useState(false);
@@ -17,6 +19,78 @@ function Auth({ setIsLoggedIn }) {
 
   const navigate = useNavigate();
 
+  const validationSchema = {
+    name: Joi.string().min(3).required().messages({
+      "string.empty": "Name is required",
+      "string.min": "Name must be at least 3 characters long",
+    }),
+    phone_number: Joi.string()
+      .length(10)
+      .pattern(/^\d+$/)
+      .required()
+      .messages({
+        "string.empty": "Phone number is required",
+        "string.pattern.base": "Phone number must contain only digits",
+        "string.length": "Phone number must be exactly 10 digits",
+      }),
+    email: Joi.string()
+      .email({ tlds: { allow: false } })
+      .required()
+      .messages({
+        "string.empty": "Email is required",
+        "string.email": "Invalid email format",
+      }),
+    password: Joi.string()
+      .min(8)
+      .pattern(
+        new RegExp(
+          "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$"
+        )
+      )
+      .required()
+      .messages({
+        "string.empty": "Password is required",
+        "string.min": "Password must be at least 8 characters long",
+        "string.pattern.base":
+          "Password must include uppercase, lowercase, number, and special character",
+      }),
+    confirmPassword: Joi.any()
+      .valid(Joi.ref("password"))
+      .required()
+      .messages({
+        "any.only": "Passwords do not match",
+        "any.required": "Confirm password is required",
+      }),
+  };    
+
+    const handleValidation = () => {
+      const schema = isSignUp
+      ? Joi.object(validationSchema)
+      : Joi.object({
+          email: validationSchema.email,
+          password: validationSchema.password,
+        });
+    
+      // Validate the form data
+      const { error } = schema.validate(formData, { 
+        abortEarly: false, 
+        stripUnknown: !isSignUp // Strip unknown fields in login mode
+      });
+    
+      if (error) {
+        const validationErrors = {};
+        error.details.forEach((err) => {
+          validationErrors[err.path[0]] = err.message;
+        });
+        setErrors(validationErrors);
+        return false;
+      }
+    
+      setErrors({});
+      return true;
+    };
+    
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -24,24 +98,16 @@ function Auth({ setIsLoggedIn }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    let validationErrors = {};
-    if(isSignUp)
-    {
-    if ( formData.password !== formData.confirmPassword) {
-      validationErrors.confirmPassword = "Passwords do not match!";
-    }
-  }
-
-    if (Object.keys(validationErrors).length > 0) {
-      setErrors(validationErrors);
+    
+    
+    if (!handleValidation()) {
       return;
     }
-
+  
     const url = isSignUp
       ? "http://localhost:5000/api/signup"
       : "http://localhost:5000/api/login";
-
+  
     const payload = isSignUp
       ? {
           name: formData.name,
@@ -49,44 +115,55 @@ function Auth({ setIsLoggedIn }) {
           email: formData.email,
           password: formData.password,
         }
-      : { email: formData.email, password: formData.password };
-
-      try {
-        const response = await axios.post(url, payload);
-      
-        if (isSignUp) {
-          toggleForm();
-        } else {
-          const userId = response.data.user.id;
-          const userRole = response.data.user.role;
-          localStorage.setItem("userId", userId);
-          localStorage.setItem("Role", userRole);
-      
+      : {
+          email: formData.email,
+          password: formData.password,
+        };
+  
+    try {
+      const response = await axios.post(url, payload, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+  
+      console.log("Response from backend:", response.data);
+  
+      if (isSignUp) {
+        toggleForm();
+        notification.open({message:"SignUp Successfull", description:"Login to Continue"});
+      } else {
+        const { user } = response.data;
+  
+        // Ensure user object exists and has the necessary fields
+        if (user && user.id) {
+          localStorage.setItem("userId", user.id);
+          localStorage.setItem("Role", user.role);
           setIsLoggedIn(true);
+          notification.open({message:"Login Successfull"});
           navigate("/dashboard");
-        }
-      } catch (err) {
-        if (err.response) {
-          const backendErrors = err.response.data.errors || err.response.data.message;
-      
-          if (Array.isArray(backendErrors)) {
-            const errorMessages = backendErrors.reduce(
-              (acc, message, index) => ({
-                ...acc,
-                [`error-${index}`]: message,
-              }),
-              {}
-            );
-            setErrors(errorMessages);
-          } else if (typeof backendErrors === "string") {
-            setServerMessage(backendErrors);
-          }
         } else {
-          setServerMessage("Something went wrong. Please try again.");
+          setServerMessage("Unexpected response from the server.");
         }
       }
-      
+    } catch (err) {
+      console.error("Error from backend:", err.response);
+  
+      if (err.response) {
+        const backendErrors =
+          err.response.data.errors || err.response.data.message;
+  
+        if (Array.isArray(backendErrors)) {
+          setServerMessage(backendErrors.join(", "));
+        } else if (typeof backendErrors === "string") {
+          setServerMessage(backendErrors);
+        }
+      } else {
+        setServerMessage("Something went wrong. Please try again.");
+      }
+    }
   };
+  
 
   const toggleForm = () => {
     setIsSignUp((prevState) => !prevState);
@@ -120,7 +197,6 @@ function Auth({ setIsLoggedIn }) {
                   value={formData.name}
                   onChange={handleChange}
                   placeholder="Enter your name"
-                  required
                 />
                 {errors.name && <div className="error">{errors.name}</div>}
               </div>
@@ -131,12 +207,11 @@ function Auth({ setIsLoggedIn }) {
                 <label htmlFor="phone_number">Phone Number</label>
                 <input
                   id="phone_number"
-                  type="number"
+                  type="text"
                   name="phone_number"
                   value={formData.phone_number}
                   onChange={handleChange}
                   placeholder="Enter your phone number"
-                  required
                 />
                 {errors.phone_number && (
                   <div className="error">{errors.phone_number}</div>
@@ -153,7 +228,6 @@ function Auth({ setIsLoggedIn }) {
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="Enter your email"
-                required
               />
               {errors.email && <div className="error">{errors.email}</div>}
             </div>
@@ -167,7 +241,6 @@ function Auth({ setIsLoggedIn }) {
                 value={formData.password}
                 onChange={handleChange}
                 placeholder="Enter your password"
-                required
               />
               {errors.password && (
                 <div className="error">{errors.password}</div>
@@ -184,25 +257,23 @@ function Auth({ setIsLoggedIn }) {
                   value={formData.confirmPassword}
                   onChange={handleChange}
                   placeholder="Re-enter your password"
-                  required
                 />
-               
+                {errors.confirmPassword && (
+                  <div className="error">{errors.confirmPassword}</div>
+                )}
               </div>
             )}
-            {serverMessage && <div className="error">{serverMessage}</div>}
 
-            {Object.keys(errors).map((key) => (
-              <div className="error" key={key}>
-                {errors[key]}
-              </div>
-            ))}
+            {serverMessage && <div className="error">{serverMessage}</div>}
 
             <button type="submit">{isSignUp ? "Sign Up" : "Sign In"}</button>
           </form>
 
           <div className="toggle-container">
             <span>
-              {isSignUp ? "Already have an account?" : "Don't have an account?"}
+              {isSignUp
+                ? "Already have an account?"
+                : "Don't have an account?"}
             </span>
             <button onClick={toggleForm}>
               {isSignUp ? "Sign In" : "Sign Up"}
@@ -215,4 +286,3 @@ function Auth({ setIsLoggedIn }) {
 }
 
 export default Auth;
-

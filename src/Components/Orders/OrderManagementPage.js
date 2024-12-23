@@ -3,14 +3,13 @@ import { getOrders, updateOrderStatus, getProducts, updateProductQuantity } from
 import './OrderMangementPage.css';
 import OrderDetailsModal from './OrderDetailsModal'; 
 import { notification } from 'antd';
+import { ArrowLeftOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
-
 
 const OrderManagement = () => {
   const [orders, setOrders] = useState([]);
   const [products, setProducts] = useState([]);
   const [viewDetails, setViewDetails] = useState(null); 
-
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -76,10 +75,7 @@ const OrderManagement = () => {
 
   return (
     <div className="order-management">
-       <button className="order-page__button-back" onClick={() => navigate(-1)}>
-                Back
-          </button> 
-     
+      <ArrowLeftOutlined onClick={()=>{navigate(-1)}} style={{fontSize:"20px",margin:"10px"}} />
       <h2 className="order-management__header">Manage Orders</h2>
       <div className="order-management__table-container">
         <table className="order-management__table">

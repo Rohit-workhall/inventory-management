@@ -7,7 +7,7 @@ import OrderPage from "./Components/Orders/OrderPage";
 import Admin from "./Admin/Admin";
 import OrderManagement from "./Components/Orders/OrderManagementPage";
 import Auth from "./Components/Auth/Auth"; 
-
+import Userdetails from"./Components/Userdetails/Userdetails";
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -35,6 +35,7 @@ const App = () => {
             <Route path="/orders/place" element={<OrderPage/>} />
             <Route path="/orders/manage" element={<OrderManagement/>}></Route>
             <Route path="/StockManagement" element={<Admin />} />
+            <Route path="/user" element={<Userdetails/>}/>
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         </>

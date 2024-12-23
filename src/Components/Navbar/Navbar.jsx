@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Sidebar from "./Sidebar"; 
 import axios from "axios"; 
 import "./navbar.css";
@@ -11,6 +11,7 @@ const Navbar = ({ onSignOut }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false); 
   const [userDetails, setUserDetails] = useState(null); 
   const Role = localStorage.getItem("Role");
+  const navigate = useNavigate();
 
   const dropdownRef = useRef(null); 
 
@@ -74,7 +75,7 @@ const Navbar = ({ onSignOut }) => {
             <span className="hamburger-line"></span>
             <span className="hamburger-line"></span>
           </button>
-          <h2 className="brand">
+          <h2 className="brand" onClick={() => {navigate("/dashboard")}}>
             Stock<span className="highlight">Wise</span>
           </h2>
           <div className={`navbar-links ${isNavOpen ? "open" : ""}`}>
@@ -84,7 +85,7 @@ const Navbar = ({ onSignOut }) => {
                   Dashboard
                 </Link>
               </li>
-              {Role === "admin" && (
+              {(Role === "admin" || Role === "super_admin") && (
                 <li
                   className="dropdown-trigger"
                   onMouseLeave={() => setIsOrdersDropdownOpen(false)}
@@ -115,6 +116,11 @@ const Navbar = ({ onSignOut }) => {
               <li>
                 <Link to="/StockManagement">Stock Management</Link>
               </li>
+              {(Role === "super_admin") &&
+                <li>
+                  <Link to="/user"> User details</Link>
+                </li>
+              }
             </ul>
           </div>
         </div>

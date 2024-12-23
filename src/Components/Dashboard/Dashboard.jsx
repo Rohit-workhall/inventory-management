@@ -75,11 +75,11 @@ const Dashboard = () => {
                 <strong><p style={{color:"green"}}>{totalProducts}</p></strong>
               </div>
               <div className="metric-lowstock">
-                <h3>Low Stock Items</h3>
+                <h3>Low Stock</h3>
                 <strong><p style={{color:"orange"}}>{lowStockItems}</p></strong>
               </div>
               <div className="metric-outofstock">
-                <h3>Out of Stock Items</h3>
+                <h3>Out of Stock</h3>
                 <strong><p style={{color:"red"}}>{outOfStockItems}</p></strong>
                 
               </div>

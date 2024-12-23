@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom"; 
+import { useNavigate, useParams } from "react-router-dom"; 
 import "./productDetail.css"; 
+import { ArrowLeftOutlined } from "@ant-design/icons";
 
 const ProductDetail = () => {
   const { productId } = useParams(); 
   const [product, setProduct] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -26,6 +28,7 @@ const ProductDetail = () => {
 
   return (
     <div className="product-detail">
+      <ArrowLeftOutlined onClick={()=>{navigate(-1)}} style={{fontSize:"20px", margin:"10px"}} />
       <h1 className="product-title">{product.name}</h1>
       <img
         src={product.image}
