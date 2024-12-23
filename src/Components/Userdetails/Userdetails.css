@@ -1,6 +1,7 @@
 .user-management {
   padding: 20px;
   font-family: Arial, sans-serif;
+  box-sizing: border-box;
 }
 
 h2, h3 {
@@ -124,4 +125,59 @@ h2, h3 {
 /* Additional spacing and styling for buttons */
 .modal-content .action-button:hover {
   opacity: 0.9;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  /* Adjust the user table on smaller screens */
+  .user-table th, .user-table td {
+    padding: 8px;
+    font-size: 14px; /* Slightly smaller font size */
+  }
+
+  .user-table {
+    overflow-x: auto;
+    display: block; /* Allow horizontal scrolling for small screens */
+    white-space: nowrap; /* Prevent content from wrapping */
+  }
+
+  .user-table th {
+    text-align: center;
+  }
+
+  /* Form adjustments for mobile */
+  .user-form {
+    max-width: 100%; /* Allow form to take full width */
+    margin: 0 10px;  /* Add margin for spacing */
+  }
+
+  .modal-content {
+    width: 80%;  /* Make modal responsive */
+    max-width: 400px;
+  }
+
+  .modal-buttons {
+    flex-direction: column; /* Stack buttons vertically on small screens */
+    gap: 15px;
+  }
+
+  .action-button {
+    width: 100%; /* Make buttons take full width in modal */
+  }
+}
+
+@media (max-width: 480px) {
+  /* Adjust table cell padding and font size for very small screens */
+  .user-table th, .user-table td {
+    padding: 6px;
+    font-size: 12px; /* Reduce font size further */
+  }
+
+  .user-table {
+    font-size: 12px; /* Adjust font size for table */
+  }
+
+  .modal-content {
+    width: 90%;  /* Make modal take up more screen width */
+  }
 }

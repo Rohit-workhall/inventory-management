@@ -6,10 +6,10 @@ const ConfirmationModal = ({ message, onConfirm, onCancel }) => {
       <div className="modal-content">
         <p>{message}</p>
         <div className="form-buttons">
-          <button className="cnf-delete-btn" onClick={onConfirm}>
+          <button className="productlist-cnf-delete-btn" onClick={onConfirm}>
             Yes
           </button>
-          <button className="button cancel-btn" onClick={onCancel}>
+          <button className="productlist-cancel-btn" onClick={onCancel}>
             No
           </button>
         </div>

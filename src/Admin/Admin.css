@@ -83,6 +83,7 @@
   .delete-btn {
     background-color: #d9534f;
     color: white;
+    width: 120px;
   }
 
   .cnf-delete-btn {
@@ -95,7 +96,20 @@
     color: white;
   }
 
-  
+  .productlist-cnf-delete-btn {
+    color: white;
+  }
+
+  .productlist-cancel-btn {
+    background-color: #d9534f;
+    color: white;
+    width: 60px;
+  }
+
+  .productlist-cancel-btn:hover {
+    background-color: #cb4f4a;
+    color: white;
+  }
   .delete-btn:hover {
     background-color: #c9302c;
   }
