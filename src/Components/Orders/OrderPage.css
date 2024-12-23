@@ -85,6 +85,17 @@
   transition: border 0.3s ease, box-shadow 0.3s ease;
 }
 
+.order-page__input1 {
+  width: 95%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color:#ccc;
+  color: #333;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
 .order-page__input:focus {
   border-color: #555;
   outline: none;
