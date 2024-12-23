@@ -19,6 +19,7 @@
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   text-align: center;
+  box-sizing: border-box; /* Ensure padding doesn't cause overflow */
 }
 
 /* Header container with left alignment */
@@ -134,20 +135,6 @@
   background-color: #f0f0f0;
 }
 
-/* Custom dropdown item styling */
-.custom-dropdown__item {
-  padding: 12px;
-  font-size: 1rem;
-  color: #333;
-  cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.custom-dropdown__item:hover {
-  background-color: #f0f0f0;
-  color: #555;
-}
-
 /* Button styling */
 .order-page__button {
   width: 100%;
@@ -250,43 +237,81 @@
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+
+/* For tablets and larger screens */
+@media (max-width: 1024px) {
   .order-page {
+    width: 50%; /* Adjust to half width on tablets */
     padding: 20px;
   }
 
-
   .order-page__header {
-    font-size: 1.8rem;
+    font-size: 1.8rem; /* Adjust header size */
   }
 
   .order-page__button {
     font-size: 1rem;
   }
+
+  .order-page__input,
+  .order-page__select {
+    font-size: 1rem;
+  }
 }
 
-@media (max-width: 480px) {
+/* For smaller tablets and mobile screens */
+@media (max-width: 768px) {
+  .order-page {
+    width: 70%; /* More flexible on mobile */
+    padding: 15px;
+  }
+
   .order-page__header {
-    font-size: 1.5rem;
+    font-size: 1.6rem; /* Adjust header size */
   }
 
   .order-page__input,
-  .custom-dropdown__list {
-    font-size: 0.9rem;
+  .order-page__select {
+    font-size: 0.9rem; /* Slightly smaller input font */
+  }
+
+  .order-page__button {
+    font-size: 1rem;
+  }
+
+  .order-page__form-group {
+    align-items: stretch;
+  }
+}
+
+/* For very small mobile screens */
+@media (max-width: 480px) {
+  .order-page {
+    width: 90%; /* Full width for very small screens */
+    padding: 10px;
+  }
+
+  .order-page__header {
+    font-size: 1.5rem; /* Adjust header size */
+  }
+
+  .order-page__input,
+  .order-page__select {
+    font-size: 0.9rem; /* Smaller inputs */
   }
 
   .order-page__button {
     font-size: 0.9rem;
     padding: 8px;
   }
-}
-.order-page__input1 {
-  width: 95%;
-  padding: 10px;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  background-color:#ccc;
-  color: #333;
-  transition: border 0.3s ease, box-shadow 0.3s ease;
+
+  .order-page__form-group {
+    margin-bottom: 12px;
+  }
+
+  .order-page__button--place-order,
+  .order-page__button--cancel {
+    width: 100%; /* Full width for buttons */
+    padding: 10px;
+  }
 }

@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom"; 
-import "./productDetail.css"; 
+import { useNavigate, useParams } from "react-router-dom";
+import "./productDetail.css";
 import { ArrowLeftOutlined } from "@ant-design/icons";
 
 const ProductDetail = () => {
-  const { productId } = useParams(); 
+  const { productId } = useParams();
   const [product, setProduct] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await fetch(`http://localhost:3001/products/${productId}`); 
+        const response = await fetch(`http://localhost:3001/products/${productId}`);
         const productData = await response.json();
         setProduct(productData);
       } catch (error) {
@@ -28,7 +28,7 @@ const ProductDetail = () => {
 
   return (
     <div className="product-detail">
-      <ArrowLeftOutlined onClick={()=>{navigate(-1)}} style={{fontSize:"20px", margin:"10px"}} />
+      <ArrowLeftOutlined onClick={() => { navigate(-1); }} className="back-arrow" />
       <h1 className="product-title">{product.name}</h1>
       <img
         src={product.image}
@@ -51,6 +51,3 @@ const ProductDetail = () => {
 };
 
 export default ProductDetail;
-
-
-
