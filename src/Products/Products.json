@@ -1,14 +1,6 @@
 {
   "products": [
     {
-      "name": "Gaming Laptop",
-      "sku": "GL-003",
-      "quantity": 40,
-      "price": 899.99,
-      "category": "Computers",
-      "id": "1"
-    },
-    {
       "id": "2",
       "name": "Office Chair",
       "sku": "OC-004",
