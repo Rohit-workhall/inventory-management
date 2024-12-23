@@ -278,6 +278,156 @@ h2 {
   color: #8f968f; /* Highlight color */
 }
 
+/* General Styles */
+.all {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom, white 50%, grey 50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: #333;
+  padding: 20px; /* Adds padding for smaller screens */
+  box-sizing: border-box;
+}
+
+.app-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 500px; /* Limit the container width */
+}
+
+.form-container {
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 400px; /* Limit the width for larger screens */
+  text-align: center;
+  box-sizing: border-box; /* Ensure padding does not overflow */
+}
+
+h2 {
+  color: black;
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Input Group Styles */
+.input-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.input-group label {
+  padding-left: 10px;
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: #333;
+  font-weight: bold;
+}
+
+.input-group input {
+  width: calc(100% - 20px); /* Adjust for padding */
+  padding: 10px;
+  margin: 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: #f7f7f7;
+  margin-left: 10px;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: black;
+}
+
+/* Button Styles */
+.form button {
+  width:360px;
+  padding: 12px;
+  background-color: black;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-left: 10px;
+}
+
+.form button:hover {
+  background-color: #555;
+}
+
+/* Toggle Container Styles */
+.toggle-container {
+  margin-top: 20px;
+}
+
+.toggle-container span {
+  color: #888;
+  font-size: 14px;
+}
+
+.toggle-container button {
+  background: none;
+  color: black;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.toggle-container button:hover {
+  color: grey;
+}
+
+/* Error Styles */
+.error {
+  color: red;
+  font-size: 12px;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .form-container {
+    width: 100%; /* Full width for small screens */
+    max-width: none; /* Remove max width */
+    padding: 15px; /* Adjust padding */
+  }
+
+  h2 {
+    font-size: 20px; /* Reduce font size */
+  }
+
+  .input-group label {
+    font-size: 12px; /* Smaller font for labels */
+  }
+
+  .input-group input {
+    font-size: 12px; /* Adjust input font size */
+  }
+
+  .form button {
+    font-size: 14px; /* Reduce button font size */
+  }
+
+  .toggle-container span,
+  .toggle-container button {
+    font-size: 12px; /* Smaller toggle font size */
+  }
+}
+
 @media (max-width: 480px) {
   h2 {
     font-size: 18px;

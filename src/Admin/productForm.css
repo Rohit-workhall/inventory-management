@@ -72,4 +72,9 @@ textarea.input-field {
 .button.cancel-btn:hover {
   background-color: #c9302c;}
 
+  .productform-cancel-btn {
+      background-color: #d9534f;
+      color: white;
+      width: 130px;
+    }
   

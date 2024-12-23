@@ -135,7 +135,7 @@ const ProductForm = ({ mode, product, onClose, refreshList }) => {
         <button className="button" type="submit">
           {mode === "edit" ? "Update Product" : "Add Product"}
         </button>
-        <button className="button cancel-btn" type="button" onClick={onClose}>
+        <button className="productform-cancel-btn" type="button" onClick={onClose}>
           Cancel
         </button>
       </div>

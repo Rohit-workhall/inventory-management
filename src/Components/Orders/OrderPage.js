@@ -7,8 +7,6 @@ import { ArrowLeftOutlined } from '@ant-design/icons';
 
 const OrderPage = () => {
   const [products, setProducts] = useState([]);
-  const [searchQuery, setSearchQuery] = useState('');
-  const [filteredProducts, setFilteredProducts] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [quantity, setQuantity] = useState(1);
   const [totalPrice, setTotalPrice] = useState(0);
@@ -25,17 +23,6 @@ const OrderPage = () => {
     populateDate();
     fetchUserEmail();
   }, []);
-
-  useEffect(() => {
-    if (searchQuery) {
-      const filtered = products.filter((product) =>
-        product.name.toLowerCase().includes(searchQuery.toLowerCase())
-      );
-      setFilteredProducts(filtered);
-    } else {
-      setFilteredProducts([]);
-    }
-  }, [searchQuery, products]);
 
   useEffect(() => {
     calculatePrice();
@@ -68,14 +55,7 @@ const OrderPage = () => {
   };
 
   const handleProductSelect = (product) => {
-    setSearchQuery(product.name);
     setSelectedProduct(product);
-    setFilteredProducts([]);
-  };
-
-  const handleInputChange = (e) => {
-    setSearchQuery(e.target.value);
-    setSelectedProduct(null);
   };
 
   const calculatePrice = () => {
@@ -128,7 +108,6 @@ const OrderPage = () => {
   };
 
   const resetForm = () => {
-    setSearchQuery('');
     setQuantity(1);
     setTotalPrice(0);
     setSelectedProduct(null);
@@ -142,7 +121,7 @@ const OrderPage = () => {
   return (
     <div className="all1">
       <div className="order-page">
-      <div className="order-page__header-container">
+        <div className="order-page__header-container">
           <ArrowLeftOutlined
             onClick={() => {
               navigate(-1);
@@ -154,29 +133,25 @@ const OrderPage = () => {
           <div className="order-page__form">
             <div className="order-page__form-group">
               <label className="order-page__label">Product:</label>
-              <div className="custom-dropdown">
-                <input
-                  type="text"
-                  value={searchQuery}
-                  placeholder="Search for a product..."
-                  onChange={handleInputChange}
-                  className={`order-page__input ${errors.product ? 'input-error' : ''}`}
-                />
-                {errors.product && <span className="error-text">{errors.product}</span>}
-                {filteredProducts.length > 0 && (
-                  <div className="custom-dropdown__list">
-                    {filteredProducts.map((product) => (
-                      <div
-                        key={product.id}
-                        className="custom-dropdown__item"
-                        onMouseDown={() => handleProductSelect(product)}
-                      >
-                        {product.name} (Available: {product.quantity})
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
+              <select
+                value={selectedProduct?.id || ''}
+                onChange={(e) => {
+                  const productId = e.target.value;
+                  const product = products.find((p) => p.id === productId);
+                  handleProductSelect(product);
+                }}
+                className={`order-page__select ${errors.product ? 'input-error' : ''}`}
+              >
+                <option value="" disabled>
+                  Select a product...
+                </option>
+                {products.map((product) => (
+                  <option key={product.id} value={product.id}>
+                    {product.name} (Available: {product.quantity})
+                  </option>
+                ))}
+              </select>
+              {errors.product && <span className="error-text">{errors.product}</span>}
             </div>
 
             <div className="order-page__form-group">
@@ -197,7 +172,7 @@ const OrderPage = () => {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className={`order-page__input ${errors.email ? 'input-error' : ''}`}
+                className={`order-page__input1 ${errors.email ? 'input-error' : ''}`}
                 placeholder="Enter your email"
                 readOnly
               />
@@ -210,7 +185,7 @@ const OrderPage = () => {
                 type="date"
                 value={date}
                 onChange={(e) => setDate(e.target.value)}
-                className={`order-page__input ${errors.date ? 'input-error' : ''}`}
+                className={`order-page__input1 ${errors.date ? 'input-error' : ''}`}
                 readOnly
               />
               {errors.date && <span className="error-text">{errors.date}</span>}
@@ -270,14 +245,14 @@ const OrderPage = () => {
               </div>
             </div>
           )}
-        </div>
 
-        {orderConfirmed && (
-          <div className="order-confirmation">
-            <h3>Order Confirmed!</h3>
-            <p>Your order has been successfully placed.</p>
-          </div>
-        )}
+          {orderConfirmed && (
+            <div className="order-confirmation">
+              <h3>Order Confirmed!</h3>
+              <p>Your order has been successfully placed.</p>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

@@ -75,8 +75,10 @@ const OrderManagement = () => {
 
   return (
     <div className="order-management">
+      <div style={{display:"flex"}}>
       <ArrowLeftOutlined onClick={()=>{navigate(-1)}} style={{fontSize:"20px",margin:"10px"}} />
       <h2 className="order-management__header">Manage Orders</h2>
+      </div>
       <div className="order-management__table-container">
         <table className="order-management__table">
           <thead>
