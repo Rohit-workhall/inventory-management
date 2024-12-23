@@ -20,7 +20,7 @@
       "id": "3",
       "name": "Bluetooth Headphones",
       "sku": "BH-005",
-      "quantity": 200,
+      "quantity": 210,
       "price": 39.99,
       "category": "Electronics",
       "image": "https://m.media-amazon.com/images/I/61zumJIxYrL.jpg",
@@ -30,7 +30,7 @@
       "id": "4",
       "name": "Mechanical Keyboard",
       "sku": "MK-002",
-      "quantity": 78,
+      "quantity": 76,
       "price": 99.99,
       "category": "Electronics",
       "image": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQIsriZ5eBXe51syDL7UQrP0Fg8XOrYM0U_QAnDpFRPhPkjGUo9L_WfVOm_Mpq2xpoYdN2PkuCjDcYMbyS0rHma7o5ZbzY98_qdiUoXwaLaDGedG2sL38M1Wg",
@@ -50,7 +50,7 @@
       "id": "6",
       "name": "LED Desk Lamp",
       "sku": "LDL-006",
-      "quantity": 91,
+      "quantity": 90,
       "price": 29.99,
       "category": "Furniture"
     },
@@ -74,7 +74,7 @@
       "id": "9",
       "name": "Wireless Router",
       "sku": "WR-009",
-      "quantity": 70,
+      "quantity": 61,
       "price": 49.99,
       "category": "Electronics"
     },
@@ -154,7 +154,7 @@
       "id": "19",
       "name": "Washing Machine",
       "sku": "WM-019",
-      "quantity": 37,
+      "quantity": 36,
       "price": 499.99,
       "category": "Home Appliances"
     },
@@ -405,25 +405,15 @@
       "quantity": 74,
       "price": 20,
       "category": "Computers"
-    },
-    {
-      "id": "367a",
-      "name": "laptop",
-      "sku": "lap10",
-      "quantity": 10,
-      "price": 100,
-      "category": "Electronics",
-      "description": "the laptop "
     }
   ],
-  "categories": [
-    "Electronics",
-    "Furniture",
-    "Storage",
-    "Furniture",
-    "Travel",
-    "Kitchen",
-    "Home Appliances",
-    "Computers"
-  ]
+"categories": [
+      { "id": 1, "name": "Electronics" },
+      { "id": 2, "name": "Furniture" },
+      { "id": 3, "name": "Storage" },
+      { "id": 4, "name": "Travel" },
+      { "id": 5, "name": "Kitchen" },
+      { "id": 6, "name": "Home Appliances" },
+      { "id": 7, "name": "Computers" }
+    ]
 }

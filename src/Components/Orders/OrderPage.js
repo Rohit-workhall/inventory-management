@@ -187,9 +187,15 @@ const OrderPage = () => {
               {errors.date && <span className="error-text">{errors.date}</span>}
             </div>
 
-            <button className="order-page__button" onClick={handleProceed}>
-              Proceed
-            </button>
+            <div className="order-page__buttons">
+            <button className="order-page__button-proceed" onClick={handleProceed}>
+                Proceed
+              </button>
+              <button className="order-page__button-back" onClick={() => navigate(-1)}>
+                Back
+              </button>
+              
+            </div>
           </div>
 
           {showPriceDetails && (
@@ -249,4 +255,3 @@ const OrderPage = () => {
 };
 
 export default OrderPage;
-

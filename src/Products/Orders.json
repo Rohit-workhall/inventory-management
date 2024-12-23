@@ -26,7 +26,7 @@
       "productName": "Washing Machine",
       "quantity": 1,
       "totalPrice": 499.99,
-      "status": "ordered",
+      "status": "delivered",
       "email": "ww@gmail.com",
       "date": "2024-12-20"
     },
@@ -49,6 +49,16 @@
       "status": "delivered",
       "email": "rohit@gmail.com",
       "date": "2024-12-20"
+    },
+    {
+      "id": "1870",
+      "productId": "3",
+      "productName": "Bluetooth Headphones",
+      "quantity": 10,
+      "totalPrice": 399.9,
+      "status": "delivered",
+      "email": "vishali@gmail.com",
+      "date": "2024-12-25"
     }
   ]
 }
