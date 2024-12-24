@@ -158,4 +158,3 @@ const Navbar = ({ onSignOut }) => {
 };
 
 export default Navbar;
-

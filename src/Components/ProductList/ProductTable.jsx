@@ -18,6 +18,7 @@
       if (["name", "quantity", "price"].includes(col.dataIndex)) {
         return {
           ...col,
+          width: 150, // Minimum width for responsive behavior
           title: (
             <div>
               {col.title}
@@ -35,16 +36,18 @@
           ),
         };
       }
-      return col;
+      return { ...col, width: 100 }; // Default column width
     });
+    
 
     return (
       <Table
-        columns={enhancedColumns}
-        dataSource={sortedData}
-        loading={loading}
-        rowKey="sku"
-        pagination={{ pageSize: 10 }}
+      columns={enhancedColumns}
+      dataSource={sortedData}
+      loading={loading}
+      rowKey="sku"
+      pagination={{ pageSize: 10 }}
+      scroll={{ x: 800 }}
       />
     );
   };

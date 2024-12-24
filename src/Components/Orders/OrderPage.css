@@ -1,4 +1,3 @@
-/* Base Styles */
 .all1 {
   margin: 0;
   padding: 0;
@@ -303,6 +302,16 @@
   .order-page__button {
     font-size: 0.9rem;
     padding: 8px;
+  }
+
+  .order-page__form-group {
+    margin-bottom: 12px;
+  }
+
+  .order-page__button--place-order,
+  .order-page__button--cancel {
+    width: 100%; /* Full width for buttons */
+    padding: 10px;
   }
 }
 .order-page__input1 {

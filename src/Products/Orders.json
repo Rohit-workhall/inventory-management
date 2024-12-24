@@ -26,7 +26,7 @@
       "productName": "Washing Machine",
       "quantity": 1,
       "totalPrice": 499.99,
-      "status": "ordered",
+      "status": "delivered",
       "email": "ww@gmail.com",
       "date": "2024-12-20"
     },
