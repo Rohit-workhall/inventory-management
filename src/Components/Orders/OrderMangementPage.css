@@ -8,6 +8,7 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   font-family: 'Arial', sans-serif;
   color: #333;
+  overflow: hidden;
 }
 
 /* Header styling */
@@ -16,54 +17,55 @@
   font-weight: bold;
   color: #222;
   text-align: center;
+  margin-bottom: 20px;
 }
 
 /* Container for the table */
 .order-management__table-container {
-  overflow-x: auto;
+  overflow-x: auto; /* Enables horizontal scrolling */
+  padding: 10px;
+  max-width: 100%; /* Ensures it doesn't extend beyond the container */
+  white-space: nowrap; /* Prevents table content from wrapping */
 }
 
-/* Table Styling */
-.order-management__table {
-  width: 100%;
-  border-collapse: collapse;
-  border: 1px solid #ddd;
-  margin-bottom: 20px;
-  background-color: #fff;
+/* Ant Design Table Styling */
+.ant-table {
+  background-color: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  min-width: 800px; /* Ensures horizontal scroll when the screen size is smaller */
+  width: 100%; /* Ensures the table adapts to its container */
 }
 
-.order-management__table th,
-.order-management__table td {
-  padding: 16px 20px;
-  text-align: left;
-  font-size: 16px;
-  color: #555;
-  border-bottom: 1px solid #ddd;
+.ant-table-row:nth-child(odd) {
+  background-color: #f9f9f9;
 }
 
-/* Table Header */
-.order-management__table th {
+.ant-table-row:nth-child(even) {
+  background-color: #ffffff;
+}
+
+.ant-table-thead > tr > th {
   background-color: rgb(181, 179, 179);
   color: black;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
-/* Alternate Row Background */
-.order-management__table tr:nth-child(even) {
-  background-color: #f9f9f9;
+.ant-table-thead > tr > th.ant-table-cell {
+  font-size: 16px;
 }
 
 /* Button styling */
 .order-management__button {
   padding: 10px;
-  font-size: 16px;
+  font-size: 14px;
   border: none;
   border-radius: 6px;
   background-color: rgb(115, 112, 112);
   color: white;
   cursor: pointer;
-  width: 100%;
   transition: all 0.3s ease;
 }
 
@@ -91,9 +93,8 @@
   padding: 30px;
   border-radius: 8px;
   width: 450px;
-  max-width: 80%;
+  max-width: 90%;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  animation: slideIn 0.4s ease-out;
   font-family: 'Arial', sans-serif;
 }
 
@@ -118,54 +119,56 @@
 
 /* Responsive Design */
 @media (max-width: 1024px) {
-  .order-management__table th, .order-management__table td {
-    font-size: 14px;
+  .order-management {
     padding: 10px;
   }
 
   .order-management__header {
     font-size: 28px;
   }
+
+  .ant-table {
+    font-size: 14px;
+  }
+
+  .order-details-modal__content {
+    width: 80%;
+    padding: 20px;
+  }
 }
 
 @media (max-width: 768px) {
-  .order-management__table th,
-  .order-management__table td {
-    font-size: 12px;
-    padding: 8px;
-  }
-
   .order-management__header {
     font-size: 24px;
   }
 
+  .ant-table {
+    font-size: 12px;
+  }
+
+  .order-management__table-container {
+    overflow-x: auto;
+  }
+
   .order-details-modal__content {
     width: 90%;
-    padding: 20px;
-  }
-
-  .order-details-modal__content h3 {
-    font-size: 20px;
-  }
-
-  .order-details-modal__close-btn {
-    padding: 8px 16px;
-    font-size: 14px;
   }
 }
 
 @media (max-width: 480px) {
-  .order-management__table th, .order-management__table td {
-    font-size: 10px;
-    padding: 5px;
-  }
-
   .order-management__header {
     font-size: 20px;
   }
 
-  .order-management__button {
-    padding: 8px;
-    font-size: 14px;
+  .ant-table {
+    font-size: 10px;
+  }
+
+  .order-management {
+    margin: 10px;
+  }
+
+  .order-management__table-container {
+    overflow-x: auto;
   }
 }

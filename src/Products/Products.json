@@ -1,12 +1,13 @@
 {
   "products": [
     {
-      "id": "2",
       "name": "Office Chair",
       "sku": "OC-004",
       "quantity": 30,
-      "price": 149.99,
-      "category": "Furniture"
+      "price": 150,
+      "category": "Furniture",
+      "description": "",
+      "id": "2"
     },
     {
       "id": "3",
@@ -106,7 +107,7 @@
       "id": "14",
       "name": "Desk Chair",
       "sku": "DC-014",
-      "quantity": 50,
+      "quantity": 51,
       "price": 99.99,
       "category": "Furniture"
     },

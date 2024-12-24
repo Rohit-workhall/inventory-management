@@ -1,15 +1,18 @@
+// OrderManagementPage.js
 import React, { useState, useEffect } from 'react';
 import { getOrders, updateOrderStatus, getProducts, updateProductQuantity } from './Api';
-import './OrderMangementPage.css';
-import OrderDetailsModal from './OrderDetailsModal'; 
-import { notification } from 'antd';
-import { ArrowLeftOutlined } from '@ant-design/icons';
+import { Table, Button, notification, Input, Space } from 'antd';
+import { ArrowLeftOutlined, SearchOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
+import OrderDetailsModal from './OrderDetailsModal';
+import './OrderMangementPage.css';
 
 const OrderManagement = () => {
   const [orders, setOrders] = useState([]);
   const [products, setProducts] = useState([]);
-  const [viewDetails, setViewDetails] = useState(null); 
+  const [viewDetails, setViewDetails] = useState(null);
+  const [searchText, setSearchText] = useState('');
+  const [filteredOrders, setFilteredOrders] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -17,10 +20,15 @@ const OrderManagement = () => {
     fetchProducts();
   }, []);
 
+  useEffect(() => {
+    handleSearch(searchText);
+  }, [orders]);
+
   const fetchOrders = async () => {
     try {
       const data = await getOrders();
       setOrders(data);
+      setFilteredOrders(data);
     } catch (error) {
       console.error('Failed to fetch orders.');
     }
@@ -47,7 +55,7 @@ const OrderManagement = () => {
       }
 
       await updateOrderStatus(orderId, 'delivered');
-      notification.open({ message: 'Product delivered successfully.' });
+      notification.success({ message: 'Product delivered successfully.' });
       fetchOrders();
       fetchProducts();
     } catch (error) {
@@ -73,62 +81,144 @@ const OrderManagement = () => {
     setViewDetails(null);
   };
 
+  const handleSearch = (value) => {
+    setSearchText(value);
+    const filteredData = orders.filter(
+      (order) =>
+        order.productName.toLowerCase().includes(value.toLowerCase()) ||
+        order.email.toLowerCase().includes(value.toLowerCase())
+    );
+    setFilteredOrders(filteredData);
+  };
+
+  const columns = [
+    {
+      title: 'Product',
+      dataIndex: 'productName',
+      key: 'productName',
+      sorter: (a, b) => a.productName.localeCompare(b.productName),
+      filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters }) => (
+        <div style={{ padding: 8 }}>
+          <Input
+            placeholder="Search Product"
+            value={selectedKeys[0]}
+            onChange={(e) => setSelectedKeys(e.target.value ? [e.target.value] : [])}
+            onPressEnter={() => confirm()}
+            style={{ marginBottom: 8, display: 'block' }}
+          />
+          <Space>
+            <Button
+              type="primary"
+              onClick={() => confirm()}
+              size="small"
+              style={{ width: 90 }}
+            >
+              Search
+            </Button>
+            <Button
+              onClick={() => {
+                clearFilters();
+                confirm();
+              }}
+              size="small"
+              style={{ width: 90 }}
+            >
+              Reset
+            </Button>
+          </Space>
+        </div>
+      ),
+      filterIcon: (filtered) => (
+        <SearchOutlined style={{ color: filtered ? '#1890ff' : undefined }} />
+      ),
+      onFilter: (value, record) =>
+        record.productName.toLowerCase().includes(value.toLowerCase()),
+    },
+    {
+      title: 'Quantity',
+      dataIndex: 'quantity',
+      key: 'quantity',
+      sorter: (a, b) => a.quantity - b.quantity,
+    },
+    {
+      title: 'Total Price',
+      dataIndex: 'totalPrice',
+      key: 'totalPrice',
+      render: (price) => `$${price}`,
+      sorter: (a, b) => a.totalPrice - b.totalPrice,
+    },
+    {
+      title: 'Email',
+      dataIndex: 'email',
+      key: 'email',
+      sorter: (a, b) => a.email.localeCompare(b.email),
+    },
+    {
+      title: 'Date',
+      dataIndex: 'date',
+      key: 'date',
+      sorter: (a, b) => new Date(a.date) - new Date(b.date),
+    },
+    {
+      title: 'Status',
+      dataIndex: 'status',
+      key: 'status',
+      filters: [
+        { text: 'Ordered', value: 'ordered' },
+        { text: 'Delivered', value: 'delivered' },
+      ],
+      onFilter: (value, record) => record.status === value,
+    },
+    {
+      title: 'Actions',
+      key: 'actions',
+      render: (text, record) => (
+        <div>
+          {record.status === 'ordered' && (
+            <Button
+              type="primary"
+              onClick={() => handleMarkAsDelivered(record.id)}
+            >
+              Delivered
+            </Button>
+          )}
+          {record.status === 'delivered' && (
+            <Button onClick={() => handleViewDetails(record.id)}>
+              View
+            </Button>
+          )}
+        </div>
+      ),
+    },
+  ];
+
   return (
     <div className="order-management">
-      <div style={{display:"flex"}}>
-      <ArrowLeftOutlined onClick={()=>{navigate(-1)}} style={{fontSize:"20px",margin:"10px"}} />
-      <h2 className="order-management__header">Manage Orders</h2>
+      <div style={{ display: 'flex', alignItems: 'center' }}>
+        <ArrowLeftOutlined
+          onClick={() => navigate(-1)}
+          style={{ fontSize: '20px', margin: '10px' }}
+        />
+        <h2 className="order-management__header">Manage Orders</h2>
       </div>
-      <div className="order-management__table-container">
-        <table className="order-management__table">
-          <thead>
-            <tr>
-              <th>Product</th>
-              <th>Quantity</th>
-              <th>Total Price</th>
-              <th>Email</th>
-              <th>Date</th>
-              <th>Status</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {orders.map((order) => (
-              <tr key={order.id}>
-                <td>{order.productName}</td>
-                <td>{order.quantity}</td>
-                <td>${order.totalPrice}</td>
-                <td>{order.email}</td>
-                <td>{order.date}</td>
-                <td>{order.status}</td>
-                <td>
-                  {order.status === 'ordered' && (
-                    <button
-                      className="order-management__button"
-                      onClick={() => handleMarkAsDelivered(order.id)}
-                    >
-                      Delivered
-                    </button>
-                  )}
-                  {order.status === 'delivered' && (
-                    <button
-                      className="order-management__button"
-                      onClick={() => handleViewDetails(order.id)}
-                    >
-                      View
-                    </button>
-                  )}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-
+      <Input
+        placeholder="Search orders by product or email"
+        value={searchText}
+        onChange={(e) => handleSearch(e.target.value)}
+        style={{ marginBottom: 16 }}
+        allowClear
+      />
+      <Table
+        className="order-management__table"
+        dataSource={filteredOrders}
+        columns={columns}
+        rowKey="id"
+        pagination={{ pageSize: 10 }}
+        scroll={{ x: 'calc(700px + 40%)' }}
+      />
       <OrderDetailsModal viewDetails={viewDetails} closeModal={closeViewModal} />
     </div>
   );
 };
 
 export default OrderManagement;
-
